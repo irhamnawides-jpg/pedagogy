@@ -1,0 +1,276 @@
+
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const loadingElement = document.getElementById('loading');
+    const materiContainer = document.getElementById('materi-container');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    
+    // Elemen modal
+    const modal = document.getElementById('materiModal');
+    const closeModal = document.querySelector('.close-modal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalKelas = document.getElementById('modalKelas');
+    const modalSemester = document.getElementById('modalSemester');
+    const modalBab = document.getElementById('modalBab');
+    const modalDescription = document.getElementById('modalDescription');
+    const btnDownload = document.getElementById('btnDownload');
+    
+    // Data contoh jika file JSON tidak ditemukan
+    const contohData = [
+        { "Kelas": "X", "semester": 1, "bab": 1, "judul": "MERAIH KESUKSESAN DENGAN AKHLAK MULIA DAN ETOS KERJA", "akt1": "amati gambar" },
+        { "Kelas": "X", "semester": 1, "bab": 2, "judul": "IMAN KEPADA ALLAH SWT", "akt1": "amati text" },
+        { "Kelas": "X", "semester": 1, "bab": 3, "judul": "MENJAUHI SIFAT HASAD, RIYA, DAN UJUB", "akt1": "amati gambar" },
+        { "Kelas": "X", "semester": 1, "bab": 4, "judul": "PERILAKU HEMAT DAN MENJAUHI SIFAT BOROS", "akt1": "amati gambar" },
+        { "Kelas": "X", "semester": 1, "bab": 5, "judul": "ETIKA EKONOMI SYARIAH DALAM KEHIDUPAN", "akt1": "amati gambar" },
+        { "Kelas": "X", "semester": 2, "bab": 6, "judul": "PERGAULAN SEHAT DAN MENJAUHI ZINA", "akt1": "amati gambar" },
+        { "Kelas": "X", "semester": 2, "bab": 7, "judul": "SEJARAH PERKEMBANGAN ISLAM DI INDONESIA", "akt1": "amati TEXT" },
+        { "Kelas": "X", "semester": 2, "bab": 8, "judul": "AKHLAK MULIA DALAM KEHIDUPAN SEHARI-HARI", "akt1": "amati TEXT" },
+        { "Kelas": "X", "semester": 2, "bab": 9, "judul": "AL-KULLIYATU AL-KHAMSAH DALAM KEHIDUPAN", "akt1": "amati cerita" },
+        { "Kelas": "X", "semester": 2, "bab": 10, "judul": "HUKUM DAN HAK ASASI MANUSIA DALAM ISLAM", "akt1": "amati gambar" },
+        { "Kelas": "XI", "semester": 1, "bab": 1, "judul": "SABAR DALAM MUSIBAH DAN UJIAN", "akt1": "amati gambar" },
+        { "Kelas": "XI", "semester": 1, "bab": 2, "judul": "HIDUP BERMAKNA", "akt1": "amati text" },
+        { "Kelas": "XI", "semester": 1, "bab": 3, "judul": "MUNAFIK TIDAK AKAN PERNAH MAJU", "akt1": "amati gambar" },
+        { "Kelas": "XI", "semester": 1, "bab": 4, "judul": "MAWARIS DAN KEARIFAN LOKAL", "akt1": "amati gambar" },
+        { "Kelas": "XI", "semester": 2, "bab": 5, "judul": "MENELADANI TOKOH DAN ULAMA ISLAM INDONESIA", "akt1": "amati gambar" },
+        { "Kelas": "XI", "semester": 2, "bab": 6, "judul": "TOLERANSI DAN MODERASI BERAGAMA", "akt1": "amati text" },
+        { "Kelas": "XI", "semester": 2, "bab": 9, "judul": "KETENTUAN PERNIKAHAN DALAM ISLAM", "akt1": "amati cerita" },
+        { "Kelas": "XI", "semester": 2, "bab": 10, "judul": "PERAN ISLAM DALAM PERADABAN MODERN", "akt1": "amati gambar" },
+        { "Kelas": "XII", "semester": 1, "bab": 1, "judul": "ILMU KALAM DAN TEOLOGI ISLAM", "akt1": "amati gambar" },
+        { "Kelas": "XII", "semester": 1, "bab": 2, "judul": "CINTA TANAH AIR DAN MODERASI BERAGAMA", "akt1": "amati text" },
+        { "Kelas": "XII", "semester": 2, "bab": 8, "judul": "SIKAP INOVATIF DAN ETIKA BERORGANISASI", "akt1": "amati gambar" },
+        { "Kelas": "XII", "semester": 2, "bab": 9, "judul": "IJTIHAD DAN DINAMIKA HUKUM ISLAM KONTEMPORER", "akt1": "amati text" },
+        { "Kelas": "XII", "semester": 2, "bab": 10, "judul": "PERAN ORGANISASI ISLAM DALAM KEHIDUPAN BERBANGSA", "akt1": "amati gambar" }
+    ];
+    
+    let allData = [];
+    let filteredData = [];
+    
+    // Deskripsi detail untuk setiap bab
+    const deskripsiMateri = {
+        "MERAIH KESUKSESAN DENGAN AKHLAK MULIA DAN ETOS KERJA": "Materi ini membahas tentang hubungan antara akhlak mulia dan kesuksesan dalam kehidupan.",
+        "IMAN KEPADA ALLAH SWT": "Pembahasan tentang konsep iman kepada Allah SWT dalam Islam.",
+        "MENJAUHI SIFAT HASAD, RIYA, DAN UJUB": "Materi tentang tiga sifat tercela yang harus dihindari dalam Islam.",
+        "PERILAKU HEMAT DAN MENJAUHI SIFAT BOROS": "Pembelajaran tentang pentingnya hidup hemat dan menjauhi sifat boros.",
+        // ... tambahkan deskripsi untuk materi lainnya ...
+    };
+    
+    // Fungsi untuk memuat data dari JSON
+    async function loadData() {
+        try {
+            const response = await fetch('cover.json');
+            
+            if (!response.ok) {
+                throw new Error('File tidak ditemukan');
+            }
+            
+            const data = await response.json();
+            allData = data;
+            
+            // Sembunyikan loading
+            loadingElement.style.display = 'none';
+            
+            // Tampilkan data
+            renderData(allData);
+            
+        } catch (error) {
+            console.error('Error loading JSON:', error);
+            
+            // Gunakan data contoh jika gagal
+            allData = contohData;
+            
+            // Sembunyikan loading
+            loadingElement.style.display = 'none';
+            
+            // Tampilkan data contoh
+            renderData(allData);
+        }
+    }
+    
+    // Fungsi untuk mengelompokkan data berdasarkan kelas dan semester
+    function groupDataByClassAndSemester(data) {
+        const grouped = {};
+        
+        data.forEach(item => {
+            const kelas = item.Kelas;
+            const semester = item.semester;
+            
+            if (!grouped[kelas]) {
+                grouped[kelas] = {};
+            }
+            
+            if (!grouped[kelas][semester]) {
+                grouped[kelas][semester] = [];
+            }
+            
+            grouped[kelas][semester].push(item);
+        });
+        
+        return grouped;
+    }
+    
+    // Fungsi untuk membuat elemen tabel materi
+    function createMateriTable(groupedData) {
+        let html = '';
+        
+        // Urutkan kelas: X, XI, XII
+        const kelasOrder = ['X', 'XI', 'XII'];
+        
+        kelasOrder.forEach(kelas => {
+            if (!groupedData[kelas]) return;
+            
+            html += `<div class="kelas-section" data-kelas="${kelas}">`;
+            html += `<h4 class="kelas-title">Kelas ${kelas}</h4>`;
+            
+            // Urutkan semester: 1, 2
+            const semesterOrder = [1, 2];
+            
+            semesterOrder.forEach(semester => {
+                if (!groupedData[kelas][semester]) return;
+                
+                const semesterData = groupedData[kelas][semester];
+                
+                html += `<h5 class="semester-title">Semester ${semester}</h5>`;
+                html += `<table>`;
+                html += `<tbody>`;
+                
+                // Kelompokkan bab menjadi baris (maksimal 5 kolom per baris)
+                for (let i = 0; i < semesterData.length; i += 5) {
+                    html += `<tr>`;
+                    
+                    for (let j = 0; j < 5; j++) {
+                        const index = i + j;
+                        if (index < semesterData.length) {
+                            const bab = semesterData[index];
+                            html += `<td>`;
+                            html += `<div class="bab-card">`;
+                            html += `<div class="bab-number">BAB ${bab.bab}</div>`;
+                            html += `<div class="bab-judul">${bab.judul}</div>`;
+                            // Tombol MASUK MATERI dengan data akt1
+                            html += `<button class="btn-masuk" data-kelas="${bab.Kelas}" data-semester="${bab.semester}" data-bab="${bab.bab}" data-judul="${bab.judul}" data-akt1="${bab.akt1 || ''}">MASUK MATERI</button>`;
+                            html += `</div>`;
+                            html += `</td>`;
+                        } else {
+                            // Kolom kosong
+                            html += `<td></td>`;
+                        }
+                    }
+                    
+                    html += `</tr>`;
+                }
+                
+                html += `</tbody>`;
+                html += `</table>`;
+            });
+            
+            html += `</div>`;
+        });
+        
+        return html;
+    }
+    
+    // Fungsi untuk merender data
+    function renderData(data) {
+        const groupedData = groupDataByClassAndSemester(data);
+        materiContainer.innerHTML = createMateriTable(groupedData);
+        
+        // Tambahkan event listener untuk tombol "MASUK MATERI"
+        document.querySelectorAll('.btn-masuk').forEach(button => {
+            button.addEventListener('click', function() {
+                const kelas = this.getAttribute('data-kelas');
+                const semester = this.getAttribute('data-semester');
+                const bab = this.getAttribute('data-bab');
+                const judul = this.getAttribute('data-judul');
+                const akt1 = this.getAttribute('data-akt1');
+                
+                openModal(kelas, semester, bab, judul, akt1);
+            });
+        });
+    }
+    
+    // Fungsi untuk filter data berdasarkan kelas
+    function filterDataByClass(kelas) {
+        if (kelas === 'all') {
+            return allData;
+        } else {
+            return allData.filter(item => item.Kelas === kelas);
+        }
+    }
+    
+    // Fungsi untuk membuka modal dengan informasi detail
+    function openModal(kelas, semester, bab, judul, akt1) {
+        modalTitle.textContent = judul;
+        
+        // Set informasi modal
+        modalKelas.textContent = `Kelas: ${kelas}`;
+        modalSemester.textContent = `Semester: ${semester}`;
+        modalBab.textContent = `Bab: ${bab}`;
+        
+        // Tampilkan deskripsi materi dengan menambahkan data akt1
+        let deskripsi = deskripsiMateri[judul];
+        
+        if (!deskripsi) {
+            // Template default dengan data akt1
+            deskripsi = `
+                <strong>Aktivitas 1:</strong> ${akt1 || 'Tidak tersedia'}<br>
+                <strong>Literasi Digital:</strong> ${judul.toLowerCase()}<br>
+                <strong>Literasi Teks:</strong> sesuai dengan kurikulum Pendidikan Agama Islam untuk kelas ${kelas} semester ${semester}<br>
+                <strong>PBL DeepLearn:</strong> Pembelajaran berbasis proyek yang mengintegrasikan teknologi digital<br>
+                <strong>Refleksi:</strong> Peserta didik diajak untuk merefleksikan nilai-nilai Islam dalam kehidupan sehari-hari<br>
+                <strong>Perilaku:</strong> Mengembangkan sikap dan perilaku yang sesuai dengan ajaran Islam
+            `;
+        } else {
+            // Tambahkan data akt1 ke deskripsi yang sudah ada
+            deskripsi = `<strong>Aktivitas 1:</strong> ${akt1 || 'Tidak tersedia'}<br><br>` + deskripsi;
+        }
+        
+        modalDescription.innerHTML = deskripsi;
+        
+        // Atur tautan download
+        btnDownload.onclick = function() {
+            alert(`Materi "${judul}" untuk Kelas ${kelas} Semester ${semester} Bab ${bab} akan diunduh.`);
+            // Di sini bisa ditambahkan logika untuk mengunduh file
+        };
+        
+        // Tampilkan modal
+        modal.style.display = 'block';
+    }
+    
+    // Event listener untuk tombol filter
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Hapus kelas aktif dari semua tombol
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Tambah kelas aktif ke tombol yang diklik
+            this.classList.add('active');
+            
+            // Dapatkan kelas yang dipilih
+            const selectedClass = this.getAttribute('data-kelas');
+            
+            // Filter data
+            filteredData = filterDataByClass(selectedClass);
+            
+            // Render data yang sudah difilter
+            renderData(filteredData);
+        });
+    });
+    
+    // Event listener untuk menutup modal
+    closeModal.addEventListener('click', function() {
+        modal.style.display = 'none';
+    });
+    
+    // Tutup modal jika klik di luar modal
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+    
+    // Muat data saat halaman dimuat
+    loadData();
+});
+</script>
