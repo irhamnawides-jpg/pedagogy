@@ -646,8 +646,8 @@
                         const semester = this.getAttribute('data-semester');
                         const bab = this.getAttribute('data-bab');
                         const judul = this.getAttribute('data-judul');
-                        
-                        openModal(kelas, semester, bab, judul);
+                         const akt1 = this.getAttribute('data-akt1');
+                        openModal(kelas, semester, bab, judul, akt1);
                     });
                 });
             }
@@ -662,15 +662,15 @@
             }
             
             // Fungsi untuk membuka modal dengan informasi detail
-            function openModal(kelas, semester, bab, judul) {
+            function openModal(kelas, semester, bab, judul, akt1) {
                 modalTitle.textContent = judul;
                 modalKelas.textContent = `Lit Gambar`;
                 modalSemester.textContent = `Lit text`;
                 modalBab.textContent = `PBL DeepLearn`;
                 
                 // Tampilkan deskripsi materi
-                modalDescription.textContent = deskripsiMateri[judul] || "Deskripsi materi belum tersedia. <br>Literasi Digital : " + judul.toLowerCase() + " <br>Litarasi teks : sesuai dengan kurikulum Pendidikan Agama Islam untuk<br> kelas " + kelas + " semester " + semester + ".";
-                
+                modalDescription.textContent = deskripsiMateri[judul] || "Deskripsi materi belum tersedia. " + akt1 + "   Literasi Digital : " + judul.toLowerCase() + " <br>Litarasi teks : sesuai dengan kurikulum Pendidikan Agama Islam untuk<br> kelas " + kelas + " semester " + semester + ".";
+                 
                 // Atur tautan download
                 btnDownload.onclick = function() {
                     alert(`Materi "${judul}" untuk Kelas ${kelas} Semester ${semester} Bab ${bab} akan diunduh.`);
