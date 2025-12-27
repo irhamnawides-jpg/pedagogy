@@ -23,31 +23,17 @@ body {
 <h2>📘 Data LKPD PAI (dari JSON)</h2>
 <div id="konten">Memuat data...</div>
 
+
 <script>
-// === SIMULASI "INCLUDE JSON" ===
-fetch("materi.json")
-  .then(response => response.json())
-  .then(data => {
+async function includeJSON(url) {
+  const res = await fetch(url);
+  return await res.json();
+}
 
-    let html = "";
-    data.forEach(item => {
-      html += `
-        <div class="card">
-          <b>Kelas:</b> ${item.Kelas}<br>
-          <b>Semester:</b> ${item.semester}<br>
-          <b>Bab:</b> ${item.bab}<br>
-          <b>Judul:</b> ${item.judul}
-        </div>
-      `;
-    });
-
-    document.getElementById("konten").innerHTML = html;
-  })
-  .catch(err => {
-    document.getElementById("konten").innerText = "Gagal memuat data JSON";
-    console.error(err);
-  });
-</script>
+includeJSON("materi.json").then(data => {
+  console.log("Data siap dipakai:", data);
+});
+ </script>
 
 </body>
 </html>
