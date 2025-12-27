@@ -1,39 +1,107 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Simulasi Baca JSON LKPD</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LKPD Digital PAI SMA</title>
+
 <style>
-body {
-  font-family: Arial, sans-serif;
-  background: #f4f6f8;
-  padding: 20px;
+* {
+  box-sizing: border-box;
 }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f6f8;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #1e40af;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.container {
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
 .card {
-  background: #fff;
+  background: white;
+  padding: 16px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border-left: 6px solid #2563eb;
+  box-shadow: 0 2px 6px rgba(0,0,0,.1);
+}
+
+.card h3 {
+  margin: 0 0 6px 0;
+  color: #1e3a8a;
+}
+
+.meta {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+footer {
+  text-align: center;
   padding: 12px;
-  margin-bottom: 10px;
-  border-left: 5px solid #2c7be5;
+  font-size: 13px;
+  color: #666;
 }
 </style>
 </head>
 
 <body>
 
-<h2>📘 Data LKPD PAI (dari JSON)</h2>
-<div id="konten">Memuat data...</div>
+<header>
+  <h1>📘 LKPD Digital</h1>
+  <p>Pendidikan Agama Islam & Budi Pekerti – SMA</p>
+</header>
 
+<div class="container">
+  <h2>Daftar Materi</h2>
+  <div id="konten">Memuat data...</div>
+</div>
+
+<footer>
+  © 2025 | LKPD Digital – Cyber Pedagogy
+</footer>
 
 <script>
-async function includeJSON(url) {
-  const res = await fetch(url);
-  return await res.json();
-}
+// ===== SIMULASI INCLUDE JSON =====
+fetch("materi.json")
+  .then(response => response.json())
+  .then(data => {
 
-includeJSON("materi.json").then(data => {
-  console.log("Data siap dipakai:", data);
-});
- </script>
+    let html = "";
+    data.forEach(item => {
+      html += `
+        <div class="card">
+          <h3>${item.judul}</h3>
+          <div class="meta">
+            Kelas ${item.Kelas} | Semester ${item.semester} | Bab ${item.bab}
+          </div>
+        </div>
+      `;
+    });
+
+    document.getElementById("konten").innerHTML = html;
+  })
+  .catch(error => {
+    document.getElementById("konten").innerHTML =
+      "<p>❌ Gagal memuat data JSON</p>";
+    console.error(error);
+  });
+</script>
 
 </body>
 </html>
+
