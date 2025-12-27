@@ -574,16 +574,7 @@
             </div>
         </div>
         
-        <div class="hierarchy">
-            <h3><i class="fas fa-sitemap"></i> Hierarki Materi</h3>
-            <div class="hierarchy-path" id="hierarchyPath">
-                <div class="path-item">Pilih Kelas</div>
-                <div class="path-separator"><i class="fas fa-chevron-right"></i></div>
-                <div class="path-item">Pilih Semester</div>
-                <div class="path-separator"><i class="fas fa-chevron-right"></i></div>
-                <div class="path-item">Pilih Bab</div>
-            </div>
-        </div>
+       
         
         <div id="loading" class="loading">
             <i class="fas fa-spinner fa-spin"></i> Memuat data materi...
@@ -619,7 +610,7 @@
             const babTabsContainer = document.getElementById('babTabsContainer');
             const babTabsHeader = document.getElementById('babTabsHeader');
             const babTabsContent = document.getElementById('babTabsContent');
-            const hierarchyPath = document.getElementById('hierarchyPath');
+            
             
             const filterButtons = document.querySelectorAll('.filter-btn');
             const semesterButtons = document.querySelectorAll('.semester-btn');
@@ -859,33 +850,7 @@
             }
             
             // Fungsi untuk memperbarui hierarki path
-            function updateHierarchyPath() {
-                let pathItems = [];
-                
-                if (selectedKelas === 'all') {
-                    pathItems.push('Semua Kelas');
-                } else {
-                    pathItems.push(`Kelas ${selectedKelas}`);
-                }
-                
-                if (selectedSemester === 'all') {
-                    pathItems.push('Semua Semester');
-                } else {
-                    pathItems.push(`Semester ${selectedSemester}`);
-                }
-                
-                pathItems.push('Pilih Bab');
-                
-                let pathHTML = '';
-                pathItems.forEach((item, index) => {
-                    pathHTML += `<div class="path-item">${item}</div>`;
-                    if (index < pathItems.length - 1) {
-                        pathHTML += `<div class="path-separator"><i class="fas fa-chevron-right"></i></div>`;
-                    }
-                });
-                
-                hierarchyPath.innerHTML = pathHTML;
-            }
+            
             
             // Fungsi untuk membuat tab bab
             function createBabTabs() {
@@ -976,7 +941,7 @@
             // Fungsi untuk menerapkan filter
             function applyFilters() {
                 filteredData = filterData();
-                updateHierarchyPath();
+               
                 createBabTabs();
             }
             
