@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Simulasi Baca JSON LKPD</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  padding: 20px;
+}
+.card {
+  background: #fff;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-left: 5px solid #2c7be5;
+}
+</style>
+</head>
+
+<body>
+
+<h2>📘 Data LKPD PAI (dari JSON)</h2>
+<div id="konten">Memuat data...</div>
+
+<script>
+// === SIMULASI "INCLUDE JSON" ===
+fetch("materi.json")
+  .then(response => response.json())
+  .then(data => {
+
+    let html = "";
+    data.forEach(item => {
+      html += `
+        <div class="card">
+          <b>Kelas:</b> ${item.Kelas}<br>
+          <b>Semester:</b> ${item.semester}<br>
+          <b>Bab:</b> ${item.bab}<br>
+          <b>Judul:</b> ${item.judul}
+        </div>
+      `;
+    });
+
+    document.getElementById("konten").innerHTML = html;
+  })
+  .catch(err => {
+    document.getElementById("konten").innerText = "Gagal memuat data JSON";
+    console.error(err);
+  });
+</script>
+
+</body>
+</html>
