@@ -244,12 +244,6 @@
             font-weight: bold;
         }
         
-        .bab-judul {
-            font-size: 1.8rem;
-            color: #1a5f7a;
-            font-weight: 700;
-        }
-        
         .bab-info {
             display: flex;
             gap: 20px;
@@ -344,6 +338,7 @@
             background-color: white;
             border-radius: 0 0 8px 8px;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            min-height: 400px;
         }
         
         .aktivitas-tab-content.active {
@@ -354,7 +349,7 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         
         .aktivitas-number {
@@ -506,12 +501,9 @@
                 font-size: 1.5rem;
             }
             
-            .bab-judul {
-                font-size: 1.5rem;
-            }
-            
             .aktivitas-tab-content {
                 padding: 15px;
+                min-height: 300px;
             }
             
             .aktivitas-tab-btn {
@@ -582,16 +574,7 @@
             </div>
         </div>
         
-        <div class="hierarchy">
-            <h3><i class="fas fa-sitemap"></i> Hierarki Materi</h3>
-            <div class="hierarchy-path" id="hierarchyPath">
-                <div class="path-item">Pilih Kelas</div>
-                <div class="path-separator"><i class="fas fa-chevron-right"></i></div>
-                <div class="path-item">Pilih Semester</div>
-                <div class="path-separator"><i class="fas fa-chevron-right"></i></div>
-                <div class="path-item">Pilih Bab</div>
-            </div>
-        </div>
+       
         
         <div id="loading" class="loading">
             <i class="fas fa-spinner fa-spin"></i> Memuat data materi...
@@ -681,30 +664,6 @@
                     "batas": "2025-12-19 00:00:00",
                     "tujuan_pembelajaran": "1) Membaca Q.S. al-Qasas : 85 dan Q.S. al-Baqarah : 143 serta hadis tentang cinta tanah air dan moderasi beragama.,2) analisis tajwid al-Qasas 28.: 85 dan Q.S. al-Baqarah2.: 143., 3) Mendeskripsikan arti perkata dan al-Qasas 28.: 85 dan Q.S. al-Baqarah2.: 143 , 4. Mendeskripsikan tafsir Q.S. al-Qasas 28.: 85 dan Q.S. al-Baqarah2.: 143., 5. Memberikan contoh sikap yang harus dimiliki sebagai wujud cinta tanah air dan moderasi beragama., 6. Mengambil hikmah wujud cinta tanah air dan moderasi dalam beragama.",
                     "kelas": "XII-1/6"
-                },
-                {
-                    "bab": "BAB 1",
-                    "judul": "SEMANGAT MENUNTUT ILMU DAN BERPIKIR KRITIS",
-                    "aktivitas_1": "Analisalah Kisah Inspiratif Berikut <br><img src=\"https://drive.google.com/thumbnail?id=1Y6EzOtOWDW9Vbv1VRQKErmSGqXWDRGNQ&sz=w1000\" alt=\"Ilustrasi\" loading=\"lazy\" style=\"max-width: 100%; height: auto;\">",
-                    "aktivitas_2": "<p>Amati gambar atau ilustrasi berikut ini! Lalu berilah tanggapan kalian yang dikaitkan dengan materi ajar yang dipelajari; yakni: Menelaah Q.S.Ali 'Imrān/3: 190-191 dan Q.S. ar-Rahmān/55: 33 tentang berpikir kritis dan semangat mencintai iptek!</p><br><img src=\"https://drive.google.com/thumbnail?id=1Y8szHO5IxCbEd-_DJ0iKdRRUcZhnYOKh&sz=w1000\" alt=\"Ilustrasi\" loading=\"lazy\" style=\"max-width: 100%; height: auto;\">",
-                    "aktivitas_3": "<br>Perhatikan kisah inspiratif di bawah ini kemudian jelaskan makna yang dikandungnya, terkait dengan tema pelajaran!,<br>Jelaskan nilai nilai luhur dari kepribadian yang dapat di petik !,<br>Berbagilah dengan teman yang lain untuk melengkapi nilai nilai kepribadian dan berikan tanggapan !,<br>",
-                    "aktivitas_4": "<h2>Refleksikan Pemahamanmu terkait materi</h2><ol><br><li>Akhir-akhir ini ada sebagian kecil kelompok yang memaksakan kehendak untuk mengikuti ijtihadnya tetapi tidak semua anggota/pemeluk agama itu mau menerima, sehingga kadang terjadi saling menyalahkan, Bagaimana menurut pendapat kalian!</li><br><li>Ijtihad sebagai sebuah metode atau cara dalam menghasilkan sebuah hukum terbagi ke dalam beberapa bagian, coba tuliskan!<br><ol type=\"a\"><br><li>.......................</li><br><li>.......................</li><br><li>........................</li><br></ol> <br><br></li><br><br></ol>",
-                    "aktivitas_5": "()1#<br>Budiono yang berdomisili di lingkungan <br>perumahan setiap kali ada perintah untuk <br>mengibarkan bendera merah putih pada <br>saat perringatan hari besar nasional, beliau <br>selalu taat dan patuh melaksanakan dengan <br>penuh kesadaran.#<br>Kebhinekaan Global, <br>Mandiri ()2#<br>Awaludin setelah pulang dari merantau, <br>menyadari perilakunya selama ini yang <br>tidak peduli terhadap lingkungan di mana <br>ia bertempat tinggal, tetapi akhir – akhir <br>ini ia selalu rajin membantu tetangga dan <br>lingkungan ketika ada kegiatan-kegiatan <br>sosial kemasyakatan.#<br>Bergotong Royong()3#<br>Rumah pak Ridlo yang berada di lereng <br>gunung tertimbun oleh longsor yang <br>datang secara tiba-tiba. Beliau tetap tegar <br>dan berusaha membersihkan puing<br>puing rumahnya dibantu oleh tim sar dan <br>masyarakat setempat untuk mendirikan <br>rumahnya kembali#<br>Mandiri, Bergotong <br>Royong()4#<br>Parmin walau seorang tukang becak <br>yang biasa mangkal di depan alun-alun <br>kota untuk mendapatkan penumpang <br>tetap setia menunggu penumpang sambil <br>bentar-bentar membukan kertas kecil <br>yang terselip disakunya yang ternyata Al<br>ur'annya. Saat suara adzan berkumandang <br>beliau segera menuju masjid dan dengan <br>sesama tukang becak yang beda agama <br>beliau selalu bersikap baik#<br>Mandiri, Religius() 5#<br>Aditya sangat bahagia ketika pak Kadus <br>memberikan bantuan berupa sembako <br>akibat pandemi covid 19 karena beliau tahu <br>betul pak Kadus tidak membeda-bedakan <br>warganya.#<br>Kebhinekaan Global,",
-                    "batas": "2025-12-19 00:00:00",
-                    "tujuan_pembelajaran": "1) Menjelaskan pengertian ijtihad., 2) Mengidentiikasi dalil tentang ijtihad., 3) Mengidentiikasi hukum ijtihat 4) Mengidentiikasi syarat-syarat ijtihad., 5) Mengidentiikasi macam-macam ijtihad ., 6) Menganalisis urgensi dan kedudukan ijtihad.",
-                    "kelas": "X-1/1"
-                },
-                {
-                    "bab": "BAB 2",
-                    "judul": "BERSYUKUR, SABAR, DAN MENEPATI JANJI",
-                    "aktivitas_1": "Analisalah Kisah Inspiratif Berikut <br><img src=\"https://drive.google.com/thumbnail?id=19xQfuGVbSYTS6hmwAGwXVFMI3TL7fsKk&sz=w1000\" alt=\"Ilustrasi\" loading=\"lazy\" style=\"max-width: 100%; height: auto;\">",
-                    "aktivitas_2": "Amati gambar atau ilustrasi berikut ini! <br><img src=\"https://drive.google.com/thumbnail?id=1E0P6H-hT36a3h46S0SoTKucHIsZlvj2i&sz=w1000\" alt=\"Ilustrasi\" loading=\"lazy\" style=\"max-width: 100%; height: auto;\">",
-                    "aktivitas_3": "<br>Perhatikan kisah inspiratif di bawah ini kemudian jelaskan makna yang dikandungnya, terkait dengan tema pelajaran!,<br>Jelaskan nilai nilai luhur dari kepribadian yang dapat di petik !,<br>Berbagilah dengan teman yang lain untuk melengkapi nilai nilai kepribadian dan berikan tanggapan !,<br>",
-                    "aktivitas_4": "<h2>Refleksikan Pemahamanmu terkait materi</h2><ol><br><li>Bagaimana sikap kalian terhadap Ormas yang suka membuat masalah dalam berorganisasi, setelah diperingatkan oleh pemerintah sesuai peraturan yang berlaku, maka bagaimana sikap kalian yang tepat. Coba uraikan!</li><br><li>Ada beberapa etika komunikasi dalam organisasi yang harus dilakukan oleh Ormas keagamaan saat menghadapi lingkungan sekitarnya. Coba <br>uraikan menurut kalian!</li><br><br></ol>",
-                    "aktivitas_5": "()1#<br>Budiono yang berdomisili di lingkungan <br>perumahan setiap kali ada perintah untuk <br>mengibarkan bendera merah putih pada <br>saat perringatan hari besar nasional, beliau <br>selalu taat dan patuh melaksanakan dengan <br>penuh kesadaran.#<br>Kebhinekaan Global, <br>Mandiri ()2#<br>Awaludin setelah pulang dari merantau, <br>menyadari perilakunya selama ini yang <br>tidak peduli terhadap lingkungan di mana <br>ia bertempat tinggal, tetapi akhir – akhir <br>ini ia selalu rajin membantu tetangga dan <br>lingkungan ketika ada kegiatan-kegiatan <br>sosial kemasyakatan.#<br>Bergotong Royong()3#<br>Rumah pak Ridlo yang berada di lereng <br>gunung tertimbun oleh longsor yang <br>datang secara tiba-tiba. Beliau tetap tegar <br>dan berusaha membersihkan puing<br>puing rumahnya dibantu oleh tim sar dan <br>masyarakat setempat untuk mendirikan <br>rumahnya kembali#<br>Mandiri, Bergotong <br>Royong()4#<br>Parmin walau seorang tukang becak <br>yang biasa mangkal di depan alun-alun <br>kota untuk mendapatkan penumpang <br>tetap setia menunggu penumpang sambil <br>bentar-bentar membukan kertas kecil <br>yang terselip disakunya yang ternyata Al<br>ur'annya. Saat suara adzan berkumandang <br>beliau segera menuju masjid dan dengan <br>sesama tukang becak yang beda agama <br>beliau selalu bersikap baik#<br>Mandiri, Religius() 5#<br>Aditya sangat bahagia ketika pak Kadus <br>memberikan bantuan berupa sembako <br>akibat pandemi covid 19 karena beliau tahu <br>betul pak Kadus tidak membeda-bedakan <br>warganya.#<br>Kebhinekaan Global,",
-                    "batas": "2025-12-19 00:00:00",
-                    "tujuan_pembelajaran": "1) Menjelaskan kemajuan dan perkembangan organisasi-organisasi Islam di Indonesia pada masa pra dan sesudah kemerdekaan.,<br>2) Menjelaskan model dakwah organisasi-organisasi Islam di Indonesia pada masa pra dan sesudah kemerdekaan.,<br>3) Menganalisis strategi dakwah organisasi-organisasi Islam di Indonesia pada masa pra dan sesudah kemerdekaan.,<br>4) Mengidentiikasi perkembangan dan kemajuan organisasi-organisasi Islam di Indonesia pada masa pra dan sesudah kemerdekaan.,<br>5) Menganalisis hikmah organisasi-organisasi Islam di Indonesia pada masa pra dan sesudah kemerdekaan.<br>",
-                    "kelas": "X-1/2"
                 }
             ];
             
@@ -795,7 +754,6 @@
             // Fungsi untuk membuat konten tab bab
             function createBabTabContent(babData) {
                 const babNumber = babData.bab;
-                const babTitle = babData.judul;
                 const kelasInfo = parseKelasInfo(babData.kelas);
                 
                 let html = `
@@ -855,7 +813,7 @@
                 for (let i = 1; i <= 5; i++) {
                     const aktivitasKey = `aktivitas_${i}`;
                     if (babData[aktivitasKey]) {
-                        const aktivitasId = `aktivitas-${babNumber}-${i}`;
+                        const aktivitasId = `aktivitas-${babNumber.replace(' ', '-')}-${i}`;
                         
                         // Buat tombol tab aktivitas
                         const aktivitasTabButton = document.createElement('button');
@@ -955,9 +913,7 @@
                     tabButton.addEventListener('click', () => {
                         switchBabTab(tabId);
                         // Setelah mengganti tab bab, buat tab aktivitas untuk bab tersebut
-                        setTimeout(() => {
-                            createAktivitasTabs(babData, babNumber);
-                        }, 100);
+                        createAktivitasTabs(babData, babNumber);
                     });
                     babTabsHeader.appendChild(tabButton);
                     
@@ -971,9 +927,7 @@
                 
                 // Buat tab aktivitas untuk bab pertama
                 if (filteredData.length > 0) {
-                    setTimeout(() => {
-                        createAktivitasTabs(filteredData[0], filteredData[0].bab);
-                    }, 100);
+                    createAktivitasTabs(filteredData[0], filteredData[0].bab);
                 }
             }
             
@@ -995,18 +949,26 @@
             
             // Fungsi untuk mengganti tab aktivitas
             function switchAktivitasTab(aktivitasId, babNumber) {
+                const sanitizedBabNumber = babNumber.replace(' ', '-');
+                const aktivitasContainer = document.getElementById(`aktivitasTabs-${babNumber}`);
+                
+                if (!aktivitasContainer) return;
+                
                 // Nonaktifkan semua tab aktivitas untuk bab ini
-                document.querySelectorAll(`#aktivitasTabsHeader-${babNumber} .aktivitas-tab-btn`).forEach(btn => {
+                aktivitasContainer.querySelectorAll('.aktivitas-tab-btn').forEach(btn => {
                     btn.classList.remove('active');
                 });
                 
-                document.querySelectorAll(`#aktivitasTabsContent-${babNumber} .aktivitas-tab-content`).forEach(content => {
+                aktivitasContainer.querySelectorAll('.aktivitas-tab-content').forEach(content => {
                     content.classList.remove('active');
                 });
                 
                 // Aktifkan tab aktivitas yang dipilih
-                document.getElementById(`btn-${aktivitasId}`).classList.add('active');
-                document.getElementById(aktivitasId).classList.add('active');
+                const aktivitasBtn = document.getElementById(`btn-${aktivitasId}`);
+                const aktivitasContent = document.getElementById(aktivitasId);
+                
+                if (aktivitasBtn) aktivitasBtn.classList.add('active');
+                if (aktivitasContent) aktivitasContent.classList.add('active');
             }
             
             // Fungsi untuk menerapkan filter
