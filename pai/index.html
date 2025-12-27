@@ -667,7 +667,7 @@
                 modalBab.textContent = `Bab: ${bab}`;
                 
                 // Tampilkan deskripsi materi
-                modalDescription.textContent = deskripsiMateri[judul] || "Deskripsi materi belum tersedia. Materi ini membahas tentang " + judul.toLowerCase() + " sesuai dengan kurikulum Pendidikan Agama Islam untuk kelas " + kelas + " semester " + semester + ".";
+                modalDescription.textContent = deskripsiMateri[judul] || "Deskripsi materi belum tersedia. <br>Literasi Digital : " + judul.toLowerCase() + " <br>Litarasi teks : sesuai dengan kurikulum Pendidikan Agama Islam untuk<br> kelas " + kelas + " semester " + semester + ".";
                 
                 // Atur tautan download
                 btnDownload.onclick = function() {
