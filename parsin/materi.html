@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LKPD PAI - Detail Materi Pembelajaran</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #1a5f7a, #57cc99);
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        
+        header h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: #e3f2fd;
+        }
+        
+        header h3 {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #caf0f8;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .kelas-filter {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 12px 25px;
+            background-color: #e3f2fd;
+            color: #1a5f7a;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+        
+        .filter-btn:hover {
+            background-color: #57cc99;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .filter-btn.active {
+            background-color: #1a5f7a;
+            color: white;
+        }
+        
+        .semester-filter {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .semester-btn {
+            padding: 10px 20px;
+            background-color: #f8f9fa;
+            color: #495057;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .semester-btn:hover {
+            background-color: #e9ecef;
+            border-color: #57cc99;
+        }
+        
+        .semester-btn.active {
+            background-color: #57cc99;
+            color: white;
+            border-color: #57cc99;
+        }
+        
+        .hierarchy {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        
+        .hierarchy h3 {
+            color: #1a5f7a;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #57cc99;
+        }
+        
+        .hierarchy-path {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .path-item {
+            padding: 8px 15px;
+            background-color: #e3f2fd;
+            border-radius: 6px;
+            font-weight: 600;
+            color: #1a5f7a;
+        }
+        
+        .path-separator {
+            color: #57cc99;
+            font-weight: bold;
+        }
+        
+        .tabs-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .tabs-header {
+            display: flex;
+            background-color: #1a5f7a;
+            overflow-x: auto;
+            scrollbar-width: thin;
+        }
+        
+        .tab-btn {
+            padding: 18px 25px;
+            background-color: transparent;
+            color: rgba(255, 255, 255, 0.8);
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .tab-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .tab-btn.active {
+            background-color: #57cc99;
+            color: white;
+        }
+        
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: white;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 30px;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .bab-header {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            border-left: 5px solid #57cc99;
+        }
+        
+        .bab-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .bab-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #1a5f7a;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        
+        .bab-judul {
+            font-size: 1.8rem;
+            color: #1a5f7a;
+            font-weight: 700;
+        }
+        
+        .bab-info {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .info-item {
+            background-color: #e3f2fd;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-weight: 600;
+            color: #1a5f7a;
+        }
+        
+        .aktivitas-section {
+            margin-top: 30px;
+        }
+        
+        .aktivitas-title {
+            color: #1a5f7a;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #57cc99;
+            font-size: 1.4rem;
+        }
+        
+        .aktivitas-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .aktivitas-item {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            border-left: 4px solid #57cc99;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .aktivitas-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .aktivitas-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #57cc99;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .aktivitas-name {
+            font-size: 1.3rem;
+            color: #1a5f7a;
+            font-weight: 600;
+        }
+        
+        .aktivitas-content {
+            line-height: 1.8;
+        }
+        
+        .aktivitas-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 15px 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .aktivitas-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        .aktivitas-content th, .aktivitas-content td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .aktivitas-content th {
+            background-color: #f1f1f1;
+            font-weight: 600;
+        }
+        
+        .tujuan-pembelajaran {
+            background-color: #e8f4fd;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+            border-left: 5px solid #1a5f7a;
+        }
+        
+        .tujuan-pembelajaran h3 {
+            color: #1a5f7a;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .tujuan-list {
+            padding-left: 20px;
+        }
+        
+        .tujuan-list li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        
+        .footer-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 50px;
+            font-size: 1.3rem;
+            color: #1a5f7a;
+        }
+        
+        .error {
+            text-align: center;
+            padding: 30px;
+            background-color: #ffebee;
+            color: #c62828;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+        }
+        
+        .empty-state i {
+            font-size: 4rem;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+        
+        .empty-state h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #888;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 25px;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+        
+        @media (max-width: 992px) {
+            .controls {
+                flex-direction: column;
+            }
+            
+            .kelas-filter, .semester-filter {
+                justify-content: center;
+            }
+            
+            .tabs-header {
+                flex-wrap: wrap;
+            }
+            
+            .tab-btn {
+                flex: 1;
+                min-width: 120px;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            header h2 {
+                font-size: 1.2rem;
+            }
+            
+            .bab-judul {
+                font-size: 1.5rem;
+            }
+            
+            .aktivitas-item {
+                padding: 15px;
+            }
+            
+            .tab-btn {
+                padding: 15px;
+                font-size: 0.9rem;
+            }
+            
+            .bab-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #57cc99;
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #1a5f7a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-book-open"></i> LKPD PENDIDIKAN AGAMA ISLAM</h1>
+            <h2>DETAIL MATERI PEMBELAJARAN SMA/SMK</h2>
+            <h3>Kurikulum Merdeka - Platform Pembelajaran Digital</h3>
+        </header>
+        
+        <div class="controls">
+            <div class="kelas-filter">
+                <span style="font-weight: 600; color: #1a5f7a; align-self: center; margin-right: 10px;">Pilih Kelas:</span>
+                <button class="filter-btn active" data-kelas="all">Semua Kelas</button>
+                <button class="filter-btn" data-kelas="X">Kelas X</button>
+                <button class="filter-btn" data-kelas="XI">Kelas XI</button>
+                <button class="filter-btn" data-kelas="XII">Kelas XII</button>
+            </div>
+            
+            <div class="semester-filter">
+                <span style="font-weight: 600; color: #1a5f7a; margin-right: 10px;">Pilih Semester:</span>
+                <button class="semester-btn active" data-semester="all">Semua Semester</button>
+                <button class="semester-btn" data-semester="1">Semester 1</button>
+                <button class="semester-btn" data-semester="2">Semester 2</button>
+            </div>
+        </div>
+        
+        <div class="hierarchy">
+            <h3><i class="fas fa-sitemap"></i> Hierarki Materi</h3>
+            <div class="hierarchy-path" id="hierarchyPath">
+                <div class="path-item">Pilih Kelas</div>
+                <div class="path-separator"><i class="fas fa-chevron-right"></i></div>
+                <div class="path-item">Pilih Semester</div>
+                <div class="path-separator"><i class="fas fa-chevron-right"></i></div>
+                <div class="path-item">Pilih Bab</div>
+            </div>
+        </div>
+        
+        <div id="loading" class="loading">
+            <i class="fas fa-spinner fa-spin"></i> Memuat data materi...
+        </div>
+        
+        <div id="error-message" class="error" style="display: none;">
+            <p>Gagal memuat data materi. Pastikan file <strong>materi.json</strong> tersedia.</p>
+            <p>Data yang ditampilkan saat ini adalah contoh data.</p>
+        </div>
+        
+        <div id="emptyState" class="empty-state" style="display: none;">
+            <i class="fas fa-book"></i>
+            <h3>Tidak Ada Materi yang Ditemukan</h3>
+            <p>Silakan pilih kelas dan semester untuk menampilkan materi.</p>
+        </div>
+        
+        <div id="tabsContainer" class="tabs-container" style="display: none;">
+            <div class="tabs-header" id="tabsHeader"></div>
+            <div id="tabsContent"></div>
+        </div>
+        
+        <footer>
+            <p>LKPD Pendidikan Agama Islam - SMA/SMK &copy; 2023</p>
+            <p>Sistem Manajemen Pembelajaran Digital Berbasis Kurikulum Merdeka</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingElement = document.getElementById('loading');
+            const errorElement = document.getElementById('error-message');
+            const emptyStateElement = document.getElementById('emptyState');
+            const tabsContainer = document.getElementById('tabsContainer');
+            const tabsHeader = document.getElementById('tabsHeader');
+            const tabsContent = document.getElementById('tabsContent');
+            const hierarchyPath = document.getElementById('hierarchyPath');
+            
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const semesterButtons = document.querySelectorAll('.semester-btn');
+            
+            // Data contoh jika file JSON tidak ditemukan
+            const contohData = [
+                {
+                    "bab": "BAB 1",
+                    "judul": "SABAR DALAM MUSIBAH DAN UJIAN",
+                    "aktivitas_1": "<p>Amati gambar atau ilustrasi berikut ini! Lalu berilah tanggapan kalianyang dikaitkan de gan materi ajar yang dipelajari, yakni: Menelaah Q.S. Ali 'Imrān/3: 190-191 dan Q.S. ar-Rahmān/55: 33 tentang berpikir kritis dan semangat mencintai iptek!</p> <img src=\"https://www.w3schools.com/html/pic_trulli.jpg\" alt=\"Trulli\" width=\"500\" height=\"333\">",
+                    "aktivitas_2": "Pahami dan renungkan artikel berikut ini, sebagai bagian dari pemahaman dari materi ajar yang akan dipelajari!",
+                    "aktivitas_3": "Mari membaca dengan fasih dan benar Q.S. Ali 'Imrān/3: 190-191 berikut ini. Sesuaikan bacannya dengan menggunakan Ilmu Tajwid dan Makharijul huruf!",
+                    "aktivitas_4": "Pahami dan renungkan artikel berikut ini, sebagai bagian dari pemahaman dari materi ajar yang akan dipelajari!",
+                    "aktivitas_5": "()1#Terbiasa menyaring dan menyeleksi informasi yang diterima, sehingga masyarakat menjadi sehat sekaligus tidak terjadi kegaduhan karena termakan berita palsu (hoax).#Religius, tanggung jawab, peduli lingkungan ()2#TMenjadi kelompok ulil albab, yaitu orang yang ge mar mendengarkan pembicaraan, mencari se banyak mungkin informasi, tetapi berusaha memilah dan memilih informasi tersebut, dan hanya mengambil yang paling baik dan bermanfaat..#Religius, tanggung jawab, peduli lingkungan ()3#Banyak tanda-tanda kebesaran Allah Swt. yang dibentangkan di langit dan bumi, termasuk pada diri manusia, semua itu harus dijadikan sebagai sarana berpikir bagi umat manusia, khususnya orang beriman, agar dapat mengambil manfaat, faedah, dan hikmah dari keberadaan alam semesta..#Religius, tanggung jawab",
+                    "batas": "2025-12-17 00:00:00",
+                    "tujuan_pembelajaran": "menganalisa prilaku sabar dan tawakal,mengidentifikasi prilaku sabar , menerapkan prilaku sabar dalam kehidupan sehari hari",
+                    "kelas": "XII-1/1"
+                },
+                {
+                    "bab": "BAB 2",
+                    "judul": "HIDUP BERMAKNA",
+                    "aktivitas_1": "<p>Amati gambar atau ilustrasi berikut ini! Lalu berilah tanggapan kalian yang dikaitkan dengan materi ajar yang dipelajari, yakni: Menelaah Q.S. Ali 'Imrān/3: 190-191 dan Q.S. ar-Rahmān/55: 33 tentang berpikir kritis dan semangat mencintai iptek!</p><br><img src=\"https://langgam.id/wp-content/uploads/2021/06/InShot_20210610_143000506_compress22.jpg\" alt=\"Trulli\" width=\"500\" height=\"333\">",
+                    "aktivitas_2": "Pahami dan renungkan artikel berikut ini, sebagai bagian dari pemahaman dari materi ajar yang akan dipelajari!",
+                    "aktivitas_3": "Mari membaca dengan fasih dan benar Q.S. Ali 'Imrān/3: 190-191 berikut ini. Sesuaikan bacannya dengan menggunakan Ilmu Tajwid dan Makharijul huruf!",
+                    "aktivitas_4": "Pahami dan renungkan artikel berikut ini, sebagai bagian dari pemahaman dari materi ajar yang akan dipelajari!",
+                    "aktivitas_5": "()1#Terbiasa menyaring dan menyeleksi informasi yang diterima, sehingga masyarakat menjadi sehat sekaligus tidak terjadi kegaduhan karena termakan berita palsu (hoax).#Religius, tanggung jawab, peduli lingkungan ()2#TMenjadi kelompok ulil albab, yaitu orang yang ge mar mendengarkan pembicaraan, mencari se banyak mungkin informasi, tetapi berusaha memilah dan memilih informasi tersebut, dan hanya mengambil yang paling baik dan bermanfaat..#Religius, tanggung jawab, peduli lingkungan ()3#Banyak tanda-tanda kebesaran Allah Swt. yang dibentangkan di langit dan bumi, termasuk pada diri manusia, semua itu harus dijadikan sebagai sarana berpikir bagi umat manusia, khususnya orang beriman, agar dapat mengambil manfaat, faedah, dan hikmah dari keberadaan alam semesta..#Religius, tanggung jawab",
+                    "batas": "2025-11-11 00:00:00",
+                    "tujuan_pembelajaran": "menganalisa prilaku hidup bermakna dan tawakal,mengidentifikasi prilaku sabar , menerapkan prilaku hidup sederhana dalam kehidupan sehari hari",
+                    "kelas": "XII-1/2"
+                },
+                {
+                    "bab": "BAB 3",
+                    "judul": "MUNAFIK TIDAK AKAN PERNAH MAJU",
+                    "aktivitas_1": "Amati gambar atau ilustrasi berikut ini! Lalu berilah tanggapan kalian yang dikaitkan dengan materi ajar yang dipelajari, yakni: Menelaah Q.S. AL BAQOROH : 48 dan Q.S. AN NAJM : 3 tentang MUNAFIK TIDAK akan pernah Maju",
+                    "aktivitas_2": "Pahami dan renungkan artikel berikut ini, sebagai bagian dari pemahaman dari materi ajar yang akan dipelajari!",
+                    "aktivitas_3": "Mari membaca dengan fasih dan benar Q.S. Ali 'Imrān/3: 190-191 berikut ini. Sesuaikan bacannya dengan menggunakan Ilmu Tajwid dan Makharijul huruf!",
+                    "aktivitas_4": "Pahami dan renungkan artikel berikut ini, sebagai bagian dari pemahaman dari materi ajar yang akan dipelajari!",
+                    "aktivitas_5": "()1#Terbiasa menyaring dan menyeleksi informasi yang diterima, sehingga masyarakat menjadi sehat sekaligus tidak terjadi kegaduhan karena termakan berita palsu (hoax).#Religius, tanggung jawab, peduli lingkungan ()2#TMenjadi kelompok ulil albab, yaitu orang yang ge mar mendengarkan pembicaraan, mencari se banyak mungkin informasi, tetapi berusaha memilah dan memilih informasi tersebut, dan hanya mengambil yang paling baik dan bermanfaat..#Religius, tanggung jawab, peduli lingkungan ()3#Banyak tanda-tanda kebesaran Allah Swt. yang dibentangkan di langit dan bumi, termasuk pada diri manusia, semua itu harus dijadikan sebagai sarana berpikir bagi umat manusia, khususnya orang beriman, agar dapat mengambil manfaat, faedah, dan hikmah dari keberadaan alam semesta..#Religius, tanggung jawab",
+                    "batas": "2025-12-20 00:00:00",
+                    "tujuan_pembelajaran": "menganalisa prilaku munafik dan hati kotor,mengidentifikasi prilaku sabar , menerapkan prilaku sabar dalam kehidupan sehari hari",
+                    "kelas": "XII-1/3"
+                },
+                {
+                    "bab": "BAB 6",
+                    "judul": "Cinta Tanah Air dan Moderasi Beragama",
+                    "aktivitas_1": "<img src=\"https://drive.google.com/thumbnail?id=1MydJXE22rWeNHBq2FpvMVx3r8mAmXI1p&sz=w1000\" alt=\"Ilustrasi\" loading=\"lazy\" style=\"max-width: 100%; height: auto;\">__KUNCI__ ini adalah kuni jawaban dari aktivitas 1",
+                    "aktivitas_2": "Amati gambar di bawah ini, kemudian jelaskan makna yang tersirat dalam gambar tersebut! <br> <img src=\"https://drive.google.com/thumbnail?id=1dwlzu56bdBpaJCPn-zamUMUO5xwzkmdV&sz=w1000\" alt=\"Ilustrasi\" loading=\"lazy\" style=\"max-width: 100%; height: auto;\">__KUNCI__ ini adalah kuni jawaban dari aktivitas 2",
+                    "aktivitas_3": "<html><body style=\"margin:0; padding:0;\"><br><table style=\"border:1px solid #000;\" ><tr><br><td colspan=\"4\" style=\"border:1px solid #000; vertical-align:top;\"><h2 style=\"text-align:center;\">LKPD Deep Learning</h2><br><p><strong>Materi:</strong> Cinta Tanah Air & Moderasi Beragama</p></td></tr><br><tr><br><td colspan=4><br><strong>Identitas Peserta Didik</strong><br><br>Nama : .....................................................<br><br>Kelas : .....................................................<br><br>Tanggal : ...................................................<br></td><br></tr><br><tr><br><th style=\"border:1px solid #000;\">No</th><br><th style=\"border:1px solid #000;\">Aspek Deep Learning</th><br><th style=\"border:1px solid #000;\">Panduan Jawaban</th><br><th style=\"border:1px solid #000;\">Jawaban Peserta Didik</th><br></tr><br><br><tr><br><td style=\"border:1px solid #000; text-align:center;\">1</td><br><td style=\"border:1px solid #000;\">Permasalahan Nyata</td><br><td style=\"border:1px solid #000;\">Masalah terkait cinta tanah air atau moderasi beragama di lingkungan sekitar</td><br><td style=\"border:1px solid #000; height:70px;\"></td><br></tr><br><br><tr><br><td style=\"border:1px solid #000; text-align:center;\">2</td><br><td style=\"border:1px solid #000;\">Fakta yang Terjadi</td><br><td style=\"border:1px solid #000;\">Peristiwa yang benar-benar terjadi (tanpa opini)</td><br><td style=\"border:1px solid #000; height:70px;\"></td><br></tr><br><br><tr><br><td style=\"border:1px solid #000; text-align:center;\">3</td><br><td style=\"border:1px solid #000;\">Penyebab Masalah</td><br><td style=\"border:1px solid #000;\">Alasan atau faktor penyebab terjadinya masalah</td><br><td style=\"border:1px solid #000; height:70px;\"></td><br></tr><br><br><tr><br><td style=\"border:1px solid #000; text-align:center;\">4</td><br><td style=\"border:1px solid #000;\">Nilai yang Dilanggar</td><br><td style=\"border:1px solid #000;\">Nilai Pancasila, agama, atau kebangsaan yang tidak dijalankan</td><br><td style=\"border:1px solid #000; height:70px;\"></td><br></tr><br><br><tr><br><td style=\"border:1px solid #000; text-align:center;\">5</td><br><td style=\"border:1px solid #000;\">Dampak yang Ditimbulkan</td><br><td style=\"border:1px solid #000;\">Dampak bagi diri sendiri, orang lain, dan bangsa</td><br><td style=\"border:1px solid #000; height:70px;\"></td><br></tr><br><br><tr><br><td style=\"border:1px solid #000; text-align:center;\">6</td><br><td style=\"border:1px solid #000;\">Sikap yang Seharusnya</td><br><td style=\"border:1px solid #000;\">Sikap cinta tanah air dan moderasi beragama yang tepat</td><br><td style=\"border:1px solid #000; height:70px;\"></td><br></tr><br><br><tr><br><td style=\"border:1px solid #000; text-align:center;\">7</td><br><td style=\"border:1px solid #000;\">Solusi Nyata</td><br><td style=\"border:1px solid #000;\">Solusi realistis yang bisa dilakukan pelajar</td><br><td style=\"border:1px solid #000; height:70px;\"></td><br></tr><br><br><tr><br><td style=\"border:1px solid #000; text-align:center;\">8</td><br><td style=\"border:1px solid #000;\">Komitmen Pribadi</td><br><td style=\"border:1px solid #000;\">Perubahan sikap atau tindakan yang akan dilakukan</td><br><td style=\"border:1px solid #000; height:70px;\"></td><br></tr><br><tr ><br><td colspan=4><br><strong>Refleksi Individu</strong><br><br>Setelah mengerjakan LKPD ini, pemahaman atau sikap apa yang berubah dalam dirimu?<br><br><br>......................................................................................................................<br><br>......................................................................................................................<br></td><br></tr><br></table></body><br></html>__KUNCI__ ini adalah kuni jawaban dari aktivitas 1",
+                    "aktivitas_4": "<h2>Refleksikan Pemahamanmu terkait materi</h2><br><ol><br><li>DSetelah mempelajari materi Q.S. al-Qasas/28: 85 tentang cinta tanah air dan Q.S. al-Baqarah/2: 143 tentang moderasi beragama, coba kalian analisis penerapannya dalam kehidupan sehari-hari!</li><br><li>Tuliskan penerapan cinta tanah air dalam kehidupan nyata! </li><br><ol type=\"a\"><br><li>.................................</li><br><li>.................................</li><br><li>.................................</li><br></ol> <br><br></ol> __KUNCI__ ini adalah kuni jawaban dari aktivitas 1",
+                    "aktivitas_5": "()1#<br>Budiono yang berdomisili di lingkungan <br>perumahan setiap kali ada perintah untuk <br>mengibarkan bendera merah putih pada <br>saat perringatan hari besar nasional, beliau <br>selalu taat dan patuh melaksanakan dengan <br>penuh kesadaran.#<br>Kebhinekaan Global, <br>Mandiri ()2#<br>Awaludin setelah pulang dari merantau, <br>menyadari perilakunya selama ini yang <br>tidak peduli terhadap lingkungan di mana <br>ia bertempat tinggal, tetapi akhir – akhir <br>ini ia selalu rajin membantu tetangga dan <br>lingkungan ketika ada kegiatan-kegiatan <br>sosial kemasyakatan.#<br>Bergotong Royong()3#<br>Rumah pak Ridlo yang berada di lereng <br>gunung tertimbun oleh longsor yang <br>datang secara tiba-tiba. Beliau tetap tegar <br>dan berusaha membersihkan puing<br>puing rumahnya dibantu oleh tim sar dan <br>masyarakat setempat untuk mendirikan <br>rumahnya kembali#<br>Mandiri, Bergotong <br>Royong()4#<br>Parmin walau seorang tukang becak <br>yang biasa mangkal di depan alun-alun <br>kota untuk mendapatkan penumpang <br>tetap setia menunggu penumpang sambil <br>bentar-bentar membukan kertas kecil <br>yang terselip disakunya yang ternyata Al<br>ur'annya. Saat suara adzan berkumandang <br>beliau segera menuju masjid dan dengan <br>sesama tukang becak yang beda agama <br>beliau selalu bersikap baik#<br>Mandiri, Religius() 5#<br>Aditya sangat bahagia ketika pak Kadus <br>memberikan bantuan berupa sembako <br>akibat pandemi covid 19 karena beliau tahu <br>betul pak Kadus tidak membeda-bedakan <br>warganya.#<br>Kebhinekaan Global,<br>__KUNCI__ ini adalah kuni jawaban dari aktivitas 5",
+                    "batas": "2025-12-19 00:00:00",
+                    "tujuan_pembelajaran": "1) Membaca Q.S. al-Qasas : 85 dan Q.S. al-Baqarah : 143 serta hadis tentang cinta tanah air dan moderasi beragama.,2) analisis tajwid al-Qasas 28.: 85 dan Q.S. al-Baqarah2.: 143., 3) Mendeskripsikan arti perkata dan al-Qasas 28.: 85 dan Q.S. al-Baqarah2.: 143 , 4. Mendeskripsikan tafsir Q.S. al-Qasas 28.: 85 dan Q.S. al-Baqarah2.: 143., 5. Memberikan contoh sikap yang harus dimiliki sebagai wujud cinta tanah air dan moderasi beragama., 6. Mengambil hikmah wujud cinta tanah air dan moderasi dalam beragama.",
+                    "kelas": "XII-1/6"
+                },
+                {
+                    "bab": "BAB 1",
+                    "judul": "SEMANGAT MENUNTUT ILMU DAN BERPIKIR KRITIS",
+                    "aktivitas_1": "Analisalah Kisah Inspiratif Berikut <br><img src=\"https://drive.google.com/thumbnail?id=1Y6EzOtOWDW9Vbv1VRQKErmSGqXWDRGNQ&sz=w1000\" alt=\"Ilustrasi\" loading=\"lazy\" style=\"max-width: 100%; height: auto;\">",
+                    "aktivitas_2": "<p>Amati gambar atau ilustrasi berikut ini! Lalu berilah tanggapan kalian yang dikaitkan dengan materi ajar yang dipelajari; yakni: Menelaah Q.S.Ali 'Imrān/3: 190-191 dan Q.S. ar-Rahmān/55: 33 tentang berpikir kritis dan semangat mencintai iptek!</p><br><img src=\"https://drive.google.com/thumbnail?id=1Y8szHO5IxCbEd-_DJ0iKdRRUcZhnYOKh&sz=w1000\" alt=\"Ilustrasi\" loading=\"lazy\" style=\"max-width: 100%; height: auto;\">",
+                    "aktivitas_3": "<br>Perhatikan kisah inspiratif di bawah ini kemudian jelaskan makna yang dikandungnya, terkait dengan tema pelajaran!,<br>Jelaskan nilai nilai luhur dari kepribadian yang dapat di petik !,<br>Berbagilah dengan teman yang lain untuk melengkapi nilai nilai kepribadian dan berikan tanggapan !,<br>",
+                    "aktivitas_4": "<h2>Refleksikan Pemahamanmu terkait materi</h2><ol><br><li>Akhir-akhir ini ada sebagian kecil kelompok yang memaksakan kehendak untuk mengikuti ijtihadnya tetapi tidak semua anggota/pemeluk agama itu mau menerima, sehingga kadang terjadi saling menyalahkan, Bagaimana menurut pendapat kalian!</li><br><li>Ijtihad sebagai sebuah metode atau cara dalam menghasilkan sebuah hukum terbagi ke dalam beberapa bagian, coba tuliskan!<br><ol type=\"a\"><br><li>.......................</li><br><li>.......................</li><br><li>........................</li><br></ol> <br><br></li><br><br></ol>",
+                    "aktivitas_5": "()1#<br>Budiono yang berdomisili di lingkungan <br>perumahan setiap kali ada perintah untuk <br>mengibarkan bendera merah putih pada <br>saat perringatan hari besar nasional, beliau <br>selalu taat dan patuh melaksanakan dengan <br>penuh kesadaran.#<br>Kebhinekaan Global, <br>Mandiri ()2#<br>Awaludin setelah pulang dari merantau, <br>menyadari perilakunya selama ini yang <br>tidak peduli terhadap lingkungan di mana <br>ia bertempat tinggal, tetapi akhir – akhir <br>ini ia selalu rajin membantu tetangga dan <br>lingkungan ketika ada kegiatan-kegiatan <br>sosial kemasyakatan.#<br>Bergotong Royong()3#<br>Rumah pak Ridlo yang berada di lereng <br>gunung tertimbun oleh longsor yang <br>datang secara tiba-tiba. Beliau tetap tegar <br>dan berusaha membersihkan puing<br>puing rumahnya dibantu oleh tim sar dan <br>masyarakat setempat untuk mendirikan <br>rumahnya kembali#<br>Mandiri, Bergotong <br>Royong()4#<br>Parmin walau seorang tukang becak <br>yang biasa mangkal di depan alun-alun <br>kota untuk mendapatkan penumpang <br>tetap setia menunggu penumpang sambil <br>bentar-bentar membukan kertas kecil <br>yang terselip disakunya yang ternyata Al<br>ur'annya. Saat suara adzan berkumandang <br>beliau segera menuju masjid dan dengan <br>sesama tukang becak yang beda agama <br>beliau selalu bersikap baik#<br>Mandiri, Religius() 5#<br>Aditya sangat bahagia ketika pak Kadus <br>memberikan bantuan berupa sembako <br>akibat pandemi covid 19 karena beliau tahu <br>betul pak Kadus tidak membeda-bedakan <br>warganya.#<br>Kebhinekaan Global,",
+                    "batas": "2025-12-19 00:00:00",
+                    "tujuan_pembelajaran": "1) Menjelaskan pengertian ijtihad., 2) Mengidentiikasi dalil tentang ijtihad., 3) Mengidentiikasi hukum ijtihat 4) Mengidentiikasi syarat-syarat ijtihad., 5) Mengidentiikasi macam-macam ijtihad ., 6) Menganalisis urgensi dan kedudukan ijtihad.",
+                    "kelas": "X-1/1"
+                },
+                {
+                    "bab": "BAB 2",
+                    "judul": "BERSYUKUR, SABAR, DAN MENEPATI JANJI",
+                    "aktivitas_1": "Analisalah Kisah Inspiratif Berikut <br><img src=\"https://drive.google.com/thumbnail?id=19xQfuGVbSYTS6hmwAGwXVFMI3TL7fsKk&sz=w1000\" alt=\"Ilustrasi\" loading=\"lazy\" style=\"max-width: 100%; height: auto;\">",
+                    "aktivitas_2": "Amati gambar atau ilustrasi berikut ini! <br><img src=\"https://drive.google.com/thumbnail?id=1E0P6H-hT36a3h46S0SoTKucHIsZlvj2i&sz=w1000\" alt=\"Ilustrasi\" loading=\"lazy\" style=\"max-width: 100%; height: auto;\">",
+                    "aktivitas_3": "<br>Perhatikan kisah inspiratif di bawah ini kemudian jelaskan makna yang dikandungnya, terkait dengan tema pelajaran!,<br>Jelaskan nilai nilai luhur dari kepribadian yang dapat di petik !,<br>Berbagilah dengan teman yang lain untuk melengkapi nilai nilai kepribadian dan berikan tanggapan !,<br>",
+                    "aktivitas_4": "<h2>Refleksikan Pemahamanmu terkait materi</h2><ol><br><li>Bagaimana sikap kalian terhadap Ormas yang suka membuat masalah dalam berorganisasi, setelah diperingatkan oleh pemerintah sesuai peraturan yang berlaku, maka bagaimana sikap kalian yang tepat. Coba uraikan!</li><br><li>Ada beberapa etika komunikasi dalam organisasi yang harus dilakukan oleh Ormas keagamaan saat menghadapi lingkungan sekitarnya. Coba <br>uraikan menurut kalian!</li><br><br></ol>",
+                    "aktivitas_5": "()1#<br>Budiono yang berdomisili di lingkungan <br>perumahan setiap kali ada perintah untuk <br>mengibarkan bendera merah putih pada <br>saat perringatan hari besar nasional, beliau <br>selalu taat dan patuh melaksanakan dengan <br>penuh kesadaran.#<br>Kebhinekaan Global, <br>Mandiri ()2#<br>Awaludin setelah pulang dari merantau, <br>menyadari perilakunya selama ini yang <br>tidak peduli terhadap lingkungan di mana <br>ia bertempat tinggal, tetapi akhir – akhir <br>ini ia selalu rajin membantu tetangga dan <br>lingkungan ketika ada kegiatan-kegiatan <br>sosial kemasyakatan.#<br>Bergotong Royong()3#<br>Rumah pak Ridlo yang berada di lereng <br>gunung tertimbun oleh longsor yang <br>datang secara tiba-tiba. Beliau tetap tegar <br>dan berusaha membersihkan puing<br>puing rumahnya dibantu oleh tim sar dan <br>masyarakat setempat untuk mendirikan <br>rumahnya kembali#<br>Mandiri, Bergotong <br>Royong()4#<br>Parmin walau seorang tukang becak <br>yang biasa mangkal di depan alun-alun <br>kota untuk mendapatkan penumpang <br>tetap setia menunggu penumpang sambil <br>bentar-bentar membukan kertas kecil <br>yang terselip disakunya yang ternyata Al<br>ur'annya. Saat suara adzan berkumandang <br>beliau segera menuju masjid dan dengan <br>sesama tukang becak yang beda agama <br>beliau selalu bersikap baik#<br>Mandiri, Religius() 5#<br>Aditya sangat bahagia ketika pak Kadus <br>memberikan bantuan berupa sembako <br>akibat pandemi covid 19 karena beliau tahu <br>betul pak Kadus tidak membeda-bedakan <br>warganya.#<br>Kebhinekaan Global,",
+                    "batas": "2025-12-19 00:00:00",
+                    "tujuan_pembelajaran": "1) Menjelaskan kemajuan dan perkembangan organisasi-organisasi Islam di Indonesia pada masa pra dan sesudah kemerdekaan.,<br>2) Menjelaskan model dakwah organisasi-organisasi Islam di Indonesia pada masa pra dan sesudah kemerdekaan.,<br>3) Menganalisis strategi dakwah organisasi-organisasi Islam di Indonesia pada masa pra dan sesudah kemerdekaan.,<br>4) Mengidentiikasi perkembangan dan kemajuan organisasi-organisasi Islam di Indonesia pada masa pra dan sesudah kemerdekaan.,<br>5) Menganalisis hikmah organisasi-organisasi Islam di Indonesia pada masa pra dan sesudah kemerdekaan.<br>",
+                    "kelas": "X-1/2"
+                }
+            ];
+            
+            let allData = [];
+            let filteredData = [];
+            let selectedKelas = 'all';
+            let selectedSemester = 'all';
+            
+            // Fungsi untuk memuat data dari JSON
+            async function loadData() {
+                try {
+                    const response = await fetch('materi.json');
+                    
+                    if (!response.ok) {
+                        throw new Error('File tidak ditemukan');
+                    }
+                    
+                    const data = await response.json();
+                    allData = data;
+                    
+                    // Sembunyikan loading
+                    loadingElement.style.display = 'none';
+                    
+                    // Tampilkan data
+                    applyFilters();
+                    
+                } catch (error) {
+                    console.error('Error loading JSON:', error);
+                    
+                    // Gunakan data contoh jika gagal
+                    allData = contohData;
+                    
+                    // Tampilkan pesan error
+                    loadingElement.style.display = 'none';
+                    errorElement.style.display = 'block';
+                    
+                    // Tampilkan data contoh
+                    applyFilters();
+                }
+            }
+            
+            // Fungsi untuk mengekstrak informasi kelas dan semester dari string kelas
+            function parseKelasInfo(kelasStr) {
+                // Format: "XII-1/1", "X-1/2", "XI-2/6"
+                const match = kelasStr.match(/(X|XI|XII)-(\d+)\/(\d+)/);
+                if (match) {
+                    return {
+                        kelas: match[1],
+                        semester: parseInt(match[2]),
+                        bab: parseInt(match[3])
+                    };
+                }
+                return { kelas: '', semester: 0, bab: 0 };
+            }
+            
+            // Fungsi untuk memfilter data berdasarkan kelas dan semester
+            function filterData() {
+                if (selectedKelas === 'all' && selectedSemester === 'all') {
+                    return allData;
+                } else if (selectedKelas === 'all') {
+                    return allData.filter(item => {
+                        const info = parseKelasInfo(item.kelas);
+                        return info.semester == selectedSemester;
+                    });
+                } else if (selectedSemester === 'all') {
+                    return allData.filter(item => {
+                        const info = parseKelasInfo(item.kelas);
+                        return info.kelas === selectedKelas;
+                    });
+                } else {
+                    return allData.filter(item => {
+                        const info = parseKelasInfo(item.kelas);
+                        return info.kelas === selectedKelas && info.semester == selectedSemester;
+                    });
+                }
+            }
+            
+            // Fungsi untuk mengelompokkan data berdasarkan bab
+            function groupDataByBab(data) {
+                // Urutkan data berdasarkan nomor bab
+                return data.sort((a, b) => {
+                    const infoA = parseKelasInfo(a.kelas);
+                    const infoB = parseKelasInfo(b.kelas);
+                    return infoA.bab - infoB.bab;
+                });
+            }
+            
+            // Fungsi untuk membuat konten tab
+            function createTabContent(babData) {
+                const babNumber = babData.bab;
+                const babTitle = babData.judul;
+                const kelasInfo = parseKelasInfo(babData.kelas);
+                
+                let html = `
+                    <div class="bab-header">
+                        <div class="bab-title">
+                            <div class="bab-number">${babNumber.replace('BAB ', '')}</div>
+                            <div class="bab-judul">${babTitle}</div>
+                        </div>
+                        <div class="bab-info">
+                            <div class="info-item"><i class="fas fa-graduation-cap"></i> Kelas ${kelasInfo.kelas}</div>
+                            <div class="info-item"><i class="fas fa-calendar-alt"></i> Semester ${kelasInfo.semester}</div>
+                            <div class="info-item"><i class="fas fa-clock"></i> Batas: ${formatDate(babData.batas)}</div>
+                        </div>
+                    </div>
+                    
+                    <div class="aktivitas-section">
+                        <h3 class="aktivitas-title"><i class="fas fa-tasks"></i> Aktivitas Pembelajaran</h3>
+                        <div class="aktivitas-container">
+                `;
+                
+                // Tambahkan aktivitas 1-5
+                for (let i = 1; i <= 5; i++) {
+                    const aktivitasKey = `aktivitas_${i}`;
+                    if (babData[aktivitasKey]) {
+                        html += `
+                            <div class="aktivitas-item">
+                                <div class="aktivitas-header">
+                                    <div class="aktivitas-number">${i}</div>
+                                    <div class="aktivitas-name">Aktivitas ${i}</div>
+                                </div>
+                                <div class="aktivitas-content">
+                                    ${babData[aktivitasKey]}
+                                </div>
+                            </div>
+                        `;
+                    }
+                }
+                
+                html += `
+                        </div>
+                    </div>
+                    
+                    <div class="tujuan-pembelajaran">
+                        <h3><i class="fas fa-bullseye"></i> Tujuan Pembelajaran</h3>
+                        <div class="tujuan-list">
+                `;
+                
+                // Format tujuan pembelajaran
+                const tujuanItems = babData.tujuan_pembelajaran.split(',').map(item => item.trim());
+                tujuanItems.forEach(item => {
+                    if (item) {
+                        html += `<li>${item}</li>`;
+                    }
+                });
+                
+                html += `
+                        </div>
+                    </div>
+                    
+                    <div class="footer-info">
+                        <div><i class="fas fa-info-circle"></i> Materi ${babNumber} - Kelas ${kelasInfo.kelas} Semester ${kelasInfo.semester}</div>
+                        <div><i class="fas fa-calendar-check"></i> Batas Pengumpulan: ${formatDate(babData.batas)}</div>
+                    </div>
+                `;
+                
+                return html;
+            }
+            
+            // Fungsi untuk memformat tanggal
+            function formatDate(dateString) {
+                const date = new Date(dateString);
+                return date.toLocaleDateString('id-ID', {
+                    day: '2-digit',
+                    month: 'long',
+                    year: 'numeric'
+                });
+            }
+            
+            // Fungsi untuk memperbarui hierarki path
+            function updateHierarchyPath() {
+                let pathItems = [];
+                
+                if (selectedKelas === 'all') {
+                    pathItems.push('Semua Kelas');
+                } else {
+                    pathItems.push(`Kelas ${selectedKelas}`);
+                }
+                
+                if (selectedSemester === 'all') {
+                    pathItems.push('Semua Semester');
+                } else {
+                    pathItems.push(`Semester ${selectedSemester}`);
+                }
+                
+                pathItems.push(`${filteredData.length} Bab Ditemukan`);
+                
+                let pathHTML = '';
+                pathItems.forEach((item, index) => {
+                    pathHTML += `<div class="path-item">${item}</div>`;
+                    if (index < pathItems.length - 1) {
+                        pathHTML += `<div class="path-separator"><i class="fas fa-chevron-right"></i></div>`;
+                    }
+                });
+                
+                hierarchyPath.innerHTML = pathHTML;
+            }
+            
+            // Fungsi untuk membuat tab
+            function createTabs() {
+                tabsHeader.innerHTML = '';
+                tabsContent.innerHTML = '';
+                
+                if (filteredData.length === 0) {
+                    tabsContainer.style.display = 'none';
+                    emptyStateElement.style.display = 'block';
+                    return;
+                }
+                
+                tabsContainer.style.display = 'block';
+                emptyStateElement.style.display = 'none';
+                
+                // Buat tab untuk setiap bab
+                filteredData.forEach((babData, index) => {
+                    const babNumber = babData.bab;
+                    const babTitle = babData.judul;
+                    const kelasInfo = parseKelasInfo(babData.kelas);
+                    const tabId = `tab-${kelasInfo.kelas}-${kelasInfo.semester}-${kelasInfo.bab}`;
+                    
+                    // Buat tombol tab
+                    const tabButton = document.createElement('button');
+                    tabButton.className = `tab-btn ${index === 0 ? 'active' : ''}`;
+                    tabButton.id = `btn-${tabId}`;
+                    tabButton.innerHTML = `${babNumber}<br><small>${babTitle.substring(0, 20)}${babTitle.length > 20 ? '...' : ''}</small>`;
+                    tabButton.addEventListener('click', () => switchTab(tabId));
+                    tabsHeader.appendChild(tabButton);
+                    
+                    // Buat konten tab
+                    const tabContent = document.createElement('div');
+                    tabContent.className = `tab-content ${index === 0 ? 'active' : ''}`;
+                    tabContent.id = tabId;
+                    tabContent.innerHTML = createTabContent(babData);
+                    tabsContent.appendChild(tabContent);
+                });
+            }
+            
+            // Fungsi untuk mengganti tab
+            function switchTab(tabId) {
+                // Nonaktifkan semua tab
+                document.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Aktifkan tab yang dipilih
+                document.getElementById(`btn-${tabId}`).classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            }
+            
+            // Fungsi untuk menerapkan filter
+            function applyFilters() {
+                filteredData = filterData();
+                updateHierarchyPath();
+                createTabs();
+            }
+            
+            // Event listener untuk tombol filter kelas
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Hapus kelas aktif dari semua tombol
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Tambah kelas aktif ke tombol yang diklik
+                    this.classList.add('active');
+                    
+                    // Dapatkan kelas yang dipilih
+                    selectedKelas = this.getAttribute('data-kelas');
+                    
+                    // Terapkan filter
+                    applyFilters();
+                });
+            });
+            
+            // Event listener untuk tombol filter semester
+            semesterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Hapus kelas aktif dari semua tombol
+                    semesterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Tambah kelas aktif ke tombol yang diklik
+                    this.classList.add('active');
+                    
+                    // Dapatkan semester yang dipilih
+                    selectedSemester = this.getAttribute('data-semester');
+                    
+                    // Terapkan filter
+                    applyFilters();
+                });
+            });
+            
+            // Muat data saat halaman dimuat
+            loadData();
+        });
+    </script>
+</body>
+</html>
