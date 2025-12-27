@@ -811,34 +811,7 @@
                 });
             }
             
-            // Fungsi untuk memperbarui hierarki path
-            function updateHierarchyPath() {
-                let pathItems = [];
-                
-                if (selectedKelas === 'all') {
-                    pathItems.push('Semua Kelas');
-                } else {
-                    pathItems.push(`Kelas ${selectedKelas}`);
-                }
-                
-                if (selectedSemester === 'all') {
-                    pathItems.push('Semua Semester');
-                } else {
-                    pathItems.push(`Semester ${selectedSemester}`);
-                }
-                
-                pathItems.push(`${filteredData.length} Bab Ditemukan`);
-                
-                let pathHTML = '';
-                pathItems.forEach((item, index) => {
-                    pathHTML += `<div class="path-item">${item}</div>`;
-                    if (index < pathItems.length - 1) {
-                        pathHTML += `<div class="path-separator"><i class="fas fa-chevron-right"></i></div>`;
-                    }
-                });
-                
-                hierarchyPath.innerHTML = pathHTML;
-            }
+  
             
             // Fungsi untuk membuat tab
             function createTabs() {
