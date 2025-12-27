@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -102,114 +102,231 @@
             text-align: center;
         }
         
-        .kelas-section {
+        /* STYLE BARU: Layout Kelas Horizontal */
+        .kelas-horizontal-section {
             margin-bottom: 40px;
         }
         
-        .kelas-title {
+        .kelas-header {
             background-color: #1a5f7a;
             color: white;
-            padding: 12px 20px;
+            padding: 15px 20px;
             border-radius: 8px 8px 0 0;
             margin-bottom: 0;
             font-size: 1.3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
-        .semester-title {
-            background-color: #57cc99;
-            color: white;
-            padding: 10px 15px;
-            margin-top: 20px;
-            border-radius: 5px;
-            font-size: 1.1rem;
+        .kelas-header h4 {
+            margin: 0;
         }
         
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
+        .scroll-indicator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: #e3f2fd;
         }
         
-        th {
-            background-color: #e3f2fd;
-            color: #1a5f7a;
-            padding: 15px;
-            text-align: center;
-            border: 1px solid #ddd;
+        .scroll-indicator i {
+            animation: bounce 2s infinite;
         }
         
-        td {
-            padding: 15px;
-            border: 1px solid #ddd;
-            vertical-align: top;
-            text-align: center;
+        @keyframes bounce {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(5px); }
         }
         
-        .bab-card {
+        .materi-container-wrapper {
+            position: relative;
             background-color: #f8f9fa;
+            border-radius: 0 0 8px 8px;
+            overflow: hidden;
+        }
+        
+        .materi-horizontal-container {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+        
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .materi-horizontal-container::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .materi-card {
+            min-width: 280px;
+            max-width: 280px;
+            background-color: white;
             border-radius: 8px;
-            padding: 15px;
-            margin: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            height: 100%;
-            transition: transform 0.3s;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            flex-shrink: 0;
         }
         
-        .bab-card:hover {
+        .materi-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .bab-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #57cc99;
         }
         
         .bab-number {
-            display: inline-block;
             background-color: #1a5f7a;
             color: white;
-            width: 30px;
-            height: 30px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            text-align: center;
-            line-height: 30px;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        
-        .bab-judul {
-            font-weight: 600;
-            color: #1a5f7a;
-            margin-bottom: 15px;
-            min-height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        
+        .bab-title {
+            font-weight: 600;
+            color: #1a5f7a;
+            font-size: 1.1rem;
+            line-height: 1.4;
+        }
+        
+        .bab-description {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+        
+        /* Style baru untuk tujuan belajar */
+        .tujuan-belajar {
+            color: #555;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin-bottom: 20px;
+            flex-grow: 1;
+            padding-left: 5px;
+        }
+        
+        .tujuan-item {
+            margin-bottom: 4px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .tujuan-number {
+            display: inline-block;
+            min-width: 18px;
+            font-weight: bold;
+            color: #1a5f7a;
+            margin-right: 5px;
+        }
+        
+        .bab-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #888;
         }
         
         .btn-masuk {
             background-color: #57cc99;
             color: white;
             border: none;
-            padding: 8px 15px;
+            padding: 10px 15px;
             border-radius: 5px;
             cursor: pointer;
             font-weight: 600;
             transition: background-color 0.3s;
             width: 100%;
+            font-size: 0.95rem;
         }
         
         .btn-masuk:hover {
             background-color: #38b2ac;
         }
         
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            padding: 20px;
-            color: #666;
-            border-top: 1px solid #ddd;
+        /* Scroll buttons */
+        .scroll-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(26, 95, 122, 0.9);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            z-index: 10;
+            transition: background-color 0.3s;
+            opacity: 0.8;
         }
         
+        .scroll-btn:hover {
+            background-color: rgba(26, 95, 122, 1);
+            opacity: 1;
+        }
+        
+        .scroll-left {
+            left: 10px;
+        }
+        
+        .scroll-right {
+            right: 10px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .materi-card {
+                min-width: 260px;
+                max-width: 260px;
+            }
+            
+            .scroll-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+            
+            .kelas-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .scroll-indicator {
+                align-self: flex-end;
+            }
+        }
+        
+        /* Loading dan error styles */
         .loading {
             text-align: center;
             padding: 20px;
@@ -224,33 +341,6 @@
             color: #c62828;
             border-radius: 8px;
             margin: 20px 0;
-        }
-        
-        .controls {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .filter-btn {
-            padding: 10px 20px;
-            background-color: #57cc99;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background-color 0.3s;
-        }
-        
-        .filter-btn:hover {
-            background-color: #38b2ac;
-        }
-        
-        .filter-btn.active {
-            background-color: #1a5f7a;
         }
         
         /* Modal Styles */
@@ -348,37 +438,12 @@
             background-color: #0d455c;
         }
         
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-            
-            header h1 {
-                font-size: 2rem;
-            }
-            
-            header h2 {
-                font-size: 1.2rem;
-            }
-            
-            th, td {
-                padding: 10px 5px;
-            }
-            
-            .controls {
-                justify-content: center;
-            }
-            
-            .modal-content {
-                width: 95%;
-                margin: 10% auto;
-                padding: 20px;
-            }
-            
-            .modal-info {
-                flex-direction: column;
-                gap: 10px;
-            }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            border-top: 1px solid #ddd;
         }
     </style>
 </head>
@@ -410,20 +475,13 @@
         <section class="materi">
             <h3><i class="fas fa-book"></i> Materi yang tersaji</h3>
             
-            <div class="controls">
-                <button class="filter-btn active" data-kelas="all">Semua Kelas</button>
-                <button class="filter-btn" data-kelas="X">Kelas X</button>
-                <button class="filter-btn" data-kelas="XI">Kelas XI</button>
-                <button class="filter-btn" data-kelas="XII">Kelas XII</button>
-            </div>
-            
             <div id="loading" class="loading">
                 <i class="fas fa-spinner fa-spin"></i> Memuat data materi...
             </div>
             
-          
-            
-            <div id="materi-container"></div>
+            <div id="materi-container">
+                <!-- Container untuk kelas akan diisi oleh JavaScript -->
+            </div>
         </section>
         
         <!-- Modal untuk detail materi -->
@@ -435,11 +493,10 @@
                 </div>
                 <div class="modal-body">
                     <div class="modal-info">
-                        <div class="modal-info-item" id="modalKelas">Lit. Gambar </div>
-                        <div class="modal-info-item" id="modalSemester">Lit. Text</div>
-                        <div class="modal-info-item" id="modalBab">DeepLearning </div>
-                        <div class="modal-info-item" id="modalBab">Refleksi </div>
-                        <div class="modal-info-item" id="modalBab">Prilaku </div>
+                        <div class="modal-info-item" id="modalKelas">Kelas: X</div>
+                        <div class="modal-info-item" id="modalSemester">Semester: 1</div>
+                        <div class="modal-info-item" id="modalBab">Bab: 1</div>
+                        <div class="modal-info-item" id="modalAkt1">Aktivitas: Amati gambar</div>
                     </div>
                     <div class="modal-description" id="modalDescription">
                         Deskripsi materi akan ditampilkan di sini. Informasi detail tentang materi pembelajaran termasuk tujuan pembelajaran, konten utama, aktivitas belajar, dan penilaian akan disajikan dalam bagian ini.
@@ -457,279 +514,456 @@
         </footer>
     </div>
 
-
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const loadingElement = document.getElementById('loading');
-    const materiContainer = document.getElementById('materi-container');
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    
-    // Elemen modal
-    const modal = document.getElementById('materiModal');
-    const closeModal = document.querySelector('.close-modal');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalKelas = document.getElementById('modalKelas');
-    const modalSemester = document.getElementById('modalSemester');
-    const modalBab = document.getElementById('modalBab');
-    const modalDescription = document.getElementById('modalDescription');
-    const btnDownload = document.getElementById('btnDownload');
-    
-    // Data contoh jika file JSON tidak ditemukan
-    const contohData = [
-        { "Kelas": "X", "semester": 1, "bab": 1, "judul": "MERAIH KESUKSESAN DENGAN AKHLAK MULIA DAN ETOS KERJA", "akt1": "amati gambar" },
-        { "Kelas": "X", "semester": 1, "bab": 2, "judul": "IMAN KEPADA ALLAH SWT", "akt1": "amati text" },
-        { "Kelas": "X", "semester": 1, "bab": 3, "judul": "MENJAUHI SIFAT HASAD, RIYA, DAN UJUB", "akt1": "amati gambar" },
-        { "Kelas": "X", "semester": 1, "bab": 4, "judul": "PERILAKU HEMAT DAN MENJAUHI SIFAT BOROS", "akt1": "amati gambar" },
-        { "Kelas": "X", "semester": 1, "bab": 5, "judul": "ETIKA EKONOMI SYARIAH DALAM KEHIDUPAN", "akt1": "amati gambar" },
-        { "Kelas": "X", "semester": 2, "bab": 6, "judul": "PERGAULAN SEHAT DAN MENJAUHI ZINA", "akt1": "amati gambar" },
-        { "Kelas": "X", "semester": 2, "bab": 7, "judul": "SEJARAH PERKEMBANGAN ISLAM DI INDONESIA", "akt1": "amati TEXT" },
-        { "Kelas": "X", "semester": 2, "bab": 8, "judul": "AKHLAK MULIA DALAM KEHIDUPAN SEHARI-HARI", "akt1": "amati TEXT" },
-        { "Kelas": "X", "semester": 2, "bab": 9, "judul": "AL-KULLIYATU AL-KHAMSAH DALAM KEHIDUPAN", "akt1": "amati cerita" },
-        { "Kelas": "X", "semester": 2, "bab": 10, "judul": "HUKUM DAN HAK ASASI MANUSIA DALAM ISLAM", "akt1": "amati gambar" },
-        { "Kelas": "XI", "semester": 1, "bab": 1, "judul": "SABAR DALAM MUSIBAH DAN UJIAN", "akt1": "amati gambar" },
-        { "Kelas": "XI", "semester": 1, "bab": 2, "judul": "HIDUP BERMAKNA", "akt1": "amati text" },
-        { "Kelas": "XI", "semester": 1, "bab": 3, "judul": "MUNAFIK TIDAK AKAN PERNAH MAJU", "akt1": "amati gambar" },
-        { "Kelas": "XI", "semester": 1, "bab": 4, "judul": "MAWARIS DAN KEARIFAN LOKAL", "akt1": "amati gambar" },
-        { "Kelas": "XI", "semester": 2, "bab": 5, "judul": "MENELADANI TOKOH DAN ULAMA ISLAM INDONESIA", "akt1": "amati gambar" },
-        { "Kelas": "XI", "semester": 2, "bab": 6, "judul": "TOLERANSI DAN MODERASI BERAGAMA", "akt1": "amati text" },
-        { "Kelas": "XI", "semester": 2, "bab": 9, "judul": "KETENTUAN PERNIKAHAN DALAM ISLAM", "akt1": "amati cerita" },
-        { "Kelas": "XI", "semester": 2, "bab": 10, "judul": "PERAN ISLAM DALAM PERADABAN MODERN", "akt1": "amati gambar" },
-        { "Kelas": "XII", "semester": 1, "bab": 1, "judul": "ILMU KALAM DAN TEOLOGI ISLAM", "akt1": "amati gambar" },
-        { "Kelas": "XII", "semester": 1, "bab": 2, "judul": "CINTA TANAH AIR DAN MODERASI BERAGAMA", "akt1": "amati text" },
-        { "Kelas": "XII", "semester": 2, "bab": 8, "judul": "SIKAP INOVATIF DAN ETIKA BERORGANISASI", "akt1": "amati gambar" },
-        { "Kelas": "XII", "semester": 2, "bab": 9, "judul": "IJTIHAD DAN DINAMIKA HUKUM ISLAM KONTEMPORER", "akt1": "amati text" },
-        { "Kelas": "XII", "semester": 2, "bab": 10, "judul": "PERAN ORGANISASI ISLAM DALAM KEHIDUPAN BERBANGSA", "akt1": "amati gambar" }
-    ];
-    
-    let allData = [];
-    let filteredData = [];
-    
-    // Deskripsi detail untuk setiap bab
-    const deskripsiMateri = {
-        "MERAIH KESUKSESAN DENGAN AKHLAK MULIA DAN ETOS KERJA": "Materi ini membahas tentang hubungan antara akhlak mulia dan kesuksesan dalam kehidupan.",
-        "IMAN KEPADA ALLAH SWT": "Pembahasan tentang konsep iman kepada Allah SWT dalam Islam.",
-        "MENJAUHI SIFAT HASAD, RIYA, DAN UJUB": "Materi tentang tiga sifat tercela yang harus dihindari dalam Islam.",
-        "PERILAKU HEMAT DAN MENJAUHI SIFAT BOROS": "Pembelajaran tentang pentingnya hidup hemat dan menjauhi sifat boros.",
-        // ... tambahkan deskripsi untuk materi lainnya ...
-    };
-    
-    // Fungsi untuk memuat data dari JSON
-    async function loadData() {
-        try {
-            const response = await fetch('cover.json');
-            
-            if (!response.ok) {
-                throw new Error('File tidak ditemukan');
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const loadingElement = document.getElementById('loading');
+        const materiContainer = document.getElementById('materi-container');
+        
+        // Elemen modal
+        const modal = document.getElementById('materiModal');
+        const closeModal = document.querySelector('.close-modal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalKelas = document.getElementById('modalKelas');
+        const modalSemester = document.getElementById('modalSemester');
+        const modalBab = document.getElementById('modalBab');
+        const modalAkt1 = document.getElementById('modalAkt1');
+        const modalDescription = document.getElementById('modalDescription');
+        const btnDownload = document.getElementById('btnDownload');
+        
+        // Data contoh dengan tambahan properti "tujuan"
+        const contohData = [
+            { 
+                "Kelas": "X", 
+                "semester": 1, 
+                "bab": 1, 
+                "judul": "MERAIH KESUKSESAN DENGAN AKHLAK MULIA DAN ETOS KERJA", 
+                "akt1": "Amati gambar",
+                "tujuan": "menganalisa perilaku sabar dan tawakal, mengidentifikasi perilaku sabar, menerapkan perilaku sabar dalam kehidupan sehari-hari" 
+            },
+            { 
+                "Kelas": "X", 
+                "semester": 1, 
+                "bab": 2, 
+                "judul": "IMAN KEPADA ALLAH SWT", 
+                "akt1": "Amati text",
+                "tujuan": "menganalisa perilaku hidup bermakna dan tawakal, mengidentifikasi perilaku sabar, menerapkan perilaku hidup sederhana" 
+            },
+            { 
+                "Kelas": "X", 
+                "semester": 1, 
+                "bab": 3, 
+                "judul": "MENJAUHI SIFAT HASAD, RIYA, DAN UJUB", 
+                "akt1": "Amati gambar",
+                "tujuan": "mengidentifikasi sifat hasad, riya, dan ujub, menganalisis dampak negatif sifat tersebut, menerapkan cara menghindari sifat tercela" 
+            },
+            { 
+                "Kelas": "X", 
+                "semester": 1, 
+                "bab": 4, 
+                "judul": "PERILAKU HEMAT DAN MENJAUHI SIFAT BOROS", 
+                "akt1": "Amati gambar",
+                "tujuan": "memahami konsep hemat dalam Islam, mengidentifikasi perilaku boros, menerapkan hidup hemat dalam kehidupan sehari-hari" 
+            },
+            { 
+                "Kelas": "X", 
+                "semester": 1, 
+                "bab": 5, 
+                "judul": "ETIKA EKONOMI SYARIAH DALAM KEHIDUPAN", 
+                "akt1": "Amati gambar",
+                "tujuan": "memahami prinsip ekonomi syariah, menganalisis penerapan ekonomi syariah, menerapkan etika ekonomi syariah dalam transaksi" 
+            },
+            { 
+                "Kelas": "X", 
+                "semester": 2, 
+                "bab": 6, 
+                "judul": "PERGAULAN SEHAT DAN MENJAUHI ZINA", 
+                "akt1": "Amati gambar",
+                "tujuan": "memahami etika pergaulan dalam Islam, mengidentifikasi bahaya zina, menerapkan pergaulan sehat sesuai ajaran Islam" 
+            },
+            { 
+                "Kelas": "X", 
+                "semester": 2, 
+                "bab": 7, 
+                "judul": "SEJARAH PERKEMBANGAN ISLAM DI INDONESIA", 
+                "akt1": "Amati TEXT",
+                "tujuan": "memahami sejarah masuknya Islam ke Indonesia, menganalisis perkembangan Islam di Nusantara, mengidentifikasi peran ulama dalam penyebaran Islam" 
+            },
+            { 
+                "Kelas": "X", 
+                "semester": 2, 
+                "bab": 8, 
+                "judul": "AKHLAK MULIA DALAM KEHIDUPAN SEHARI-HARI", 
+                "akt1": "Amati TEXT",
+                "tujuan": "mengidentifikasi akhlak mulia dalam Islam, menganalisis manfaat akhlak mulia, menerapkan akhlak mulia dalam kehidupan sehari-hari" 
+            },
+            { 
+                "Kelas": "X", 
+                "semester": 2, 
+                "bab": 9, 
+                "judul": "AL-KULLIYATU AL-KHAMSAH DALAM KEHIDUPAN", 
+                "akt1": "Amati cerita",
+                "tujuan": "memahami konsep al-kulliyatu al-khamsah, menganalisis penerapannya dalam kehidupan, menerapkan nilai-nilai universal dalam Islam" 
+            },
+            { 
+                "Kelas": "X", 
+                "semester": 2, 
+                "bab": 10, 
+                "judul": "HUKUM DAN HAK ASASI MANUSIA DALAM ISLAM", 
+                "akt1": "Amati gambar",
+                "tujuan": "memahami konsep HAM dalam Islam, menganalisis prinsip hukum Islam, menerapkan nilai-nilai keadilan dalam kehidupan" 
+            },
+            { 
+                "Kelas": "XI", 
+                "semester": 1, 
+                "bab": 1, 
+                "judul": "SABAR DALAM MUSIBAH DAN UJIAN", 
+                "akt1": "Amati gambar",
+                "tujuan": "memahami makna sabar dalam Islam, menganalisis cara bersabar dalam ujian, menerapkan sikap sabar dalam kehidupan" 
+            },
+            { 
+                "Kelas": "XI", 
+                "semester": 1, 
+                "bab": 2, 
+                "judul": "HIDUP BERMAKNA", 
+                "akt1": "Amati text",
+                "tujuan": "memahami konsep hidup bermakna dalam Islam, menganalisis tujuan hidup seorang muslim, merencanakan hidup yang bermakna" 
+            },
+            { 
+                "Kelas": "XI", 
+                "semester": 1, 
+                "bab": 3, 
+                "judul": "MUNAFIK TIDAK AKAN PERNAH MAJU", 
+                "akt1": "Amati gambar",
+                "tujuan": "mengidentifikasi ciri-ciri munafik, menganalisis dampak sifat munafik, menerapkan kejujuran dalam kehidupan" 
+            },
+            { 
+                "Kelas": "XI", 
+                "semester": 1, 
+                "bab": 4, 
+                "judul": "MAWARIS DAN KEARIFAN LOKAL", 
+                "akt1": "Amati gambar",
+                "tujuan": "memahami dasar hukum waris dalam Islam, menganalisis sistem mawaris, menerapkan kearifan lokal dalam pembagian waris" 
+            },
+            { 
+                "Kelas": "XI", 
+                "semester": 2, 
+                "bab": 5, 
+                "judul": "MENELADANI TOKOH DAN ULAMA ISLAM INDONESIA", 
+                "akt1": "Amati gambar",
+                "tujuan": "mengenal tokoh dan ulama Islam Indonesia, menganalisis peran mereka, meneladani nilai-nilai perjuangan mereka" 
+            },
+            { 
+                "Kelas": "XI", 
+                "semester": 2, 
+                "bab": 6, 
+                "judul": "TOLERANSI DAN MODERASI BERAGAMA", 
+                "akt1": "Amati text",
+                "tujuan": "memahami konsep toleransi dalam Islam, menganalisis pentingnya moderasi beragama, menerapkan sikap toleran dalam kehidupan" 
+            },
+            { 
+                "Kelas": "XI", 
+                "semester": 2, 
+                "bab": 9, 
+                "judul": "KETENTUAN PERNIKAHAN DALAM ISLAM", 
+                "akt1": "Amati cerita",
+                "tujuan": "memahami hukum pernikahan dalam Islam, menganalisis syarat dan rukun nikah, menerapkan nilai-nilai keluarga sakinah" 
+            },
+            { 
+                "Kelas": "XI", 
+                "semester": 2, 
+                "bab": 10, 
+                "judul": "PERAN ISLAM DALAM PERADABAN MODERN", 
+                "akt1": "Amati gambar",
+                "tujuan": "menganalisis kontribusi Islam dalam peradaban modern, mengidentifikasi nilai-nilai Islam dalam perkembangan ilmu pengetahuan, menerapkan nilai-nilai Islam dalam menghadapi tantangan modern" 
+            },
+            { 
+                "Kelas": "XII", 
+                "semester": 1, 
+                "bab": 1, 
+                "judul": "ILMU KALAM DAN TEOLOGI ISLAM", 
+                "akt1": "Amati gambar",
+                "tujuan": "memahami pengertian ilmu kalam, menganalisis aliran-aliran teologi Islam, menerapkan metode berpikir kritis dalam memahami akidah" 
+            },
+            { 
+                "Kelas": "XII", 
+                "semester": 1, 
+                "bab": 2, 
+                "judul": "CINTA TANAH AIR DAN MODERASI BERAGAMA", 
+                "akt1": "Amati text",
+                "tujuan": "memahami konsep cinta tanah air dalam Islam, menganalisis hubungan agama dan negara, menerapkan sikap moderat dalam beragama" 
+            },
+            { 
+                "Kelas": "XII", 
+                "semester": 2, 
+                "bab": 8, 
+                "judul": "SIKAP INOVATIF DAN ETIKA BERORGANISASI", 
+                "akt1": "Amati gambar",
+                "tujuan": "memahami pentingnya inovasi dalam Islam, menganalisis etika berorganisasi, menerapkan sikap inovatif dalam kehidupan organisasi" 
+            },
+            { 
+                "Kelas": "XII", 
+                "semester": 2, 
+                "bab": 9, 
+                "judul": "IJTIHAD DAN DINAMIKA HUKUM ISLAM KONTEMPORER", 
+                "akt1": "Amati text",
+                "tujuan": "memahami pengertian ijtihad, menganalisis metode ijtihad, menerapkan ijtihad dalam menyelesaikan masalah kontemporer" 
+            },
+            { 
+                "Kelas": "XII", 
+                "semester": 2, 
+                "bab": 10, 
+                "judul": "PERAN ORGANISASI ISLAM DALAM KEHIDUPAN BERBANGSA", 
+                "akt1": "Amati gambar",
+                "tujuan": "mengenal organisasi Islam di Indonesia, menganalisis peran organisasi Islam, menerapkan nilai-nilai organisasi dalam kehidupan berbangsa" 
             }
+        ];
+        
+        let allData = [];
+        
+        // Fungsi untuk memformat tujuan belajar dengan bullet/numbering
+        function formatTujuanBelajar(tujuanText) {
+            if (!tujuanText) return '<div class="tujuan-belajar">Tujuan belajar belum tersedia</div>';
             
-            const data = await response.json();
-            allData = data;
+            // Pisahkan tujuan berdasarkan koma
+            const tujuanItems = tujuanText.split(',').map(item => item.trim()).filter(item => item);
+            
+            let html = '<div class="tujuan-belajar">';
+            
+            tujuanItems.forEach((item, index) => {
+                html += `
+                    <div class="tujuan-item">
+                        <span class="tujuan-number">${index + 1}.</span>
+                        <span>${item}</span>
+                    </div>
+                `;
+            });
+            
+            html += '</div>';
+            return html;
+        }
+        
+        // Fungsi untuk memuat data
+        async function loadData() {
+            try {
+                const response = await fetch('cover.json');
+                
+                if (!response.ok) {
+                    throw new Error('File tidak ditemukan');
+                }
+                
+                const data = await response.json();
+                allData = data;
+                
+            } catch (error) {
+                console.error('Error loading JSON:', error);
+                allData = contohData;
+            }
             
             // Sembunyikan loading
             loadingElement.style.display = 'none';
             
             // Tampilkan data
             renderData(allData);
-            
-        } catch (error) {
-            console.error('Error loading JSON:', error);
-            
-            // Gunakan data contoh jika gagal
-            allData = contohData;
-            
-            // Sembunyikan loading
-            loadingElement.style.display = 'none';
-            
-            // Tampilkan data contoh
-            renderData(allData);
         }
-    }
-    
-    // Fungsi untuk mengelompokkan data berdasarkan kelas dan semester
-    function groupDataByClassAndSemester(data) {
-        const grouped = {};
         
-        data.forEach(item => {
-            const kelas = item.Kelas;
-            const semester = item.semester;
+        // Fungsi untuk mengelompokkan data berdasarkan kelas
+        function groupDataByClass(data) {
+            const grouped = {};
             
-            if (!grouped[kelas]) {
-                grouped[kelas] = {};
-            }
-            
-            if (!grouped[kelas][semester]) {
-                grouped[kelas][semester] = [];
-            }
-            
-            grouped[kelas][semester].push(item);
-        });
-        
-        return grouped;
-    }
-    
-    // Fungsi untuk membuat elemen tabel materi
-    function createMateriTable(groupedData) {
-        let html = '';
-        
-        // Urutkan kelas: X, XI, XII
-        const kelasOrder = ['X', 'XI', 'XII'];
-        
-        kelasOrder.forEach(kelas => {
-            if (!groupedData[kelas]) return;
-            
-            html += `<div class="kelas-section" data-kelas="${kelas}">`;
-            html += `<h4 class="kelas-title">Kelas ${kelas}</h4>`;
-            
-            // Urutkan semester: 1, 2
-            const semesterOrder = [1, 2];
-            
-            semesterOrder.forEach(semester => {
-                if (!groupedData[kelas][semester]) return;
+            data.forEach(item => {
+                const kelas = item.Kelas;
                 
-                const semesterData = groupedData[kelas][semester];
-                
-                html += `<h5 class="semester-title">Semester ${semester}</h5>`;
-                html += `<table>`;
-                html += `<tbody>`;
-                
-                // Kelompokkan bab menjadi baris (maksimal 5 kolom per baris)
-                for (let i = 0; i < semesterData.length; i += 5) {
-                    html += `<tr>`;
-                    
-                    for (let j = 0; j < 5; j++) {
-                        const index = i + j;
-                        if (index < semesterData.length) {
-                            const bab = semesterData[index];
-                            html += `<td>`;
-                            html += `<div class="bab-card">`;
-                            html += `<div class="bab-number">BAB ${bab.bab}</div>`;
-                            html += `<div class="bab-judul">${bab.judul}</div>`;
-                            // Tombol MASUK MATERI dengan data akt1
-                            html += `<button class="btn-masuk" data-kelas="${bab.Kelas}" data-semester="${bab.semester}" data-bab="${bab.bab}" data-judul="${bab.judul}" data-akt1="${bab.akt1 || ''}">MASUK MATERI</button>`;
-                            html += `</div>`;
-                            html += `</td>`;
-                        } else {
-                            // Kolom kosong
-                            html += `<td></td>`;
-                        }
-                    }
-                    
-                    html += `</tr>`;
+                if (!grouped[kelas]) {
+                    grouped[kelas] = [];
                 }
                 
-                html += `</tbody>`;
-                html += `</table>`;
+                grouped[kelas].push(item);
+            });
+            
+            return grouped;
+        }
+        
+        // Fungsi untuk membuat section kelas
+        function createKelasSection(kelas, data) {
+            // Urutkan data berdasarkan semester dan bab
+            data.sort((a, b) => {
+                if (a.semester !== b.semester) return a.semester - b.semester;
+                return a.bab - b.bab;
+            });
+            
+            const sectionId = `kelas-${kelas}`;
+            
+            let html = `<div class="kelas-horizontal-section" id="${sectionId}">`;
+            html += `<div class="kelas-header">`;
+            html += `<h4>Materi Kelas ${kelas}</h4>`;
+            html += `<div class="scroll-indicator">`;
+            html += `<span>Geser untuk melihat materi lainnya</span>`;
+            html += `<i class="fas fa-chevron-right"></i>`;
+            html += `</div>`;
+            html += `</div>`;
+            
+            html += `<div class="materi-container-wrapper">`;
+            
+            // Tombol scroll kiri
+            html += `<button class="scroll-btn scroll-left" data-target="${sectionId}">`;
+            html += `<i class="fas fa-chevron-left"></i>`;
+            html += `</button>`;
+            
+            // Kontainer horizontal untuk materi
+            html += `<div class="materi-horizontal-container" id="container-${kelas}">`;
+            
+            // Kartu materi
+            data.forEach(item => {
+                html += createMateriCard(item);
             });
             
             html += `</div>`;
-        });
-        
-        return html;
-    }
-    
-    // Fungsi untuk merender data
-    function renderData(data) {
-        const groupedData = groupDataByClassAndSemester(data);
-        materiContainer.innerHTML = createMateriTable(groupedData);
-        
-        // Tambahkan event listener untuk tombol "MASUK MATERI"
-        document.querySelectorAll('.btn-masuk').forEach(button => {
-            button.addEventListener('click', function() {
-                const kelas = this.getAttribute('data-kelas');
-                const semester = this.getAttribute('data-semester');
-                const bab = this.getAttribute('data-bab');
-                const judul = this.getAttribute('data-judul');
-                const akt1 = this.getAttribute('data-akt1');
-                
-                openModal(kelas, semester, bab, judul, akt1);
-            });
-        });
-    }
-    
-    // Fungsi untuk filter data berdasarkan kelas
-    function filterDataByClass(kelas) {
-        if (kelas === 'all') {
-            return allData;
-        } else {
-            return allData.filter(item => item.Kelas === kelas);
+            
+            // Tombol scroll kanan
+            html += `<button class="scroll-btn scroll-right" data-target="${sectionId}">`;
+            html += `<i class="fas fa-chevron-right"></i>`;
+            html += `</button>`;
+            
+            html += `</div>`;
+            html += `</div>`;
+            
+            return html;
         }
-    }
-    
-    // Fungsi untuk membuka modal dengan informasi detail
-    function openModal(kelas, semester, bab, judul, akt1) {
-        modalTitle.textContent = judul;
         
-        // Set informasi modal
-        modalKelas.textContent = `Kelas: ${kelas}`;
-        modalSemester.textContent = `Semester: ${semester}`;
-        modalBab.textContent = `Bab: ${bab}`;
-        
-        // Tampilkan deskripsi materi dengan menambahkan data akt1
-        let deskripsi = deskripsiMateri[judul];
-        
-        if (!deskripsi) {
-            // Template default dengan data akt1
-            deskripsi = `
-                <strong>Aktivitas 1:</strong> ${akt1 || 'Tidak tersedia'}<br>
-                <strong>Literasi Digital:</strong> ${judul.toLowerCase()}<br>
-                <strong>Literasi Teks:</strong> sesuai dengan kurikulum Pendidikan Agama Islam untuk kelas ${kelas} semester ${semester}<br>
-                <strong>PBL DeepLearn:</strong> Pembelajaran berbasis proyek yang mengintegrasikan teknologi digital<br>
-                <strong>Refleksi:</strong> Peserta didik diajak untuk merefleksikan nilai-nilai Islam dalam kehidupan sehari-hari<br>
-                <strong>Perilaku:</strong> Mengembangkan sikap dan perilaku yang sesuai dengan ajaran Islam
+        // Fungsi untuk membuat kartu materi
+        function createMateriCard(item) {
+            return `
+                <div class="materi-card">
+                    <div class="bab-header">
+                        <div class="bab-number">${item.bab}</div>
+                        <div class="bab-title">${item.judul}</div>
+                    </div>
+                    ${formatTujuanBelajar(item.tujuan)}
+                    <div class="bab-meta">
+                        <span>Semester ${item.semester}</span>
+                        <span>${item.akt1}</span>
+                    </div>
+                    <button class="btn-masuk" 
+                        data-kelas="${item.Kelas}" 
+                        data-semester="${item.semester}" 
+                        data-bab="${item.bab}" 
+                        data-judul="${item.judul}" 
+                        data-akt1="${item.akt1 || ''}"
+                        data-tujuan="${item.tujuan || ''}">
+                        MASUK MATERI
+                    </button>
+                </div>
             `;
-        } else {
-            // Tambahkan data akt1 ke deskripsi yang sudah ada
-            deskripsi = `<strong>Aktivitas 1:</strong> ${akt1 || 'Tidak tersedia'}<br><br>` + deskripsi;
         }
         
-        modalDescription.innerHTML = deskripsi;
+        // Fungsi untuk merender data
+        function renderData(data) {
+            const groupedData = groupDataByClass(data);
+            let html = '';
+            
+            // Urutkan kelas: XII, XI, X
+            const kelasOrder = ['XII', 'XI', 'X'];
+            
+            kelasOrder.forEach(kelas => {
+                if (groupedData[kelas]) {
+                    html += createKelasSection(kelas, groupedData[kelas]);
+                }
+            });
+            
+            materiContainer.innerHTML = html;
+            
+            // Tambahkan event listener untuk tombol "MASUK MATERI"
+            document.querySelectorAll('.btn-masuk').forEach(button => {
+                button.addEventListener('click', function() {
+                    const kelas = this.getAttribute('data-kelas');
+                    const semester = this.getAttribute('data-semester');
+                    const bab = this.getAttribute('data-bab');
+                    const judul = this.getAttribute('data-judul');
+                    const akt1 = this.getAttribute('data-akt1');
+                    const tujuan = this.getAttribute('data-tujuan');
+                    
+                    openModal(kelas, semester, bab, judul, akt1, tujuan);
+                });
+            });
+            
+            // Tambahkan event listener untuk tombol scroll
+            document.querySelectorAll('.scroll-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    const targetClass = targetId.replace('kelas-', '');
+                    const container = document.getElementById(`container-${targetClass}`);
+                    const scrollAmount = 300;
+                    
+                    if (this.classList.contains('scroll-left')) {
+                        container.scrollBy({
+                            left: -scrollAmount,
+                            behavior: 'smooth'
+                        });
+                    } else {
+                        container.scrollBy({
+                            left: scrollAmount,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
         
-        // Atur tautan download
-        btnDownload.onclick = function() {
-            alert(`Materi "${judul}" untuk Kelas ${kelas} Semester ${semester} Bab ${bab} akan diunduh.`);
-            // Di sini bisa ditambahkan logika untuk mengunduh file
-        };
+        // Fungsi untuk membuka modal
+        function openModal(kelas, semester, bab, judul, akt1, tujuan) {
+            modalTitle.textContent = judul;
+            
+            // Set informasi modal
+            modalKelas.textContent = `Kelas: ${kelas}`;
+            modalSemester.textContent = `Semester: ${semester}`;
+            modalBab.textContent = `Bab: ${bab}`;
+            modalAkt1.textContent = `Aktivitas: ${akt1 || 'Tidak tersedia'}`;
+            
+            // Tampilkan tujuan belajar dalam modal
+            const tujuanItems = tujuan ? tujuan.split(',').map(item => item.trim()) : [];
+            let tujuanHtml = '<h4>Tujuan Pembelajaran:</h4><ul>';
+            
+            tujuanItems.forEach(item => {
+                tujuanHtml += `<li>${item}</li>`;
+            });
+            
+            tujuanHtml += '</ul>';
+            
+            modalDescription.innerHTML = `
+                <div style="margin-bottom: 20px;">
+                    ${tujuanHtml}
+                </div>
+                <p><strong>Literasi Digital:</strong> Materi ini menggunakan pendekatan digital dalam pembelajaran.</p>
+                <p><strong>Literasi Teks:</strong> Peserta didik akan membaca dan memahami teks-teks keislaman.</p>
+                <p><strong>PBL DeepLearn:</strong> Pembelajaran berbasis proyek yang mengintegrasikan teknologi digital.</p>
+                <p><strong>Refleksi:</strong> Peserta didik diajak untuk merefleksikan nilai-nilai Islam dalam kehidupan sehari-hari.</p>
+                <p><strong>Perilaku:</strong> Mengembangkan sikap dan perilaku yang sesuai dengan ajaran Islam.</p>
+            `;
+            
+            // Atur tautan download
+            btnDownload.onclick = function() {
+                alert(`Materi "${judul}" untuk Kelas ${kelas} Semester ${semester} Bab ${bab} akan diunduh.`);
+            };
+            
+            // Tampilkan modal
+            modal.style.display = 'block';
+        }
         
-        // Tampilkan modal
-        modal.style.display = 'block';
-    }
-    
-    // Event listener untuk tombol filter
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Hapus kelas aktif dari semua tombol
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Tambah kelas aktif ke tombol yang diklik
-            this.classList.add('active');
-            
-            // Dapatkan kelas yang dipilih
-            const selectedClass = this.getAttribute('data-kelas');
-            
-            // Filter data
-            filteredData = filterDataByClass(selectedClass);
-            
-            // Render data yang sudah difilter
-            renderData(filteredData);
-        });
-    });
-    
-    // Event listener untuk menutup modal
-    closeModal.addEventListener('click', function() {
-        modal.style.display = 'none';
-    });
-    
-    // Tutup modal jika klik di luar modal
-    window.addEventListener('click', function(event) {
-        if (event.target === modal) {
+        // Event listener untuk menutup modal
+        closeModal.addEventListener('click', function() {
             modal.style.display = 'none';
-        }
+        });
+        
+        // Tutup modal jika klik di luar modal
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+        
+        // Muat data saat halaman dimuat
+        loadData();
     });
-    
-    // Muat data saat halaman dimuat
-    loadData();
-});
-</script>
+    </script>
 </body>
 </html>
