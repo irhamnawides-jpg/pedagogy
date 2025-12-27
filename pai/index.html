@@ -596,7 +596,7 @@
                         
                         html += `<h5 class="semester-title">Semester ${semester}</h5>`;
                         html += `<table>`;
-                        html += `<thead><tr><th>JUDUL MATERI</th><th>JUDUL MATERI</th><th>JUDUL MATERI</th><th>JUDUL MATERI</th><th>JUDUL MATERI</th></tr></thead>`;
+                     
                         html += `<tbody>`;
                         
                         // Kelompokkan bab menjadi baris (maksimal 5 kolom per baris)
@@ -609,7 +609,7 @@
                                     const bab = semesterData[index];
                                     html += `<td>`;
                                     html += `<div class="bab-card">`;
-                                    html += `<div class="bab-number">${bab.bab}</div>`;
+                                    html += `<div class="bab-number">BAB ${bab.bab}</div>`;
                                     html += `<div class="bab-judul">${bab.judul}</div>`;
                                     // Tombol MASUK MATERI
                                     html += `<button class="btn-masuk" data-kelas="${bab.Kelas}" data-semester="${bab.semester}" data-bab="${bab.bab}" data-judul="${bab.judul}">MASUK MATERI</button>`;
