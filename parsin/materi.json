@@ -6,7 +6,390 @@
     "aktivitas_2": "Pahami dan renungkan artikel berikut ini, sebagai bagian dari pemahaman dari materi ajar yang akan dipelajari!",
     "aktivitas_3": "Mari membaca dengan fasih dan benar Q.S. Ali ‘Imrān/3: 190-191 berikut ini. Sesuaikan bacannya dengan menggunakan Ilmu Tajwid dan Makharijul huruf!",
     "aktivitas_4": "Pahami dan renungkan artikel berikut ini, sebagai bagian dari pemahaman dari materi ajar yang akan dipelajari!",
-    "aktivitas_5": "<!DOCTYPE html>\n<!-- saved from url=(0037)http://127.0.0.1:5500/qiuz/index.html -->\n<html lang=\"\"id\"\"><head><meta http-equiv=\"\"Content-Type\"\" content=\"\"text/html; charset=UTF-8\"\">\n    <link rel=\"\"stylesheet\"\" href=\"\"rakor_css.css\"\">\n    <link rel=\"\"stylesheet\"\" href=\"\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css\"\">\n   \n    <meta name=\"\"viewport\"\" content=\"\"width=device-width, initial-scale=1.0\"\">\n    <title>Quiz Pilihan Ganda</title>\n  \n</head>\n<body>\n    <div class=\"\"container\"\">\n        <header>\n            <h1><i class=\"\"fas fa-file-alt\"\"></i> Quiz Pilihan Ganda</h1>\n            <p>Pendidikan Agama Islam - Cinta Tanah Air dan Moderasi Beragama</p>\n        </header>\n        \n        <div class=\"\"quiz-info\"\">\n            <div class=\"\"info-row\"\">\n                <div class=\"\"info-item\"\">\n                    <span class=\"\"info-label\"\">Mata Pelajaran:</span>\n                    <span class=\"\"info-value\"\">Pendidikan Agama Islam</span>\n                </div>\n                <div class=\"\"info-item\"\">\n                    <span class=\"\"info-label\"\">Jumlah Soal:</span>\n                    <span class=\"\"info-value\"\" id=\"\"totalQuestions\"\">10</span>\n                </div>\n            </div>\n            <div class=\"\"info-row\"\">\n                <div class=\"\"info-item\"\">\n                    <span class=\"\"info-label\"\">Nama Peserta:</span>\n                    <input type=\"\"text\"\" id=\"\"userName\"\" placeholder=\"\"Masukkan nama Anda\"\" style=\"\"padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px;\"\">\n                </div>\n                <div class=\"\"info-item\"\">\n                    <span class=\"\"info-label\"\">Waktu:</span>\n                    <span class=\"\"info-value\"\">Tidak Terbatas</span>\n                </div>\n            </div>\n        </div>\n        \n        <div class=\"\"quiz-container\"\">\n            <div class=\"\"quiz-header\"\">\n                <h2 class=\"\"quiz-title\"\">Soal Pilihan Ganda</h2>\n                <div class=\"\"answer-status\"\">\n                    <div class=\"\"status-item\"\">\n                        <div class=\"\"status-color answered-color\"\"></div>\n                        <span>Terjawab</span>\n                    </div>\n                    <div class=\"\"status-item\"\">\n                        <div class=\"\"status-color unanswered-color\"\"></div>\n                        <span>Belum Terjawab</span>\n                    </div>\n                </div>\n            </div>\n            \n            <div class=\"\"question-list\"\" id=\"\"questionList\"\"><div class=\"\"question-item\"\" id=\"\"question-0\"\">\n                    <div class=\"\"question-number\"\">1</div>\n                    <div class=\"\"question-text\"\">Perhatikan kutipan ayat Q.S. al-Qasas/28: 85 berikut<img src=\"\"./Quiz Pilihan Ganda_files/ayat_soal_2 bab6.PNG\"\" alt=\"\"Ilustrasi\"\" loading=\"\"lazy\"\" style=\"\"max-width: 100%; height: auto;\"\"> Arti ayat yang bergaris pada potongan ayat di atas adalah ..</div>\n                    <div class=\"\"options-container\"\">\n                \n                        <div class=\"\"option\"\" data-question=\"\"0\"\" data-option=\"\"0\"\">\n                            <div class=\"\"option-label\"\">A</div>\n                            sesungguhnya (Allah) yang mewajibkan\n                        </div>\n                    \n                        <div class=\"\"option selected\"\" data-question=\"\"0\"\" data-option=\"\"1\"\">\n                            <div class=\"\"option-label\"\">B</div>\n                            kami sungguh melarang kamu\n                        </div>\n                    \n                        <div class=\"\"option\"\" data-question=\"\"0\"\" data-option=\"\"2\"\">\n                            <div class=\"\"option-label\"\">C</div>\n                            sesungguhnya wajib bagimu\n                        </div>\n                    \n                        <div class=\"\"option\"\" data-question=\"\"0\"\" data-option=\"\"3\"\">\n                            <div class=\"\"option-label\"\">D</div>\n                            kami memerintahkanmu\n                        </div>\n                    \n                        <div class=\"\"option\"\" data-question=\"\"0\"\" data-option=\"\"4\"\">\n                            <div class=\"\"option-label\"\">E</div>\n                            kamu diperintahkan\n                        </div>\n                    </div></div><div class=\"\"question-item\"\" id=\"\"question-1\"\">\n                    <div class=\"\"question-number\"\">2</div>\n                    <div class=\"\"question-text\"\">Perhatikan kutipan ayat Q.S. al-Qasas/28: 85 berikut <img src=\"\"./Quiz Pilihan Ganda_files/ayat_soal_2 bab6.PNG\"\" alt=\"\"Ilustrasi\"\" loading=\"\"lazy\"\" style=\"\"max-width: 100%; height: auto;\"\"><br> Bacaan tajwid potongan ayat di atas adalah ..</div>\n                    <div class=\"\"options-container\"\">\n                \n                        <div class=\"\"option \"\" data-question=\"\"1\"\" data-option=\"\"0\"\">\n                            <div class=\"\"option-label\"\">A</div>\n                            Mad jaiz munfasil, mad iwadl, mad thabi'i\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"1\"\" data-option=\"\"1\"\">\n                            <div class=\"\"option-label\"\">B</div>\n                            Mad jaiz munfasil, ikhfa', mad wajib mutasil\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"1\"\" data-option=\"\"2\"\">\n                            <div class=\"\"option-label\"\">C</div>\n                            Mad jaiz munfasil, ikhfa', mad thabi'i\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"1\"\" data-option=\"\"3\"\">\n                            <div class=\"\"option-label\"\">D</div>\n                            Mad badal, mad iwadl, mad thabi'i\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"1\"\" data-option=\"\"4\"\">\n                            <div class=\"\"option-label\"\">E</div>\n                            Mad badal, mad iwadl, mad lain\n                        </div>\n                    </div></div><div class=\"\"question-item\"\" id=\"\"question-2\"\">\n                    <div class=\"\"question-number\"\">3</div>\n                    <div class=\"\"question-text\"\">Perhatikan kutipan ayat Q.S. al-Baqarah/2: 143 berikut <img src=\"\"./Quiz Pilihan Ganda_files/ayat_soal_3 bab6.PNG\"\" alt=\"\"Ilustrasi\"\" loading=\"\"lazy\"\" style=\"\"max-width: 100%; height: auto;\"\"><br> Arti ayat yang bergaris pada potongan ayat di atas adalah ..</div>\n                    <div class=\"\"options-container\"\">\n                \n                        <div class=\"\"option \"\" data-question=\"\"2\"\" data-option=\"\"0\"\">\n                            <div class=\"\"option-label\"\">A</div>\n                            dan demikian pula Kami telah menjadikan kamu (umat Islam) umat pertengahan\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"2\"\" data-option=\"\"1\"\">\n                            <div class=\"\"option-label\"\">B</div>\n                            dan demikian pula Kami telah menciptakan kamu (umat Islam) umat yang terbaik\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"2\"\" data-option=\"\"2\"\">\n                            <div class=\"\"option-label\"\">C</div>\n                            dan demikian pula Kami telah memerintahkan kamu (umat Islam) berbuat baik\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"2\"\" data-option=\"\"3\"\">\n                            <div class=\"\"option-label\"\">D</div>\n                            dan demikian pula Kami telah menciptakan kamu (umat Islam) umat bersuku-suku\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"2\"\" data-option=\"\"4\"\">\n                            <div class=\"\"option-label\"\">E</div>\n                            dan demikian pula Kami telah menciptakan kamu (umat Islam) umat berbangsa-bangsa\n                        </div>\n                    </div></div><div class=\"\"question-item\"\" id=\"\"question-3\"\">\n                    <div class=\"\"question-number\"\">4</div>\n                    <div class=\"\"question-text\"\">Perhatikan kutipan ayat Q.S. al-Baqarah/2: 143 berikut <img src=\"\"./Quiz Pilihan Ganda_files/ayat_soal_2 bab6.PNG\"\" alt=\"\"Ilustrasi\"\" loading=\"\"lazy\"\" style=\"\"max-width: 100%; height: auto;\"\"><br> Bacaan tajwid potongan ayat di atas adalah ..</div>\n                    <div class=\"\"options-container\"\">\n                \n                        <div class=\"\"option\"\" data-question=\"\"3\"\" data-option=\"\"0\"\">\n                            <div class=\"\"option-label\"\">A</div>\n                            Mad jaiz munfasil, mad iwadl, mad thabi'i, mad badal\n                        </div>\n                    \n                        <div class=\"\"option\"\" data-question=\"\"3\"\" data-option=\"\"1\"\">\n                            <div class=\"\"option-label\"\">B</div>\n                            Mad thabi'i, al qamariyah, al syamsiyah, ikhfa' mad jaiz mumfasil\n                        </div>\n                    \n                        <div class=\"\"option\"\" data-question=\"\"3\"\" data-option=\"\"2\"\">\n                            <div class=\"\"option-label\"\">C</div>\n                            Mad jaiz munfasil, ikhfa', mad thabi'i, idhar syafawi\n                        </div>\n                    \n                        <div class=\"\"option\"\" data-question=\"\"3\"\" data-option=\"\"3\"\">\n                            <div class=\"\"option-label\"\">D</div>\n                            Mad badal, mad iwadl, mad thabi'i, iqlab\n                        </div>\n                    \n                        <div class=\"\"option selected\"\" data-question=\"\"3\"\" data-option=\"\"4\"\">\n                            <div class=\"\"option-label\"\">E</div>\n                            Mad badal, mad iwadl, mad lain\n                        </div>\n                    </div></div><div class=\"\"question-item\"\" id=\"\"question-4\"\">\n                    <div class=\"\"question-number\"\">5</div>\n                    <div class=\"\"question-text\"\">Perhatikan kutipan ayat Q.S. al-Baqarah/2: 143 berikut!<img src=\"\"./Quiz Pilihan Ganda_files/ayat_soal_2 bab6.PNG\"\" alt=\"\"Ilustrasi\"\" loading=\"\"lazy\"\" style=\"\"max-width: 100%; height: auto;\"\"><br> Bacaan tajwid potongan ayat di atas adalah ….</div>\n                    <div class=\"\"options-container\"\">\n                \n                        <div class=\"\"option \"\" data-question=\"\"4\"\" data-option=\"\"0\"\">\n                            <div class=\"\"option-label\"\">A</div>\n                            Mad jaiz munfasil, mad iwadl, mad thabi'i, mad badal\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"4\"\" data-option=\"\"1\"\">\n                            <div class=\"\"option-label\"\">B</div>\n                            Mad thabi'i, al qamariyah, al syamsiyah, ikhfa' mad jaiz mumfasil\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"4\"\" data-option=\"\"2\"\">\n                            <div class=\"\"option-label\"\">C</div>\n                            Mad jaiz munfasil, ikhfa', mad thabi'i, idhar syafawi\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"4\"\" data-option=\"\"3\"\">\n                            <div class=\"\"option-label\"\">D</div>\n                            Mad badal, mad iwadl, mad thabi'i, iqlab\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"4\"\" data-option=\"\"4\"\">\n                            <div class=\"\"option-label\"\">E</div>\n                            Ikhfa', mad thabi'i, idhar, al qamariyah\n                        </div>\n                    </div></div><div class=\"\"question-item\"\" id=\"\"question-5\"\">\n                    <div class=\"\"question-number\"\">6</div>\n                    <div class=\"\"question-text\"\">Perhatikan pernyataan di bawah ini! 1) Bangga sebagai bangsa Indonesia 2) Menjual nama baik tanah air Indonesia 3) Menggunakan hak pilih dalam pemilu 4) Menjunjung tinggi hukum jika perlu 5) Aktif berpartisipasi dalam pembangunan nasional. Pernyataan tersebut merupakan contoh sikap cinta tanah air adalah nomor ..</div>\n                    <div class=\"\"options-container\"\">\n                \n                        <div class=\"\"option \"\" data-question=\"\"5\"\" data-option=\"\"0\"\">\n                            <div class=\"\"option-label\"\">A</div>\n                            1), 2) dan 3)\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"5\"\" data-option=\"\"1\"\">\n                            <div class=\"\"option-label\"\">B</div>\n                            1), 2) dan 4)\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"5\"\" data-option=\"\"2\"\">\n                            <div class=\"\"option-label\"\">C</div>\n                            1), 2) dan 5)\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"5\"\" data-option=\"\"3\"\">\n                            <div class=\"\"option-label\"\">D</div>\n                            1), 3) dan 5)\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"5\"\" data-option=\"\"4\"\">\n                            <div class=\"\"option-label\"\">E</div>\n                            1), 4) dan 5)\n                        </div>\n                    </div></div><div class=\"\"question-item\"\" id=\"\"question-6\"\">\n                    <div class=\"\"question-number\"\">7</div>\n                    <div class=\"\"question-text\"\">Berikut ini yang bukan contoh sikap cinta tanah air yang bisa kita lakukan dalam kegiatan sehari-hari adalah ..</div>\n                    <div class=\"\"options-container\"\">\n                \n                        <div class=\"\"option \"\" data-question=\"\"6\"\" data-option=\"\"0\"\">\n                            <div class=\"\"option-label\"\">A</div>\n                            Menuntut ilmu dengan sungguh-sungguh\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"6\"\" data-option=\"\"1\"\">\n                            <div class=\"\"option-label\"\">B</div>\n                            Melestarikan kebudayaan Indonesia\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"6\"\" data-option=\"\"2\"\">\n                            <div class=\"\"option-label\"\">C</div>\n                            Menjaga kelestarian lingkungan\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"6\"\" data-option=\"\"3\"\">\n                            <div class=\"\"option-label\"\">D</div>\n                            Menciptakan kerukunan antar umat beragama\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"6\"\" data-option=\"\"4\"\">\n                            <div class=\"\"option-label\"\">E</div>\n                            Hidup rukun dan gotong royong jika jadi tokoh masyarakat\n                        </div>\n                    </div></div><div class=\"\"question-item\"\" id=\"\"question-7\"\">\n                    <div class=\"\"question-number\"\">8</div>\n                    <div class=\"\"question-text\"\">Allah Swt. berfirman, \"\"...agar Kami dapat menjadikan kalian sebagai umat pilihan...\"\". Yang dimaksud dengan kata 'wasath' adalah ….</div>\n                    <div class=\"\"options-container\"\">\n                \n                        <div class=\"\"option \"\" data-question=\"\"7\"\" data-option=\"\"0\"\">\n                            <div class=\"\"option-label\"\">A</div>\n                            pilihan yang terbaik\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"7\"\" data-option=\"\"1\"\">\n                            <div class=\"\"option-label\"\">B</div>\n                            pilihan yang menyenangkan\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"7\"\" data-option=\"\"2\"\">\n                            <div class=\"\"option-label\"\">C</div>\n                            pilihan yang menyedihkan\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"7\"\" data-option=\"\"3\"\">\n                            <div class=\"\"option-label\"\">D</div>\n                            pilihan yang melapangkan\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"7\"\" data-option=\"\"4\"\">\n                            <div class=\"\"option-label\"\">E</div>\n                            pilihan yang terlupakan\n                        </div>\n                    </div></div><div class=\"\"question-item\"\" id=\"\"question-8\"\">\n                    <div class=\"\"question-number\"\">9</div>\n                    <div class=\"\"question-text\"\">Hal ini dikembangkan oleh Kemendikbud dan Kemenag dengan mengusung tema ..</div>\n                    <div class=\"\"options-container\"\">\n                \n                        <div class=\"\"option \"\" data-question=\"\"8\"\" data-option=\"\"0\"\">\n                            <div class=\"\"option-label\"\">A</div>\n                            merdeka sebebas bebasnya\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"8\"\" data-option=\"\"1\"\">\n                            <div class=\"\"option-label\"\">B</div>\n                            merdeka sesuai kebutuhan\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"8\"\" data-option=\"\"2\"\">\n                            <div class=\"\"option-label\"\">C</div>\n                            profil pelajar Pancasila\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"8\"\" data-option=\"\"3\"\">\n                            <div class=\"\"option-label\"\">D</div>\n                            profil guru professional\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"8\"\" data-option=\"\"4\"\">\n                            <div class=\"\"option-label\"\">E</div>\n                            profil tenaga kependidikan\n                        </div>\n                    </div></div><div class=\"\"question-item\"\" id=\"\"question-9\"\">\n                    <div class=\"\"question-number\"\">10</div>\n                    <div class=\"\"question-text\"\">Karakter dan prinsip wasath seseorang hendaknya memegang prinsip berada dalam jalan yang lurus, hal ini dapat difahami sebagai wujud sikap ..</div>\n                    <div class=\"\"options-container\"\">\n                \n                        <div class=\"\"option \"\" data-question=\"\"9\"\" data-option=\"\"0\"\">\n                            <div class=\"\"option-label\"\">A</div>\n                            tasamuh\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"9\"\" data-option=\"\"1\"\">\n                            <div class=\"\"option-label\"\">B</div>\n                            tawasul\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"9\"\" data-option=\"\"2\"\">\n                            <div class=\"\"option-label\"\">C</div>\n                            tawazun\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"9\"\" data-option=\"\"3\"\">\n                            <div class=\"\"option-label\"\">D</div>\n                            tawakal\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"9\"\" data-option=\"\"4\"\">\n                            <div class=\"\"option-label\"\">E</div>\n                            istiqamah\n                        </div>\n                    </div></div></div>\n            \n            <div class=\"\"quiz-controls\"\">\n                <button id=\"\"resetBtn\"\">Reset Jawaban</button>\n                <button id=\"\"submitBtn\"\">Kumpulkan Jawaban</button>\n            </div>\n            \n            <div class=\"\"progress-container\"\">\n                <div class=\"\"progress-text\"\">\n                    <span>Progress Jawaban</span>\n                    <span id=\"\"progressPercent\"\">20%</span>\n                </div>\n                <div class=\"\"progress-bar\"\">\n                    <div class=\"\"progress-fill\"\" id=\"\"progressFill\"\" style=\"\"width: 20%;\"\"></div>\n                </div>\n            </div>\n        </div>\n    </div>\n    \n    <!-- Modal untuk hasil quiz -->\n    <div class=\"\"modal\"\" id=\"\"resultModal\"\">\n        <div class=\"\"modal-content\"\">\n            <div class=\"\"modal-header\"\">\n                <h2 class=\"\"modal-title\"\">Hasil Quiz Anda</h2>\n                <button class=\"\"close-modal\"\" id=\"\"closeModal\"\">×</button>\n            </div>\n            \n            <div class=\"\"modal-body\"\">\n                <div class=\"\"result-summary\"\">\n                    <h3>Ringkasan Hasil</h3>\n                    <div class=\"\"result-score\"\" id=\"\"finalScore\"\">0/10 (0)</div>\n                    <p>Format jawaban untuk disimpan:</p>\n                    <div class=\"\"result-output\"\" id=\"\"resultOutput\"\"></div>\n                    <div style=\"\"margin-top: 20px;\"\">\n                        <button id=\"\"copyBtn\"\" class=\"\"quiz-button\"\" style=\"\"background-color: #1a5f7a; margin-right: 10px;\"\">Salin Hasil</button>\n                        <button id=\"\"closeResultBtn\"\" class=\"\"quiz-button\"\" style=\"\"background-color: #6c757d;\"\">Tutup</button>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n <script src=\"\"script.js\"\"></script> \n</body></html>",
+    "aktivitas_5": "<link rel='stylesheet' href='rakor_css.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'>
+   
+  
+<body>
+    <div class='container'>
+        <header>
+            <h1><i class='fas fa-file-alt'></i> Quiz Pilihan Ganda</h1>
+            <p>Pendidikan Agama Islam - Cinta Tanah Air dan Moderasi Beragama</p>
+        </header>
+        
+        <div class='quiz-info'>
+            <div class='info-row'>
+                <div class='info-item'>
+                    <span class='info-label'>Mata Pelajaran:</span>
+                    <span class='info-value'>Pendidikan Agama Islam</span>
+                </div>
+                <div class='info-item'>
+                    <span class='info-label'>Jumlah Soal:</span>
+                    <span class='info-value' id='totalQuestions'>10</span>
+                </div>
+            </div>
+            <div class='info-row'>
+                <div class='info-item'>
+                    <span class='info-label'>Nama Peserta:</span>
+                    <input type='text' id='userName' placeholder='Masukkan nama Anda' style='padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px;'>
+                </div>
+                <div class='info-item'>
+                    <span class='info-label'>Waktu:</span>
+                    <span class='info-value'>Tidak Terbatas</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class='quiz-container'>
+            <div class='quiz-header'>
+                <h2 class='quiz-title'>Soal Pilihan Ganda</h2>
+                <div class='answer-status'>
+                    <div class='status-item'>
+                        <div class='status-color answered-color'></div>
+                        <span>Terjawab</span>
+                    </div>
+                    <div class='status-item'>
+                        <div class='status-color unanswered-color'></div>
+                        <span>Belum Terjawab</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class='question-list' id='questionList'><div class='question-item' id='question-0'>
+                    <div class='question-number'>1</div>
+                    <div class='question-text'>Perhatikan kutipan ayat Q.S. al-Qasas/28: 85 berikut<img src='./Quiz Pilihan Ganda_files/ayat_soal_2 bab6.PNG' alt='Ilustrasi' loading='lazy' style='max-width: 100%; height: auto;'> Arti ayat yang bergaris pada potongan ayat di atas adalah ..</div>
+                    <div class='options-container'>
+                
+                        <div class='option' data-question='0' data-option='0'>
+                            <div class='option-label'>A</div>
+                            sesungguhnya (Allah) yang mewajibkan
+                        </div>
+                    
+                        <div class='option selected' data-question='0' data-option='1'>
+                            <div class='option-label'>B</div>
+                            kami sungguh melarang kamu
+                        </div>
+                    
+                        <div class='option' data-question='0' data-option='2'>
+                            <div class='option-label'>C</div>
+                            sesungguhnya wajib bagimu
+                        </div>
+                    
+                        <div class='option' data-question='0' data-option='3'>
+                            <div class='option-label'>D</div>
+                            kami memerintahkanmu
+                        </div>
+                    
+                        <div class='option' data-question='0' data-option='4'>
+                            <div class='option-label'>E</div>
+                            kamu diperintahkan
+                        </div>
+                    </div></div><div class='question-item' id='question-1'>
+                    <div class='question-number'>2</div>
+                    <div class='question-text'>Perhatikan kutipan ayat Q.S. al-Qasas/28: 85 berikut <img src='./Quiz Pilihan Ganda_files/ayat_soal_2 bab6.PNG' alt='Ilustrasi' loading='lazy' style='max-width: 100%; height: auto;'><br> Bacaan tajwid potongan ayat di atas adalah ..</div>
+                    <div class='options-container'>
+                
+                        <div class='option ' data-question='1' data-option='0'>
+                            <div class='option-label'>A</div>
+                            Mad jaiz munfasil, mad iwadl, mad thabi'i
+                        </div>
+                    
+                        <div class='option ' data-question='1' data-option='1'>
+                            <div class='option-label'>B</div>
+                            Mad jaiz munfasil, ikhfa', mad wajib mutasil
+                        </div>
+                    
+                        <div class='option ' data-question='1' data-option='2'>
+                            <div class='option-label'>C</div>
+                            Mad jaiz munfasil, ikhfa', mad thabi'i
+                        </div>
+                    
+                        <div class='option ' data-question='1' data-option='3'>
+                            <div class='option-label'>D</div>
+                            Mad badal, mad iwadl, mad thabi'i
+                        </div>
+                    
+                        <div class='option ' data-question='1' data-option='4'>
+                            <div class='option-label'>E</div>
+                            Mad badal, mad iwadl, mad lain
+                        </div>
+                    </div></div><div class='question-item' id='question-2'>
+                    <div class='question-number'>3</div>
+                    <div class='question-text'>Perhatikan kutipan ayat Q.S. al-Baqarah/2: 143 berikut <img src='./Quiz Pilihan Ganda_files/ayat_soal_3 bab6.PNG' alt='Ilustrasi' loading='lazy' style='max-width: 100%; height: auto;'><br> Arti ayat yang bergaris pada potongan ayat di atas adalah ..</div>
+                    <div class='options-container'>
+                
+                        <div class='option ' data-question='2' data-option='0'>
+                            <div class='option-label'>A</div>
+                            dan demikian pula Kami telah menjadikan kamu (umat Islam) umat pertengahan
+                        </div>
+                    
+                        <div class='option ' data-question='2' data-option='1'>
+                            <div class='option-label'>B</div>
+                            dan demikian pula Kami telah menciptakan kamu (umat Islam) umat yang terbaik
+                        </div>
+                    
+                        <div class='option ' data-question='2' data-option='2'>
+                            <div class='option-label'>C</div>
+                            dan demikian pula Kami telah memerintahkan kamu (umat Islam) berbuat baik
+                        </div>
+                    
+                        <div class='option ' data-question='2' data-option='3'>
+                            <div class='option-label'>D</div>
+                            dan demikian pula Kami telah menciptakan kamu (umat Islam) umat bersuku-suku
+                        </div>
+                    
+                        <div class='option ' data-question='2' data-option='4'>
+                            <div class='option-label'>E</div>
+                            dan demikian pula Kami telah menciptakan kamu (umat Islam) umat berbangsa-bangsa
+                        </div>
+                    </div></div><div class='question-item' id='question-3'>
+                    <div class='question-number'>4</div>
+                    <div class='question-text'>Perhatikan kutipan ayat Q.S. al-Baqarah/2: 143 berikut <img src='./Quiz Pilihan Ganda_files/ayat_soal_2 bab6.PNG' alt='Ilustrasi' loading='lazy' style='max-width: 100%; height: auto;'><br> Bacaan tajwid potongan ayat di atas adalah ..</div>
+                    <div class='options-container'>
+                
+                        <div class='option' data-question='3' data-option='0'>
+                            <div class='option-label'>A</div>
+                            Mad jaiz munfasil, mad iwadl, mad thabi'i, mad badal
+                        </div>
+                    
+                        <div class='option' data-question='3' data-option='1'>
+                            <div class='option-label'>B</div>
+                            Mad thabi'i, al qamariyah, al syamsiyah, ikhfa' mad jaiz mumfasil
+                        </div>
+                    
+                        <div class='option' data-question='3' data-option='2'>
+                            <div class='option-label'>C</div>
+                            Mad jaiz munfasil, ikhfa', mad thabi'i, idhar syafawi
+                        </div>
+                    
+                        <div class='option' data-question='3' data-option='3'>
+                            <div class='option-label'>D</div>
+                            Mad badal, mad iwadl, mad thabi'i, iqlab
+                        </div>
+                    
+                        <div class='option selected' data-question='3' data-option='4'>
+                            <div class='option-label'>E</div>
+                            Mad badal, mad iwadl, mad lain
+                        </div>
+                    </div></div><div class='question-item' id='question-4'>
+                    <div class='question-number'>5</div>
+                    <div class='question-text'>Perhatikan kutipan ayat Q.S. al-Baqarah/2: 143 berikut!<img src='./Quiz Pilihan Ganda_files/ayat_soal_2 bab6.PNG' alt='Ilustrasi' loading='lazy' style='max-width: 100%; height: auto;'><br> Bacaan tajwid potongan ayat di atas adalah ….</div>
+                    <div class='options-container'>
+                
+                        <div class='option ' data-question='4' data-option='0'>
+                            <div class='option-label'>A</div>
+                            Mad jaiz munfasil, mad iwadl, mad thabi'i, mad badal
+                        </div>
+                    
+                        <div class='option ' data-question='4' data-option='1'>
+                            <div class='option-label'>B</div>
+                            Mad thabi'i, al qamariyah, al syamsiyah, ikhfa' mad jaiz mumfasil
+                        </div>
+                    
+                        <div class='option ' data-question='4' data-option='2'>
+                            <div class='option-label'>C</div>
+                            Mad jaiz munfasil, ikhfa', mad thabi'i, idhar syafawi
+                        </div>
+                    
+                        <div class='option ' data-question='4' data-option='3'>
+                            <div class='option-label'>D</div>
+                            Mad badal, mad iwadl, mad thabi'i, iqlab
+                        </div>
+                    
+                        <div class='option ' data-question='4' data-option='4'>
+                            <div class='option-label'>E</div>
+                            Ikhfa', mad thabi'i, idhar, al qamariyah
+                        </div>
+                    </div></div><div class='question-item' id='question-5'>
+                    <div class='question-number'>6</div>
+                    <div class='question-text'>Perhatikan pernyataan di bawah ini! 1) Bangga sebagai bangsa Indonesia 2) Menjual nama baik tanah air Indonesia 3) Menggunakan hak pilih dalam pemilu 4) Menjunjung tinggi hukum jika perlu 5) Aktif berpartisipasi dalam pembangunan nasional. Pernyataan tersebut merupakan contoh sikap cinta tanah air adalah nomor ..</div>
+                    <div class='options-container'>
+                
+                        <div class='option ' data-question='5' data-option='0'>
+                            <div class='option-label'>A</div>
+                            1), 2) dan 3)
+                        </div>
+                    
+                        <div class='option ' data-question='5' data-option='1'>
+                            <div class='option-label'>B</div>
+                            1), 2) dan 4)
+                        </div>
+                    
+                        <div class='option ' data-question='5' data-option='2'>
+                            <div class='option-label'>C</div>
+                            1), 2) dan 5)
+                        </div>
+                    
+                        <div class='option ' data-question='5' data-option='3'>
+                            <div class='option-label'>D</div>
+                            1), 3) dan 5)
+                        </div>
+                    
+                        <div class='option ' data-question='5' data-option='4'>
+                            <div class='option-label'>E</div>
+                            1), 4) dan 5)
+                        </div>
+                    </div></div><div class='question-item' id='question-6'>
+                    <div class='question-number'>7</div>
+                    <div class='question-text'>Berikut ini yang bukan contoh sikap cinta tanah air yang bisa kita lakukan dalam kegiatan sehari-hari adalah ..</div>
+                    <div class='options-container'>
+                
+                        <div class='option ' data-question='6' data-option='0'>
+                            <div class='option-label'>A</div>
+                            Menuntut ilmu dengan sungguh-sungguh
+                        </div>
+                    
+                        <div class='option ' data-question='6' data-option='1'>
+                            <div class='option-label'>B</div>
+                            Melestarikan kebudayaan Indonesia
+                        </div>
+                    
+                        <div class='option ' data-question='6' data-option='2'>
+                            <div class='option-label'>C</div>
+                            Menjaga kelestarian lingkungan
+                        </div>
+                    
+                        <div class='option ' data-question='6' data-option='3'>
+                            <div class='option-label'>D</div>
+                            Menciptakan kerukunan antar umat beragama
+                        </div>
+                    
+                        <div class='option ' data-question='6' data-option='4'>
+                            <div class='option-label'>E</div>
+                            Hidup rukun dan gotong royong jika jadi tokoh masyarakat
+                        </div>
+                    </div></div><div class='question-item' id='question-7'>
+                    <div class='question-number'>8</div>
+                    <div class='question-text'>Allah Swt. berfirman, '...agar Kami dapat menjadikan kalian sebagai umat pilihan...'. Yang dimaksud dengan kata 'wasath' adalah ….</div>
+                    <div class='options-container'>
+                
+                        <div class='option ' data-question='7' data-option='0'>
+                            <div class='option-label'>A</div>
+                            pilihan yang terbaik
+                        </div>
+                    
+                        <div class='option ' data-question='7' data-option='1'>
+                            <div class='option-label'>B</div>
+                            pilihan yang menyenangkan
+                        </div>
+                    
+                        <div class='option ' data-question='7' data-option='2'>
+                            <div class='option-label'>C</div>
+                            pilihan yang menyedihkan
+                        </div>
+                    
+                        <div class='option ' data-question='7' data-option='3'>
+                            <div class='option-label'>D</div>
+                            pilihan yang melapangkan
+                        </div>
+                    
+                        <div class='option ' data-question='7' data-option='4'>
+                            <div class='option-label'>E</div>
+                            pilihan yang terlupakan
+                        </div>
+                    </div></div><div class='question-item' id='question-8'>
+                    <div class='question-number'>9</div>
+                    <div class='question-text'>Hal ini dikembangkan oleh Kemendikbud dan Kemenag dengan mengusung tema ..</div>
+                    <div class='options-container'>
+                
+                        <div class='option ' data-question='8' data-option='0'>
+                            <div class='option-label'>A</div>
+                            merdeka sebebas bebasnya
+                        </div>
+                    
+                        <div class='option ' data-question='8' data-option='1'>
+                            <div class='option-label'>B</div>
+                            merdeka sesuai kebutuhan
+                        </div>
+                    
+                        <div class='option ' data-question='8' data-option='2'>
+                            <div class='option-label'>C</div>
+                            profil pelajar Pancasila
+                        </div>
+                    
+                        <div class='option ' data-question='8' data-option='3'>
+                            <div class='option-label'>D</div>
+                            profil guru professional
+                        </div>
+                    
+                        <div class='option ' data-question='8' data-option='4'>
+                            <div class='option-label'>E</div>
+                            profil tenaga kependidikan
+                        </div>
+                    </div></div><div class='question-item' id='question-9'>
+                    <div class='question-number'>10</div>
+                    <div class='question-text'>Karakter dan prinsip wasath seseorang hendaknya memegang prinsip berada dalam jalan yang lurus, hal ini dapat difahami sebagai wujud sikap ..</div>
+                    <div class='options-container'>
+                
+                        <div class='option ' data-question='9' data-option='0'>
+                            <div class='option-label'>A</div>
+                            tasamuh
+                        </div>
+                    
+                        <div class='option ' data-question='9' data-option='1'>
+                            <div class='option-label'>B</div>
+                            tawasul
+                        </div>
+                    
+                        <div class='option ' data-question='9' data-option='2'>
+                            <div class='option-label'>C</div>
+                            tawazun
+                        </div>
+                    
+                        <div class='option ' data-question='9' data-option='3'>
+                            <div class='option-label'>D</div>
+                            tawakal
+                        </div>
+                    
+                        <div class='option ' data-question='9' data-option='4'>
+                            <div class='option-label'>E</div>
+                            istiqamah
+                        </div>
+                    </div></div></div>
+            
+            <div class='quiz-controls'>
+                <button id='resetBtn'>Reset Jawaban</button>
+                <button id='submitBtn'>Kumpulkan Jawaban</button>
+            </div>
+            
+            <div class='progress-container'>
+                <div class='progress-text'>
+                    <span>Progress Jawaban</span>
+                    <span id='progressPercent'>20%</span>
+                </div>
+                <div class='progress-bar'>
+                    <div class='progress-fill' id='progressFill' style='width: 20%;'></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal untuk hasil quiz -->
+    <div class='modal' id='resultModal'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <h2 class='modal-title'>Hasil Quiz Anda</h2>
+                <button class='close-modal' id='closeModal'>×</button>
+            </div>
+            
+            <div class='modal-body'>
+                <div class='result-summary'>
+                    <h3>Ringkasan Hasil</h3>
+                    <div class='result-score' id='finalScore'>0/10 (0)</div>
+                    <p>Format jawaban untuk disimpan:</p>
+                    <div class='result-output' id='resultOutput'></div>
+                    <div style='margin-top: 20px;'>
+                        <button id='copyBtn' class='quiz-button' style='background-color: #1a5f7a; margin-right: 10px;'>Salin Hasil</button>
+                        <button id='closeResultBtn' class='quiz-button' style='background-color: #6c757d;'>Tutup</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ <script src='script.js'></script> 
+</body> ",
+ 
     "batas": "2025-12-17 00:00:00",
     "tujuan_pembelajaran": "menganalisa prilaku sabar dan tawakal,mengidentifikasi prilaku sabar , menerapkan prilaku sabar dalam kehidupan sehari hari",
     "kelas": "XII-1/1",
@@ -19,7 +402,389 @@
     "aktivitas_2": "Pahami dan renungkan artikel berikut ini, sebagai bagian dari pemahaman dari materi ajar yang akan dipelajari!",
     "aktivitas_3": "Mari membaca dengan fasih dan benar Q.S. Ali 'Imrān/3: 190-191 berikut ini. Sesuaikan bacannya dengan menggunakan Ilmu Tajwid dan Makharijul huruf!",
     "aktivitas_4": "Pahami dan renungkan artikel berikut ini, sebagai bagian dari pemahaman dari materi ajar yang akan dipelajari!",
-    "aktivitas_5": "<!DOCTYPE html>\n<!-- saved from url=(0037)http://127.0.0.1:5500/qiuz/index.html -->\n<html lang=\"\"id\"\"><head><meta http-equiv=\"\"Content-Type\"\" content=\"\"text/html; charset=UTF-8\"\">\n    <link rel=\"\"stylesheet\"\" href=\"\"rakor_css.css\"\">\n    <link rel=\"\"stylesheet\"\" href=\"\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css\"\">\n   \n    <meta name=\"\"viewport\"\" content=\"\"width=device-width, initial-scale=1.0\"\">\n    <title>Quiz Pilihan Ganda</title>\n  \n</head>\n<body>\n    <div class=\"\"container\"\">\n        <header>\n            <h1><i class=\"\"fas fa-file-alt\"\"></i> Quiz Pilihan Ganda</h1>\n            <p>Pendidikan Agama Islam - Cinta Tanah Air dan Moderasi Beragama</p>\n        </header>\n        \n        <div class=\"\"quiz-info\"\">\n            <div class=\"\"info-row\"\">\n                <div class=\"\"info-item\"\">\n                    <span class=\"\"info-label\"\">Mata Pelajaran:</span>\n                    <span class=\"\"info-value\"\">Pendidikan Agama Islam</span>\n                </div>\n                <div class=\"\"info-item\"\">\n                    <span class=\"\"info-label\"\">Jumlah Soal:</span>\n                    <span class=\"\"info-value\"\" id=\"\"totalQuestions\"\">10</span>\n                </div>\n            </div>\n            <div class=\"\"info-row\"\">\n                <div class=\"\"info-item\"\">\n                    <span class=\"\"info-label\"\">Nama Peserta:</span>\n                    <input type=\"\"text\"\" id=\"\"userName\"\" placeholder=\"\"Masukkan nama Anda\"\" style=\"\"padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px;\"\">\n                </div>\n                <div class=\"\"info-item\"\">\n                    <span class=\"\"info-label\"\">Waktu:</span>\n                    <span class=\"\"info-value\"\">Tidak Terbatas</span>\n                </div>\n            </div>\n        </div>\n        \n        <div class=\"\"quiz-container\"\">\n            <div class=\"\"quiz-header\"\">\n                <h2 class=\"\"quiz-title\"\">Soal Pilihan Ganda</h2>\n                <div class=\"\"answer-status\"\">\n                    <div class=\"\"status-item\"\">\n                        <div class=\"\"status-color answered-color\"\"></div>\n                        <span>Terjawab</span>\n                    </div>\n                    <div class=\"\"status-item\"\">\n                        <div class=\"\"status-color unanswered-color\"\"></div>\n                        <span>Belum Terjawab</span>\n                    </div>\n                </div>\n            </div>\n            \n            <div class=\"\"question-list\"\" id=\"\"questionList\"\"><div class=\"\"question-item\"\" id=\"\"question-0\"\">\n                    <div class=\"\"question-number\"\">1</div>\n                    <div class=\"\"question-text\"\">Perhatikan kutipan ayat Q.S. al-Qasas/28: 85 berikut<img src=\"\"./Quiz Pilihan Ganda_files/ayat_soal_2 bab6.PNG\"\" alt=\"\"Ilustrasi\"\" loading=\"\"lazy\"\" style=\"\"max-width: 100%; height: auto;\"\"> Arti ayat yang bergaris pada potongan ayat di atas adalah ..</div>\n                    <div class=\"\"options-container\"\">\n                \n                        <div class=\"\"option\"\" data-question=\"\"0\"\" data-option=\"\"0\"\">\n                            <div class=\"\"option-label\"\">A</div>\n                            sesungguhnya (Allah) yang mewajibkan\n                        </div>\n                    \n                        <div class=\"\"option selected\"\" data-question=\"\"0\"\" data-option=\"\"1\"\">\n                            <div class=\"\"option-label\"\">B</div>\n                            kami sungguh melarang kamu\n                        </div>\n                    \n                        <div class=\"\"option\"\" data-question=\"\"0\"\" data-option=\"\"2\"\">\n                            <div class=\"\"option-label\"\">C</div>\n                            sesungguhnya wajib bagimu\n                        </div>\n                    \n                        <div class=\"\"option\"\" data-question=\"\"0\"\" data-option=\"\"3\"\">\n                            <div class=\"\"option-label\"\">D</div>\n                            kami memerintahkanmu\n                        </div>\n                    \n                        <div class=\"\"option\"\" data-question=\"\"0\"\" data-option=\"\"4\"\">\n                            <div class=\"\"option-label\"\">E</div>\n                            kamu diperintahkan\n                        </div>\n                    </div></div><div class=\"\"question-item\"\" id=\"\"question-1\"\">\n                    <div class=\"\"question-number\"\">2</div>\n                    <div class=\"\"question-text\"\">Perhatikan kutipan ayat Q.S. al-Qasas/28: 85 berikut <img src=\"\"./Quiz Pilihan Ganda_files/ayat_soal_2 bab6.PNG\"\" alt=\"\"Ilustrasi\"\" loading=\"\"lazy\"\" style=\"\"max-width: 100%; height: auto;\"\"><br> Bacaan tajwid potongan ayat di atas adalah ..</div>\n                    <div class=\"\"options-container\"\">\n                \n                        <div class=\"\"option \"\" data-question=\"\"1\"\" data-option=\"\"0\"\">\n                            <div class=\"\"option-label\"\">A</div>\n                            Mad jaiz munfasil, mad iwadl, mad thabi'i\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"1\"\" data-option=\"\"1\"\">\n                            <div class=\"\"option-label\"\">B</div>\n                            Mad jaiz munfasil, ikhfa', mad wajib mutasil\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"1\"\" data-option=\"\"2\"\">\n                            <div class=\"\"option-label\"\">C</div>\n                            Mad jaiz munfasil, ikhfa', mad thabi'i\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"1\"\" data-option=\"\"3\"\">\n                            <div class=\"\"option-label\"\">D</div>\n                            Mad badal, mad iwadl, mad thabi'i\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"1\"\" data-option=\"\"4\"\">\n                            <div class=\"\"option-label\"\">E</div>\n                            Mad badal, mad iwadl, mad lain\n                        </div>\n                    </div></div><div class=\"\"question-item\"\" id=\"\"question-2\"\">\n                    <div class=\"\"question-number\"\">3</div>\n                    <div class=\"\"question-text\"\">Perhatikan kutipan ayat Q.S. al-Baqarah/2: 143 berikut <img src=\"\"./Quiz Pilihan Ganda_files/ayat_soal_3 bab6.PNG\"\" alt=\"\"Ilustrasi\"\" loading=\"\"lazy\"\" style=\"\"max-width: 100%; height: auto;\"\"><br> Arti ayat yang bergaris pada potongan ayat di atas adalah ..</div>\n                    <div class=\"\"options-container\"\">\n                \n                        <div class=\"\"option \"\" data-question=\"\"2\"\" data-option=\"\"0\"\">\n                            <div class=\"\"option-label\"\">A</div>\n                            dan demikian pula Kami telah menjadikan kamu (umat Islam) umat pertengahan\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"2\"\" data-option=\"\"1\"\">\n                            <div class=\"\"option-label\"\">B</div>\n                            dan demikian pula Kami telah menciptakan kamu (umat Islam) umat yang terbaik\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"2\"\" data-option=\"\"2\"\">\n                            <div class=\"\"option-label\"\">C</div>\n                            dan demikian pula Kami telah memerintahkan kamu (umat Islam) berbuat baik\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"2\"\" data-option=\"\"3\"\">\n                            <div class=\"\"option-label\"\">D</div>\n                            dan demikian pula Kami telah menciptakan kamu (umat Islam) umat bersuku-suku\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"2\"\" data-option=\"\"4\"\">\n                            <div class=\"\"option-label\"\">E</div>\n                            dan demikian pula Kami telah menciptakan kamu (umat Islam) umat berbangsa-bangsa\n                        </div>\n                    </div></div><div class=\"\"question-item\"\" id=\"\"question-3\"\">\n                    <div class=\"\"question-number\"\">4</div>\n                    <div class=\"\"question-text\"\">Perhatikan kutipan ayat Q.S. al-Baqarah/2: 143 berikut <img src=\"\"./Quiz Pilihan Ganda_files/ayat_soal_2 bab6.PNG\"\" alt=\"\"Ilustrasi\"\" loading=\"\"lazy\"\" style=\"\"max-width: 100%; height: auto;\"\"><br> Bacaan tajwid potongan ayat di atas adalah ..</div>\n                    <div class=\"\"options-container\"\">\n                \n                        <div class=\"\"option\"\" data-question=\"\"3\"\" data-option=\"\"0\"\">\n                            <div class=\"\"option-label\"\">A</div>\n                            Mad jaiz munfasil, mad iwadl, mad thabi'i, mad badal\n                        </div>\n                    \n                        <div class=\"\"option\"\" data-question=\"\"3\"\" data-option=\"\"1\"\">\n                            <div class=\"\"option-label\"\">B</div>\n                            Mad thabi'i, al qamariyah, al syamsiyah, ikhfa' mad jaiz mumfasil\n                        </div>\n                    \n                        <div class=\"\"option\"\" data-question=\"\"3\"\" data-option=\"\"2\"\">\n                            <div class=\"\"option-label\"\">C</div>\n                            Mad jaiz munfasil, ikhfa', mad thabi'i, idhar syafawi\n                        </div>\n                    \n                        <div class=\"\"option\"\" data-question=\"\"3\"\" data-option=\"\"3\"\">\n                            <div class=\"\"option-label\"\">D</div>\n                            Mad badal, mad iwadl, mad thabi'i, iqlab\n                        </div>\n                    \n                        <div class=\"\"option selected\"\" data-question=\"\"3\"\" data-option=\"\"4\"\">\n                            <div class=\"\"option-label\"\">E</div>\n                            Mad badal, mad iwadl, mad lain\n                        </div>\n                    </div></div><div class=\"\"question-item\"\" id=\"\"question-4\"\">\n                    <div class=\"\"question-number\"\">5</div>\n                    <div class=\"\"question-text\"\">Perhatikan kutipan ayat Q.S. al-Baqarah/2: 143 berikut!<img src=\"\"./Quiz Pilihan Ganda_files/ayat_soal_2 bab6.PNG\"\" alt=\"\"Ilustrasi\"\" loading=\"\"lazy\"\" style=\"\"max-width: 100%; height: auto;\"\"><br> Bacaan tajwid potongan ayat di atas adalah ….</div>\n                    <div class=\"\"options-container\"\">\n                \n                        <div class=\"\"option \"\" data-question=\"\"4\"\" data-option=\"\"0\"\">\n                            <div class=\"\"option-label\"\">A</div>\n                            Mad jaiz munfasil, mad iwadl, mad thabi'i, mad badal\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"4\"\" data-option=\"\"1\"\">\n                            <div class=\"\"option-label\"\">B</div>\n                            Mad thabi'i, al qamariyah, al syamsiyah, ikhfa' mad jaiz mumfasil\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"4\"\" data-option=\"\"2\"\">\n                            <div class=\"\"option-label\"\">C</div>\n                            Mad jaiz munfasil, ikhfa', mad thabi'i, idhar syafawi\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"4\"\" data-option=\"\"3\"\">\n                            <div class=\"\"option-label\"\">D</div>\n                            Mad badal, mad iwadl, mad thabi'i, iqlab\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"4\"\" data-option=\"\"4\"\">\n                            <div class=\"\"option-label\"\">E</div>\n                            Ikhfa', mad thabi'i, idhar, al qamariyah\n                        </div>\n                    </div></div><div class=\"\"question-item\"\" id=\"\"question-5\"\">\n                    <div class=\"\"question-number\"\">6</div>\n                    <div class=\"\"question-text\"\">Perhatikan pernyataan di bawah ini! 1) Bangga sebagai bangsa Indonesia 2) Menjual nama baik tanah air Indonesia 3) Menggunakan hak pilih dalam pemilu 4) Menjunjung tinggi hukum jika perlu 5) Aktif berpartisipasi dalam pembangunan nasional. Pernyataan tersebut merupakan contoh sikap cinta tanah air adalah nomor ..</div>\n                    <div class=\"\"options-container\"\">\n                \n                        <div class=\"\"option \"\" data-question=\"\"5\"\" data-option=\"\"0\"\">\n                            <div class=\"\"option-label\"\">A</div>\n                            1), 2) dan 3)\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"5\"\" data-option=\"\"1\"\">\n                            <div class=\"\"option-label\"\">B</div>\n                            1), 2) dan 4)\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"5\"\" data-option=\"\"2\"\">\n                            <div class=\"\"option-label\"\">C</div>\n                            1), 2) dan 5)\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"5\"\" data-option=\"\"3\"\">\n                            <div class=\"\"option-label\"\">D</div>\n                            1), 3) dan 5)\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"5\"\" data-option=\"\"4\"\">\n                            <div class=\"\"option-label\"\">E</div>\n                            1), 4) dan 5)\n                        </div>\n                    </div></div><div class=\"\"question-item\"\" id=\"\"question-6\"\">\n                    <div class=\"\"question-number\"\">7</div>\n                    <div class=\"\"question-text\"\">Berikut ini yang bukan contoh sikap cinta tanah air yang bisa kita lakukan dalam kegiatan sehari-hari adalah ..</div>\n                    <div class=\"\"options-container\"\">\n                \n                        <div class=\"\"option \"\" data-question=\"\"6\"\" data-option=\"\"0\"\">\n                            <div class=\"\"option-label\"\">A</div>\n                            Menuntut ilmu dengan sungguh-sungguh\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"6\"\" data-option=\"\"1\"\">\n                            <div class=\"\"option-label\"\">B</div>\n                            Melestarikan kebudayaan Indonesia\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"6\"\" data-option=\"\"2\"\">\n                            <div class=\"\"option-label\"\">C</div>\n                            Menjaga kelestarian lingkungan\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"6\"\" data-option=\"\"3\"\">\n                            <div class=\"\"option-label\"\">D</div>\n                            Menciptakan kerukunan antar umat beragama\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"6\"\" data-option=\"\"4\"\">\n                            <div class=\"\"option-label\"\">E</div>\n                            Hidup rukun dan gotong royong jika jadi tokoh masyarakat\n                        </div>\n                    </div></div><div class=\"\"question-item\"\" id=\"\"question-7\"\">\n                    <div class=\"\"question-number\"\">8</div>\n                    <div class=\"\"question-text\"\">Allah Swt. berfirman, \"\"...agar Kami dapat menjadikan kalian sebagai umat pilihan...\"\". Yang dimaksud dengan kata 'wasath' adalah ….</div>\n                    <div class=\"\"options-container\"\">\n                \n                        <div class=\"\"option \"\" data-question=\"\"7\"\" data-option=\"\"0\"\">\n                            <div class=\"\"option-label\"\">A</div>\n                            pilihan yang terbaik\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"7\"\" data-option=\"\"1\"\">\n                            <div class=\"\"option-label\"\">B</div>\n                            pilihan yang menyenangkan\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"7\"\" data-option=\"\"2\"\">\n                            <div class=\"\"option-label\"\">C</div>\n                            pilihan yang menyedihkan\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"7\"\" data-option=\"\"3\"\">\n                            <div class=\"\"option-label\"\">D</div>\n                            pilihan yang melapangkan\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"7\"\" data-option=\"\"4\"\">\n                            <div class=\"\"option-label\"\">E</div>\n                            pilihan yang terlupakan\n                        </div>\n                    </div></div><div class=\"\"question-item\"\" id=\"\"question-8\"\">\n                    <div class=\"\"question-number\"\">9</div>\n                    <div class=\"\"question-text\"\">Hal ini dikembangkan oleh Kemendikbud dan Kemenag dengan mengusung tema ..</div>\n                    <div class=\"\"options-container\"\">\n                \n                        <div class=\"\"option \"\" data-question=\"\"8\"\" data-option=\"\"0\"\">\n                            <div class=\"\"option-label\"\">A</div>\n                            merdeka sebebas bebasnya\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"8\"\" data-option=\"\"1\"\">\n                            <div class=\"\"option-label\"\">B</div>\n                            merdeka sesuai kebutuhan\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"8\"\" data-option=\"\"2\"\">\n                            <div class=\"\"option-label\"\">C</div>\n                            profil pelajar Pancasila\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"8\"\" data-option=\"\"3\"\">\n                            <div class=\"\"option-label\"\">D</div>\n                            profil guru professional\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"8\"\" data-option=\"\"4\"\">\n                            <div class=\"\"option-label\"\">E</div>\n                            profil tenaga kependidikan\n                        </div>\n                    </div></div><div class=\"\"question-item\"\" id=\"\"question-9\"\">\n                    <div class=\"\"question-number\"\">10</div>\n                    <div class=\"\"question-text\"\">Karakter dan prinsip wasath seseorang hendaknya memegang prinsip berada dalam jalan yang lurus, hal ini dapat difahami sebagai wujud sikap ..</div>\n                    <div class=\"\"options-container\"\">\n                \n                        <div class=\"\"option \"\" data-question=\"\"9\"\" data-option=\"\"0\"\">\n                            <div class=\"\"option-label\"\">A</div>\n                            tasamuh\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"9\"\" data-option=\"\"1\"\">\n                            <div class=\"\"option-label\"\">B</div>\n                            tawasul\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"9\"\" data-option=\"\"2\"\">\n                            <div class=\"\"option-label\"\">C</div>\n                            tawazun\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"9\"\" data-option=\"\"3\"\">\n                            <div class=\"\"option-label\"\">D</div>\n                            tawakal\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"9\"\" data-option=\"\"4\"\">\n                            <div class=\"\"option-label\"\">E</div>\n                            istiqamah\n                        </div>\n                    </div></div></div>\n            \n            <div class=\"\"quiz-controls\"\">\n                <button id=\"\"resetBtn\"\">Reset Jawaban</button>\n                <button id=\"\"submitBtn\"\">Kumpulkan Jawaban</button>\n            </div>\n            \n            <div class=\"\"progress-container\"\">\n                <div class=\"\"progress-text\"\">\n                    <span>Progress Jawaban</span>\n                    <span id=\"\"progressPercent\"\">20%</span>\n                </div>\n                <div class=\"\"progress-bar\"\">\n                    <div class=\"\"progress-fill\"\" id=\"\"progressFill\"\" style=\"\"width: 20%;\"\"></div>\n                </div>\n            </div>\n        </div>\n    </div>\n    \n    <!-- Modal untuk hasil quiz -->\n    <div class=\"\"modal\"\" id=\"\"resultModal\"\">\n        <div class=\"\"modal-content\"\">\n            <div class=\"\"modal-header\"\">\n                <h2 class=\"\"modal-title\"\">Hasil Quiz Anda</h2>\n                <button class=\"\"close-modal\"\" id=\"\"closeModal\"\">×</button>\n            </div>\n            \n            <div class=\"\"modal-body\"\">\n                <div class=\"\"result-summary\"\">\n                    <h3>Ringkasan Hasil</h3>\n                    <div class=\"\"result-score\"\" id=\"\"finalScore\"\">0/10 (0)</div>\n                    <p>Format jawaban untuk disimpan:</p>\n                    <div class=\"\"result-output\"\" id=\"\"resultOutput\"\"></div>\n                    <div style=\"\"margin-top: 20px;\"\">\n                        <button id=\"\"copyBtn\"\" class=\"\"quiz-button\"\" style=\"\"background-color: #1a5f7a; margin-right: 10px;\"\">Salin Hasil</button>\n                        <button id=\"\"closeResultBtn\"\" class=\"\"quiz-button\"\" style=\"\"background-color: #6c757d;\"\">Tutup</button>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n <script src=\"\"script.js\"\"></script> \n</body></html>",
+    "aktivitas_5": " <link rel='stylesheet' href='rakor_css.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'>
+   
+  
+<body>
+    <div class='container'>
+        <header>
+            <h1><i class='fas fa-file-alt'></i> Quiz Pilihan Ganda</h1>
+            <p>Pendidikan Agama Islam - Cinta Tanah Air dan Moderasi Beragama</p>
+        </header>
+        
+        <div class='quiz-info'>
+            <div class='info-row'>
+                <div class='info-item'>
+                    <span class='info-label'>Mata Pelajaran:</span>
+                    <span class='info-value'>Pendidikan Agama Islam</span>
+                </div>
+                <div class='info-item'>
+                    <span class='info-label'>Jumlah Soal:</span>
+                    <span class='info-value' id='totalQuestions'>10</span>
+                </div>
+            </div>
+            <div class='info-row'>
+                <div class='info-item'>
+                    <span class='info-label'>Nama Peserta:</span>
+                    <input type='text' id='userName' placeholder='Masukkan nama Anda' style='padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px;'>
+                </div>
+                <div class='info-item'>
+                    <span class='info-label'>Waktu:</span>
+                    <span class='info-value'>Tidak Terbatas</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class='quiz-container'>
+            <div class='quiz-header'>
+                <h2 class='quiz-title'>Soal Pilihan Ganda</h2>
+                <div class='answer-status'>
+                    <div class='status-item'>
+                        <div class='status-color answered-color'></div>
+                        <span>Terjawab</span>
+                    </div>
+                    <div class='status-item'>
+                        <div class='status-color unanswered-color'></div>
+                        <span>Belum Terjawab</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class='question-list' id='questionList'><div class='question-item' id='question-0'>
+                    <div class='question-number'>1</div>
+                    <div class='question-text'>Perhatikan kutipan ayat Q.S. al-Qasas/28: 85 berikut<img src='./Quiz Pilihan Ganda_files/ayat_soal_2 bab6.PNG' alt='Ilustrasi' loading='lazy' style='max-width: 100%; height: auto;'> Arti ayat yang bergaris pada potongan ayat di atas adalah ..</div>
+                    <div class='options-container'>
+                
+                        <div class='option' data-question='0' data-option='0'>
+                            <div class='option-label'>A</div>
+                            sesungguhnya (Allah) yang mewajibkan
+                        </div>
+                    
+                        <div class='option selected' data-question='0' data-option='1'>
+                            <div class='option-label'>B</div>
+                            kami sungguh melarang kamu
+                        </div>
+                    
+                        <div class='option' data-question='0' data-option='2'>
+                            <div class='option-label'>C</div>
+                            sesungguhnya wajib bagimu
+                        </div>
+                    
+                        <div class='option' data-question='0' data-option='3'>
+                            <div class='option-label'>D</div>
+                            kami memerintahkanmu
+                        </div>
+                    
+                        <div class='option' data-question='0' data-option='4'>
+                            <div class='option-label'>E</div>
+                            kamu diperintahkan
+                        </div>
+                    </div></div><div class='question-item' id='question-1'>
+                    <div class='question-number'>2</div>
+                    <div class='question-text'>Perhatikan kutipan ayat Q.S. al-Qasas/28: 85 berikut <img src='./Quiz Pilihan Ganda_files/ayat_soal_2 bab6.PNG' alt='Ilustrasi' loading='lazy' style='max-width: 100%; height: auto;'><br> Bacaan tajwid potongan ayat di atas adalah ..</div>
+                    <div class='options-container'>
+                
+                        <div class='option ' data-question='1' data-option='0'>
+                            <div class='option-label'>A</div>
+                            Mad jaiz munfasil, mad iwadl, mad thabi'i
+                        </div>
+                    
+                        <div class='option ' data-question='1' data-option='1'>
+                            <div class='option-label'>B</div>
+                            Mad jaiz munfasil, ikhfa', mad wajib mutasil
+                        </div>
+                    
+                        <div class='option ' data-question='1' data-option='2'>
+                            <div class='option-label'>C</div>
+                            Mad jaiz munfasil, ikhfa', mad thabi'i
+                        </div>
+                    
+                        <div class='option ' data-question='1' data-option='3'>
+                            <div class='option-label'>D</div>
+                            Mad badal, mad iwadl, mad thabi'i
+                        </div>
+                    
+                        <div class='option ' data-question='1' data-option='4'>
+                            <div class='option-label'>E</div>
+                            Mad badal, mad iwadl, mad lain
+                        </div>
+                    </div></div><div class='question-item' id='question-2'>
+                    <div class='question-number'>3</div>
+                    <div class='question-text'>Perhatikan kutipan ayat Q.S. al-Baqarah/2: 143 berikut <img src='./Quiz Pilihan Ganda_files/ayat_soal_3 bab6.PNG' alt='Ilustrasi' loading='lazy' style='max-width: 100%; height: auto;'><br> Arti ayat yang bergaris pada potongan ayat di atas adalah ..</div>
+                    <div class='options-container'>
+                
+                        <div class='option ' data-question='2' data-option='0'>
+                            <div class='option-label'>A</div>
+                            dan demikian pula Kami telah menjadikan kamu (umat Islam) umat pertengahan
+                        </div>
+                    
+                        <div class='option ' data-question='2' data-option='1'>
+                            <div class='option-label'>B</div>
+                            dan demikian pula Kami telah menciptakan kamu (umat Islam) umat yang terbaik
+                        </div>
+                    
+                        <div class='option ' data-question='2' data-option='2'>
+                            <div class='option-label'>C</div>
+                            dan demikian pula Kami telah memerintahkan kamu (umat Islam) berbuat baik
+                        </div>
+                    
+                        <div class='option ' data-question='2' data-option='3'>
+                            <div class='option-label'>D</div>
+                            dan demikian pula Kami telah menciptakan kamu (umat Islam) umat bersuku-suku
+                        </div>
+                    
+                        <div class='option ' data-question='2' data-option='4'>
+                            <div class='option-label'>E</div>
+                            dan demikian pula Kami telah menciptakan kamu (umat Islam) umat berbangsa-bangsa
+                        </div>
+                    </div></div><div class='question-item' id='question-3'>
+                    <div class='question-number'>4</div>
+                    <div class='question-text'>Perhatikan kutipan ayat Q.S. al-Baqarah/2: 143 berikut <img src='./Quiz Pilihan Ganda_files/ayat_soal_2 bab6.PNG' alt='Ilustrasi' loading='lazy' style='max-width: 100%; height: auto;'><br> Bacaan tajwid potongan ayat di atas adalah ..</div>
+                    <div class='options-container'>
+                
+                        <div class='option' data-question='3' data-option='0'>
+                            <div class='option-label'>A</div>
+                            Mad jaiz munfasil, mad iwadl, mad thabi'i, mad badal
+                        </div>
+                    
+                        <div class='option' data-question='3' data-option='1'>
+                            <div class='option-label'>B</div>
+                            Mad thabi'i, al qamariyah, al syamsiyah, ikhfa' mad jaiz mumfasil
+                        </div>
+                    
+                        <div class='option' data-question='3' data-option='2'>
+                            <div class='option-label'>C</div>
+                            Mad jaiz munfasil, ikhfa', mad thabi'i, idhar syafawi
+                        </div>
+                    
+                        <div class='option' data-question='3' data-option='3'>
+                            <div class='option-label'>D</div>
+                            Mad badal, mad iwadl, mad thabi'i, iqlab
+                        </div>
+                    
+                        <div class='option selected' data-question='3' data-option='4'>
+                            <div class='option-label'>E</div>
+                            Mad badal, mad iwadl, mad lain
+                        </div>
+                    </div></div><div class='question-item' id='question-4'>
+                    <div class='question-number'>5</div>
+                    <div class='question-text'>Perhatikan kutipan ayat Q.S. al-Baqarah/2: 143 berikut!<img src='./Quiz Pilihan Ganda_files/ayat_soal_2 bab6.PNG' alt='Ilustrasi' loading='lazy' style='max-width: 100%; height: auto;'><br> Bacaan tajwid potongan ayat di atas adalah ….</div>
+                    <div class='options-container'>
+                
+                        <div class='option ' data-question='4' data-option='0'>
+                            <div class='option-label'>A</div>
+                            Mad jaiz munfasil, mad iwadl, mad thabi'i, mad badal
+                        </div>
+                    
+                        <div class='option ' data-question='4' data-option='1'>
+                            <div class='option-label'>B</div>
+                            Mad thabi'i, al qamariyah, al syamsiyah, ikhfa' mad jaiz mumfasil
+                        </div>
+                    
+                        <div class='option ' data-question='4' data-option='2'>
+                            <div class='option-label'>C</div>
+                            Mad jaiz munfasil, ikhfa', mad thabi'i, idhar syafawi
+                        </div>
+                    
+                        <div class='option ' data-question='4' data-option='3'>
+                            <div class='option-label'>D</div>
+                            Mad badal, mad iwadl, mad thabi'i, iqlab
+                        </div>
+                    
+                        <div class='option ' data-question='4' data-option='4'>
+                            <div class='option-label'>E</div>
+                            Ikhfa', mad thabi'i, idhar, al qamariyah
+                        </div>
+                    </div></div><div class='question-item' id='question-5'>
+                    <div class='question-number'>6</div>
+                    <div class='question-text'>Perhatikan pernyataan di bawah ini! 1) Bangga sebagai bangsa Indonesia 2) Menjual nama baik tanah air Indonesia 3) Menggunakan hak pilih dalam pemilu 4) Menjunjung tinggi hukum jika perlu 5) Aktif berpartisipasi dalam pembangunan nasional. Pernyataan tersebut merupakan contoh sikap cinta tanah air adalah nomor ..</div>
+                    <div class='options-container'>
+                
+                        <div class='option ' data-question='5' data-option='0'>
+                            <div class='option-label'>A</div>
+                            1), 2) dan 3)
+                        </div>
+                    
+                        <div class='option ' data-question='5' data-option='1'>
+                            <div class='option-label'>B</div>
+                            1), 2) dan 4)
+                        </div>
+                    
+                        <div class='option ' data-question='5' data-option='2'>
+                            <div class='option-label'>C</div>
+                            1), 2) dan 5)
+                        </div>
+                    
+                        <div class='option ' data-question='5' data-option='3'>
+                            <div class='option-label'>D</div>
+                            1), 3) dan 5)
+                        </div>
+                    
+                        <div class='option ' data-question='5' data-option='4'>
+                            <div class='option-label'>E</div>
+                            1), 4) dan 5)
+                        </div>
+                    </div></div><div class='question-item' id='question-6'>
+                    <div class='question-number'>7</div>
+                    <div class='question-text'>Berikut ini yang bukan contoh sikap cinta tanah air yang bisa kita lakukan dalam kegiatan sehari-hari adalah ..</div>
+                    <div class='options-container'>
+                
+                        <div class='option ' data-question='6' data-option='0'>
+                            <div class='option-label'>A</div>
+                            Menuntut ilmu dengan sungguh-sungguh
+                        </div>
+                    
+                        <div class='option ' data-question='6' data-option='1'>
+                            <div class='option-label'>B</div>
+                            Melestarikan kebudayaan Indonesia
+                        </div>
+                    
+                        <div class='option ' data-question='6' data-option='2'>
+                            <div class='option-label'>C</div>
+                            Menjaga kelestarian lingkungan
+                        </div>
+                    
+                        <div class='option ' data-question='6' data-option='3'>
+                            <div class='option-label'>D</div>
+                            Menciptakan kerukunan antar umat beragama
+                        </div>
+                    
+                        <div class='option ' data-question='6' data-option='4'>
+                            <div class='option-label'>E</div>
+                            Hidup rukun dan gotong royong jika jadi tokoh masyarakat
+                        </div>
+                    </div></div><div class='question-item' id='question-7'>
+                    <div class='question-number'>8</div>
+                    <div class='question-text'>Allah Swt. berfirman, '...agar Kami dapat menjadikan kalian sebagai umat pilihan...'. Yang dimaksud dengan kata 'wasath' adalah ….</div>
+                    <div class='options-container'>
+                
+                        <div class='option ' data-question='7' data-option='0'>
+                            <div class='option-label'>A</div>
+                            pilihan yang terbaik
+                        </div>
+                    
+                        <div class='option ' data-question='7' data-option='1'>
+                            <div class='option-label'>B</div>
+                            pilihan yang menyenangkan
+                        </div>
+                    
+                        <div class='option ' data-question='7' data-option='2'>
+                            <div class='option-label'>C</div>
+                            pilihan yang menyedihkan
+                        </div>
+                    
+                        <div class='option ' data-question='7' data-option='3'>
+                            <div class='option-label'>D</div>
+                            pilihan yang melapangkan
+                        </div>
+                    
+                        <div class='option ' data-question='7' data-option='4'>
+                            <div class='option-label'>E</div>
+                            pilihan yang terlupakan
+                        </div>
+                    </div></div><div class='question-item' id='question-8'>
+                    <div class='question-number'>9</div>
+                    <div class='question-text'>Hal ini dikembangkan oleh Kemendikbud dan Kemenag dengan mengusung tema ..</div>
+                    <div class='options-container'>
+                
+                        <div class='option ' data-question='8' data-option='0'>
+                            <div class='option-label'>A</div>
+                            merdeka sebebas bebasnya
+                        </div>
+                    
+                        <div class='option ' data-question='8' data-option='1'>
+                            <div class='option-label'>B</div>
+                            merdeka sesuai kebutuhan
+                        </div>
+                    
+                        <div class='option ' data-question='8' data-option='2'>
+                            <div class='option-label'>C</div>
+                            profil pelajar Pancasila
+                        </div>
+                    
+                        <div class='option ' data-question='8' data-option='3'>
+                            <div class='option-label'>D</div>
+                            profil guru professional
+                        </div>
+                    
+                        <div class='option ' data-question='8' data-option='4'>
+                            <div class='option-label'>E</div>
+                            profil tenaga kependidikan
+                        </div>
+                    </div></div><div class='question-item' id='question-9'>
+                    <div class='question-number'>10</div>
+                    <div class='question-text'>Karakter dan prinsip wasath seseorang hendaknya memegang prinsip berada dalam jalan yang lurus, hal ini dapat difahami sebagai wujud sikap ..</div>
+                    <div class='options-container'>
+                
+                        <div class='option ' data-question='9' data-option='0'>
+                            <div class='option-label'>A</div>
+                            tasamuh
+                        </div>
+                    
+                        <div class='option ' data-question='9' data-option='1'>
+                            <div class='option-label'>B</div>
+                            tawasul
+                        </div>
+                    
+                        <div class='option ' data-question='9' data-option='2'>
+                            <div class='option-label'>C</div>
+                            tawazun
+                        </div>
+                    
+                        <div class='option ' data-question='9' data-option='3'>
+                            <div class='option-label'>D</div>
+                            tawakal
+                        </div>
+                    
+                        <div class='option ' data-question='9' data-option='4'>
+                            <div class='option-label'>E</div>
+                            istiqamah
+                        </div>
+                    </div></div></div>
+            
+            <div class='quiz-controls'>
+                <button id='resetBtn'>Reset Jawaban</button>
+                <button id='submitBtn'>Kumpulkan Jawaban</button>
+            </div>
+            
+            <div class='progress-container'>
+                <div class='progress-text'>
+                    <span>Progress Jawaban</span>
+                    <span id='progressPercent'>20%</span>
+                </div>
+                <div class='progress-bar'>
+                    <div class='progress-fill' id='progressFill' style='width: 20%;'></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal untuk hasil quiz -->
+    <div class='modal' id='resultModal'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <h2 class='modal-title'>Hasil Quiz Anda</h2>
+                <button class='close-modal' id='closeModal'>×</button>
+            </div>
+            
+            <div class='modal-body'>
+                <div class='result-summary'>
+                    <h3>Ringkasan Hasil</h3>
+                    <div class='result-score' id='finalScore'>0/10 (0)</div>
+                    <p>Format jawaban untuk disimpan:</p>
+                    <div class='result-output' id='resultOutput'></div>
+                    <div style='margin-top: 20px;'>
+                        <button id='copyBtn' class='quiz-button' style='background-color: #1a5f7a; margin-right: 10px;'>Salin Hasil</button>
+                        <button id='closeResultBtn' class='quiz-button' style='background-color: #6c757d;'>Tutup</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ <script src='script.js'></script> 
+</body> ",
     "batas": "2025-11-11 00:00:00",
     "tujuan_pembelajaran": "menganalisa prilaku hidup bermakna dan tawakal,mengidentifikasi prilaku sabar , menerapkan prilaku hidup sederhana dalam kehidupan sehari hari",
     "kelas": "XII-1/2",
@@ -45,7 +810,389 @@
     "aktivitas_2": "Pahami dan renungkan artikel berikut ini, sebagai bagian dari pemahaman dari materi ajar yang akan dipelajari!",
     "aktivitas_3": "Mari membaca dengan fasih dan benar Q.S. Ali 'Imrān/3: 190-191 berikut ini. Sesuaikan bacannya dengan menggunakan Ilmu Tajwid dan Makharijul huruf!",
     "aktivitas_4": "Pahami dan renungkan artikel berikut ini, sebagai bagian dari pemahaman dari materi ajar yang akan dipelajari!",
-    "aktivitas_5": "<!DOCTYPE html>\n<!-- saved from url=(0037)http://127.0.0.1:5500/qiuz/index.html -->\n<html lang=\"\"id\"\"><head><meta http-equiv=\"\"Content-Type\"\" content=\"\"text/html; charset=UTF-8\"\">\n    <link rel=\"\"stylesheet\"\" href=\"\"rakor_css.css\"\">\n    <link rel=\"\"stylesheet\"\" href=\"\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css\"\">\n   \n    <meta name=\"\"viewport\"\" content=\"\"width=device-width, initial-scale=1.0\"\">\n    <title>Quiz Pilihan Ganda</title>\n  \n</head>\n<body>\n    <div class=\"\"container\"\">\n        <header>\n            <h1><i class=\"\"fas fa-file-alt\"\"></i> Quiz Pilihan Ganda</h1>\n            <p>Pendidikan Agama Islam - Cinta Tanah Air dan Moderasi Beragama</p>\n        </header>\n        \n        <div class=\"\"quiz-info\"\">\n            <div class=\"\"info-row\"\">\n                <div class=\"\"info-item\"\">\n                    <span class=\"\"info-label\"\">Mata Pelajaran:</span>\n                    <span class=\"\"info-value\"\">Pendidikan Agama Islam</span>\n                </div>\n                <div class=\"\"info-item\"\">\n                    <span class=\"\"info-label\"\">Jumlah Soal:</span>\n                    <span class=\"\"info-value\"\" id=\"\"totalQuestions\"\">10</span>\n                </div>\n            </div>\n            <div class=\"\"info-row\"\">\n                <div class=\"\"info-item\"\">\n                    <span class=\"\"info-label\"\">Nama Peserta:</span>\n                    <input type=\"\"text\"\" id=\"\"userName\"\" placeholder=\"\"Masukkan nama Anda\"\" style=\"\"padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px;\"\">\n                </div>\n                <div class=\"\"info-item\"\">\n                    <span class=\"\"info-label\"\">Waktu:</span>\n                    <span class=\"\"info-value\"\">Tidak Terbatas</span>\n                </div>\n            </div>\n        </div>\n        \n        <div class=\"\"quiz-container\"\">\n            <div class=\"\"quiz-header\"\">\n                <h2 class=\"\"quiz-title\"\">Soal Pilihan Ganda</h2>\n                <div class=\"\"answer-status\"\">\n                    <div class=\"\"status-item\"\">\n                        <div class=\"\"status-color answered-color\"\"></div>\n                        <span>Terjawab</span>\n                    </div>\n                    <div class=\"\"status-item\"\">\n                        <div class=\"\"status-color unanswered-color\"\"></div>\n                        <span>Belum Terjawab</span>\n                    </div>\n                </div>\n            </div>\n            \n            <div class=\"\"question-list\"\" id=\"\"questionList\"\"><div class=\"\"question-item\"\" id=\"\"question-0\"\">\n                    <div class=\"\"question-number\"\">1</div>\n                    <div class=\"\"question-text\"\">Perhatikan kutipan ayat Q.S. al-Qasas/28: 85 berikut<img src=\"\"./Quiz Pilihan Ganda_files/ayat_soal_2 bab6.PNG\"\" alt=\"\"Ilustrasi\"\" loading=\"\"lazy\"\" style=\"\"max-width: 100%; height: auto;\"\"> Arti ayat yang bergaris pada potongan ayat di atas adalah ..</div>\n                    <div class=\"\"options-container\"\">\n                \n                        <div class=\"\"option\"\" data-question=\"\"0\"\" data-option=\"\"0\"\">\n                            <div class=\"\"option-label\"\">A</div>\n                            sesungguhnya (Allah) yang mewajibkan\n                        </div>\n                    \n                        <div class=\"\"option selected\"\" data-question=\"\"0\"\" data-option=\"\"1\"\">\n                            <div class=\"\"option-label\"\">B</div>\n                            kami sungguh melarang kamu\n                        </div>\n                    \n                        <div class=\"\"option\"\" data-question=\"\"0\"\" data-option=\"\"2\"\">\n                            <div class=\"\"option-label\"\">C</div>\n                            sesungguhnya wajib bagimu\n                        </div>\n                    \n                        <div class=\"\"option\"\" data-question=\"\"0\"\" data-option=\"\"3\"\">\n                            <div class=\"\"option-label\"\">D</div>\n                            kami memerintahkanmu\n                        </div>\n                    \n                        <div class=\"\"option\"\" data-question=\"\"0\"\" data-option=\"\"4\"\">\n                            <div class=\"\"option-label\"\">E</div>\n                            kamu diperintahkan\n                        </div>\n                    </div></div><div class=\"\"question-item\"\" id=\"\"question-1\"\">\n                    <div class=\"\"question-number\"\">2</div>\n                    <div class=\"\"question-text\"\">Perhatikan kutipan ayat Q.S. al-Qasas/28: 85 berikut <img src=\"\"./Quiz Pilihan Ganda_files/ayat_soal_2 bab6.PNG\"\" alt=\"\"Ilustrasi\"\" loading=\"\"lazy\"\" style=\"\"max-width: 100%; height: auto;\"\"><br> Bacaan tajwid potongan ayat di atas adalah ..</div>\n                    <div class=\"\"options-container\"\">\n                \n                        <div class=\"\"option \"\" data-question=\"\"1\"\" data-option=\"\"0\"\">\n                            <div class=\"\"option-label\"\">A</div>\n                            Mad jaiz munfasil, mad iwadl, mad thabi'i\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"1\"\" data-option=\"\"1\"\">\n                            <div class=\"\"option-label\"\">B</div>\n                            Mad jaiz munfasil, ikhfa', mad wajib mutasil\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"1\"\" data-option=\"\"2\"\">\n                            <div class=\"\"option-label\"\">C</div>\n                            Mad jaiz munfasil, ikhfa', mad thabi'i\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"1\"\" data-option=\"\"3\"\">\n                            <div class=\"\"option-label\"\">D</div>\n                            Mad badal, mad iwadl, mad thabi'i\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"1\"\" data-option=\"\"4\"\">\n                            <div class=\"\"option-label\"\">E</div>\n                            Mad badal, mad iwadl, mad lain\n                        </div>\n                    </div></div><div class=\"\"question-item\"\" id=\"\"question-2\"\">\n                    <div class=\"\"question-number\"\">3</div>\n                    <div class=\"\"question-text\"\">Perhatikan kutipan ayat Q.S. al-Baqarah/2: 143 berikut <img src=\"\"./Quiz Pilihan Ganda_files/ayat_soal_3 bab6.PNG\"\" alt=\"\"Ilustrasi\"\" loading=\"\"lazy\"\" style=\"\"max-width: 100%; height: auto;\"\"><br> Arti ayat yang bergaris pada potongan ayat di atas adalah ..</div>\n                    <div class=\"\"options-container\"\">\n                \n                        <div class=\"\"option \"\" data-question=\"\"2\"\" data-option=\"\"0\"\">\n                            <div class=\"\"option-label\"\">A</div>\n                            dan demikian pula Kami telah menjadikan kamu (umat Islam) umat pertengahan\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"2\"\" data-option=\"\"1\"\">\n                            <div class=\"\"option-label\"\">B</div>\n                            dan demikian pula Kami telah menciptakan kamu (umat Islam) umat yang terbaik\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"2\"\" data-option=\"\"2\"\">\n                            <div class=\"\"option-label\"\">C</div>\n                            dan demikian pula Kami telah memerintahkan kamu (umat Islam) berbuat baik\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"2\"\" data-option=\"\"3\"\">\n                            <div class=\"\"option-label\"\">D</div>\n                            dan demikian pula Kami telah menciptakan kamu (umat Islam) umat bersuku-suku\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"2\"\" data-option=\"\"4\"\">\n                            <div class=\"\"option-label\"\">E</div>\n                            dan demikian pula Kami telah menciptakan kamu (umat Islam) umat berbangsa-bangsa\n                        </div>\n                    </div></div><div class=\"\"question-item\"\" id=\"\"question-3\"\">\n                    <div class=\"\"question-number\"\">4</div>\n                    <div class=\"\"question-text\"\">Perhatikan kutipan ayat Q.S. al-Baqarah/2: 143 berikut <img src=\"\"./Quiz Pilihan Ganda_files/ayat_soal_2 bab6.PNG\"\" alt=\"\"Ilustrasi\"\" loading=\"\"lazy\"\" style=\"\"max-width: 100%; height: auto;\"\"><br> Bacaan tajwid potongan ayat di atas adalah ..</div>\n                    <div class=\"\"options-container\"\">\n                \n                        <div class=\"\"option\"\" data-question=\"\"3\"\" data-option=\"\"0\"\">\n                            <div class=\"\"option-label\"\">A</div>\n                            Mad jaiz munfasil, mad iwadl, mad thabi'i, mad badal\n                        </div>\n                    \n                        <div class=\"\"option\"\" data-question=\"\"3\"\" data-option=\"\"1\"\">\n                            <div class=\"\"option-label\"\">B</div>\n                            Mad thabi'i, al qamariyah, al syamsiyah, ikhfa' mad jaiz mumfasil\n                        </div>\n                    \n                        <div class=\"\"option\"\" data-question=\"\"3\"\" data-option=\"\"2\"\">\n                            <div class=\"\"option-label\"\">C</div>\n                            Mad jaiz munfasil, ikhfa', mad thabi'i, idhar syafawi\n                        </div>\n                    \n                        <div class=\"\"option\"\" data-question=\"\"3\"\" data-option=\"\"3\"\">\n                            <div class=\"\"option-label\"\">D</div>\n                            Mad badal, mad iwadl, mad thabi'i, iqlab\n                        </div>\n                    \n                        <div class=\"\"option selected\"\" data-question=\"\"3\"\" data-option=\"\"4\"\">\n                            <div class=\"\"option-label\"\">E</div>\n                            Mad badal, mad iwadl, mad lain\n                        </div>\n                    </div></div><div class=\"\"question-item\"\" id=\"\"question-4\"\">\n                    <div class=\"\"question-number\"\">5</div>\n                    <div class=\"\"question-text\"\">Perhatikan kutipan ayat Q.S. al-Baqarah/2: 143 berikut!<img src=\"\"./Quiz Pilihan Ganda_files/ayat_soal_2 bab6.PNG\"\" alt=\"\"Ilustrasi\"\" loading=\"\"lazy\"\" style=\"\"max-width: 100%; height: auto;\"\"><br> Bacaan tajwid potongan ayat di atas adalah ….</div>\n                    <div class=\"\"options-container\"\">\n                \n                        <div class=\"\"option \"\" data-question=\"\"4\"\" data-option=\"\"0\"\">\n                            <div class=\"\"option-label\"\">A</div>\n                            Mad jaiz munfasil, mad iwadl, mad thabi'i, mad badal\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"4\"\" data-option=\"\"1\"\">\n                            <div class=\"\"option-label\"\">B</div>\n                            Mad thabi'i, al qamariyah, al syamsiyah, ikhfa' mad jaiz mumfasil\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"4\"\" data-option=\"\"2\"\">\n                            <div class=\"\"option-label\"\">C</div>\n                            Mad jaiz munfasil, ikhfa', mad thabi'i, idhar syafawi\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"4\"\" data-option=\"\"3\"\">\n                            <div class=\"\"option-label\"\">D</div>\n                            Mad badal, mad iwadl, mad thabi'i, iqlab\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"4\"\" data-option=\"\"4\"\">\n                            <div class=\"\"option-label\"\">E</div>\n                            Ikhfa', mad thabi'i, idhar, al qamariyah\n                        </div>\n                    </div></div><div class=\"\"question-item\"\" id=\"\"question-5\"\">\n                    <div class=\"\"question-number\"\">6</div>\n                    <div class=\"\"question-text\"\">Perhatikan pernyataan di bawah ini! 1) Bangga sebagai bangsa Indonesia 2) Menjual nama baik tanah air Indonesia 3) Menggunakan hak pilih dalam pemilu 4) Menjunjung tinggi hukum jika perlu 5) Aktif berpartisipasi dalam pembangunan nasional. Pernyataan tersebut merupakan contoh sikap cinta tanah air adalah nomor ..</div>\n                    <div class=\"\"options-container\"\">\n                \n                        <div class=\"\"option \"\" data-question=\"\"5\"\" data-option=\"\"0\"\">\n                            <div class=\"\"option-label\"\">A</div>\n                            1), 2) dan 3)\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"5\"\" data-option=\"\"1\"\">\n                            <div class=\"\"option-label\"\">B</div>\n                            1), 2) dan 4)\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"5\"\" data-option=\"\"2\"\">\n                            <div class=\"\"option-label\"\">C</div>\n                            1), 2) dan 5)\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"5\"\" data-option=\"\"3\"\">\n                            <div class=\"\"option-label\"\">D</div>\n                            1), 3) dan 5)\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"5\"\" data-option=\"\"4\"\">\n                            <div class=\"\"option-label\"\">E</div>\n                            1), 4) dan 5)\n                        </div>\n                    </div></div><div class=\"\"question-item\"\" id=\"\"question-6\"\">\n                    <div class=\"\"question-number\"\">7</div>\n                    <div class=\"\"question-text\"\">Berikut ini yang bukan contoh sikap cinta tanah air yang bisa kita lakukan dalam kegiatan sehari-hari adalah ..</div>\n                    <div class=\"\"options-container\"\">\n                \n                        <div class=\"\"option \"\" data-question=\"\"6\"\" data-option=\"\"0\"\">\n                            <div class=\"\"option-label\"\">A</div>\n                            Menuntut ilmu dengan sungguh-sungguh\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"6\"\" data-option=\"\"1\"\">\n                            <div class=\"\"option-label\"\">B</div>\n                            Melestarikan kebudayaan Indonesia\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"6\"\" data-option=\"\"2\"\">\n                            <div class=\"\"option-label\"\">C</div>\n                            Menjaga kelestarian lingkungan\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"6\"\" data-option=\"\"3\"\">\n                            <div class=\"\"option-label\"\">D</div>\n                            Menciptakan kerukunan antar umat beragama\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"6\"\" data-option=\"\"4\"\">\n                            <div class=\"\"option-label\"\">E</div>\n                            Hidup rukun dan gotong royong jika jadi tokoh masyarakat\n                        </div>\n                    </div></div><div class=\"\"question-item\"\" id=\"\"question-7\"\">\n                    <div class=\"\"question-number\"\">8</div>\n                    <div class=\"\"question-text\"\">Allah Swt. berfirman, \"\"...agar Kami dapat menjadikan kalian sebagai umat pilihan...\"\". Yang dimaksud dengan kata 'wasath' adalah ….</div>\n                    <div class=\"\"options-container\"\">\n                \n                        <div class=\"\"option \"\" data-question=\"\"7\"\" data-option=\"\"0\"\">\n                            <div class=\"\"option-label\"\">A</div>\n                            pilihan yang terbaik\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"7\"\" data-option=\"\"1\"\">\n                            <div class=\"\"option-label\"\">B</div>\n                            pilihan yang menyenangkan\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"7\"\" data-option=\"\"2\"\">\n                            <div class=\"\"option-label\"\">C</div>\n                            pilihan yang menyedihkan\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"7\"\" data-option=\"\"3\"\">\n                            <div class=\"\"option-label\"\">D</div>\n                            pilihan yang melapangkan\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"7\"\" data-option=\"\"4\"\">\n                            <div class=\"\"option-label\"\">E</div>\n                            pilihan yang terlupakan\n                        </div>\n                    </div></div><div class=\"\"question-item\"\" id=\"\"question-8\"\">\n                    <div class=\"\"question-number\"\">9</div>\n                    <div class=\"\"question-text\"\">Hal ini dikembangkan oleh Kemendikbud dan Kemenag dengan mengusung tema ..</div>\n                    <div class=\"\"options-container\"\">\n                \n                        <div class=\"\"option \"\" data-question=\"\"8\"\" data-option=\"\"0\"\">\n                            <div class=\"\"option-label\"\">A</div>\n                            merdeka sebebas bebasnya\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"8\"\" data-option=\"\"1\"\">\n                            <div class=\"\"option-label\"\">B</div>\n                            merdeka sesuai kebutuhan\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"8\"\" data-option=\"\"2\"\">\n                            <div class=\"\"option-label\"\">C</div>\n                            profil pelajar Pancasila\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"8\"\" data-option=\"\"3\"\">\n                            <div class=\"\"option-label\"\">D</div>\n                            profil guru professional\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"8\"\" data-option=\"\"4\"\">\n                            <div class=\"\"option-label\"\">E</div>\n                            profil tenaga kependidikan\n                        </div>\n                    </div></div><div class=\"\"question-item\"\" id=\"\"question-9\"\">\n                    <div class=\"\"question-number\"\">10</div>\n                    <div class=\"\"question-text\"\">Karakter dan prinsip wasath seseorang hendaknya memegang prinsip berada dalam jalan yang lurus, hal ini dapat difahami sebagai wujud sikap ..</div>\n                    <div class=\"\"options-container\"\">\n                \n                        <div class=\"\"option \"\" data-question=\"\"9\"\" data-option=\"\"0\"\">\n                            <div class=\"\"option-label\"\">A</div>\n                            tasamuh\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"9\"\" data-option=\"\"1\"\">\n                            <div class=\"\"option-label\"\">B</div>\n                            tawasul\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"9\"\" data-option=\"\"2\"\">\n                            <div class=\"\"option-label\"\">C</div>\n                            tawazun\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"9\"\" data-option=\"\"3\"\">\n                            <div class=\"\"option-label\"\">D</div>\n                            tawakal\n                        </div>\n                    \n                        <div class=\"\"option \"\" data-question=\"\"9\"\" data-option=\"\"4\"\">\n                            <div class=\"\"option-label\"\">E</div>\n                            istiqamah\n                        </div>\n                    </div></div></div>\n            \n            <div class=\"\"quiz-controls\"\">\n                <button id=\"\"resetBtn\"\">Reset Jawaban</button>\n                <button id=\"\"submitBtn\"\">Kumpulkan Jawaban</button>\n            </div>\n            \n            <div class=\"\"progress-container\"\">\n                <div class=\"\"progress-text\"\">\n                    <span>Progress Jawaban</span>\n                    <span id=\"\"progressPercent\"\">20%</span>\n                </div>\n                <div class=\"\"progress-bar\"\">\n                    <div class=\"\"progress-fill\"\" id=\"\"progressFill\"\" style=\"\"width: 20%;\"\"></div>\n                </div>\n            </div>\n        </div>\n    </div>\n    \n    <!-- Modal untuk hasil quiz -->\n    <div class=\"\"modal\"\" id=\"\"resultModal\"\">\n        <div class=\"\"modal-content\"\">\n            <div class=\"\"modal-header\"\">\n                <h2 class=\"\"modal-title\"\">Hasil Quiz Anda</h2>\n                <button class=\"\"close-modal\"\" id=\"\"closeModal\"\">×</button>\n            </div>\n            \n            <div class=\"\"modal-body\"\">\n                <div class=\"\"result-summary\"\">\n                    <h3>Ringkasan Hasil</h3>\n                    <div class=\"\"result-score\"\" id=\"\"finalScore\"\">0/10 (0)</div>\n                    <p>Format jawaban untuk disimpan:</p>\n                    <div class=\"\"result-output\"\" id=\"\"resultOutput\"\"></div>\n                    <div style=\"\"margin-top: 20px;\"\">\n                        <button id=\"\"copyBtn\"\" class=\"\"quiz-button\"\" style=\"\"background-color: #1a5f7a; margin-right: 10px;\"\">Salin Hasil</button>\n                        <button id=\"\"closeResultBtn\"\" class=\"\"quiz-button\"\" style=\"\"background-color: #6c757d;\"\">Tutup</button>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n <script src=\"\"script.js\"\"></script> \n</body></html>",
+    "aktivitas_5": "  <link rel='stylesheet' href='rakor_css.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'>
+   
+  
+<body>
+    <div class='container'>
+        <header>
+            <h1><i class='fas fa-file-alt'></i> Quiz Pilihan Ganda</h1>
+            <p>Pendidikan Agama Islam - Cinta Tanah Air dan Moderasi Beragama</p>
+        </header>
+        
+        <div class='quiz-info'>
+            <div class='info-row'>
+                <div class='info-item'>
+                    <span class='info-label'>Mata Pelajaran:</span>
+                    <span class='info-value'>Pendidikan Agama Islam</span>
+                </div>
+                <div class='info-item'>
+                    <span class='info-label'>Jumlah Soal:</span>
+                    <span class='info-value' id='totalQuestions'>10</span>
+                </div>
+            </div>
+            <div class='info-row'>
+                <div class='info-item'>
+                    <span class='info-label'>Nama Peserta:</span>
+                    <input type='text' id='userName' placeholder='Masukkan nama Anda' style='padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px;'>
+                </div>
+                <div class='info-item'>
+                    <span class='info-label'>Waktu:</span>
+                    <span class='info-value'>Tidak Terbatas</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class='quiz-container'>
+            <div class='quiz-header'>
+                <h2 class='quiz-title'>Soal Pilihan Ganda</h2>
+                <div class='answer-status'>
+                    <div class='status-item'>
+                        <div class='status-color answered-color'></div>
+                        <span>Terjawab</span>
+                    </div>
+                    <div class='status-item'>
+                        <div class='status-color unanswered-color'></div>
+                        <span>Belum Terjawab</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class='question-list' id='questionList'><div class='question-item' id='question-0'>
+                    <div class='question-number'>1</div>
+                    <div class='question-text'>Perhatikan kutipan ayat Q.S. al-Qasas/28: 85 berikut<img src='./Quiz Pilihan Ganda_files/ayat_soal_2 bab6.PNG' alt='Ilustrasi' loading='lazy' style='max-width: 100%; height: auto;'> Arti ayat yang bergaris pada potongan ayat di atas adalah ..</div>
+                    <div class='options-container'>
+                
+                        <div class='option' data-question='0' data-option='0'>
+                            <div class='option-label'>A</div>
+                            sesungguhnya (Allah) yang mewajibkan
+                        </div>
+                    
+                        <div class='option selected' data-question='0' data-option='1'>
+                            <div class='option-label'>B</div>
+                            kami sungguh melarang kamu
+                        </div>
+                    
+                        <div class='option' data-question='0' data-option='2'>
+                            <div class='option-label'>C</div>
+                            sesungguhnya wajib bagimu
+                        </div>
+                    
+                        <div class='option' data-question='0' data-option='3'>
+                            <div class='option-label'>D</div>
+                            kami memerintahkanmu
+                        </div>
+                    
+                        <div class='option' data-question='0' data-option='4'>
+                            <div class='option-label'>E</div>
+                            kamu diperintahkan
+                        </div>
+                    </div></div><div class='question-item' id='question-1'>
+                    <div class='question-number'>2</div>
+                    <div class='question-text'>Perhatikan kutipan ayat Q.S. al-Qasas/28: 85 berikut <img src='./Quiz Pilihan Ganda_files/ayat_soal_2 bab6.PNG' alt='Ilustrasi' loading='lazy' style='max-width: 100%; height: auto;'><br> Bacaan tajwid potongan ayat di atas adalah ..</div>
+                    <div class='options-container'>
+                
+                        <div class='option ' data-question='1' data-option='0'>
+                            <div class='option-label'>A</div>
+                            Mad jaiz munfasil, mad iwadl, mad thabi'i
+                        </div>
+                    
+                        <div class='option ' data-question='1' data-option='1'>
+                            <div class='option-label'>B</div>
+                            Mad jaiz munfasil, ikhfa', mad wajib mutasil
+                        </div>
+                    
+                        <div class='option ' data-question='1' data-option='2'>
+                            <div class='option-label'>C</div>
+                            Mad jaiz munfasil, ikhfa', mad thabi'i
+                        </div>
+                    
+                        <div class='option ' data-question='1' data-option='3'>
+                            <div class='option-label'>D</div>
+                            Mad badal, mad iwadl, mad thabi'i
+                        </div>
+                    
+                        <div class='option ' data-question='1' data-option='4'>
+                            <div class='option-label'>E</div>
+                            Mad badal, mad iwadl, mad lain
+                        </div>
+                    </div></div><div class='question-item' id='question-2'>
+                    <div class='question-number'>3</div>
+                    <div class='question-text'>Perhatikan kutipan ayat Q.S. al-Baqarah/2: 143 berikut <img src='./Quiz Pilihan Ganda_files/ayat_soal_3 bab6.PNG' alt='Ilustrasi' loading='lazy' style='max-width: 100%; height: auto;'><br> Arti ayat yang bergaris pada potongan ayat di atas adalah ..</div>
+                    <div class='options-container'>
+                
+                        <div class='option ' data-question='2' data-option='0'>
+                            <div class='option-label'>A</div>
+                            dan demikian pula Kami telah menjadikan kamu (umat Islam) umat pertengahan
+                        </div>
+                    
+                        <div class='option ' data-question='2' data-option='1'>
+                            <div class='option-label'>B</div>
+                            dan demikian pula Kami telah menciptakan kamu (umat Islam) umat yang terbaik
+                        </div>
+                    
+                        <div class='option ' data-question='2' data-option='2'>
+                            <div class='option-label'>C</div>
+                            dan demikian pula Kami telah memerintahkan kamu (umat Islam) berbuat baik
+                        </div>
+                    
+                        <div class='option ' data-question='2' data-option='3'>
+                            <div class='option-label'>D</div>
+                            dan demikian pula Kami telah menciptakan kamu (umat Islam) umat bersuku-suku
+                        </div>
+                    
+                        <div class='option ' data-question='2' data-option='4'>
+                            <div class='option-label'>E</div>
+                            dan demikian pula Kami telah menciptakan kamu (umat Islam) umat berbangsa-bangsa
+                        </div>
+                    </div></div><div class='question-item' id='question-3'>
+                    <div class='question-number'>4</div>
+                    <div class='question-text'>Perhatikan kutipan ayat Q.S. al-Baqarah/2: 143 berikut <img src='./Quiz Pilihan Ganda_files/ayat_soal_2 bab6.PNG' alt='Ilustrasi' loading='lazy' style='max-width: 100%; height: auto;'><br> Bacaan tajwid potongan ayat di atas adalah ..</div>
+                    <div class='options-container'>
+                
+                        <div class='option' data-question='3' data-option='0'>
+                            <div class='option-label'>A</div>
+                            Mad jaiz munfasil, mad iwadl, mad thabi'i, mad badal
+                        </div>
+                    
+                        <div class='option' data-question='3' data-option='1'>
+                            <div class='option-label'>B</div>
+                            Mad thabi'i, al qamariyah, al syamsiyah, ikhfa' mad jaiz mumfasil
+                        </div>
+                    
+                        <div class='option' data-question='3' data-option='2'>
+                            <div class='option-label'>C</div>
+                            Mad jaiz munfasil, ikhfa', mad thabi'i, idhar syafawi
+                        </div>
+                    
+                        <div class='option' data-question='3' data-option='3'>
+                            <div class='option-label'>D</div>
+                            Mad badal, mad iwadl, mad thabi'i, iqlab
+                        </div>
+                    
+                        <div class='option selected' data-question='3' data-option='4'>
+                            <div class='option-label'>E</div>
+                            Mad badal, mad iwadl, mad lain
+                        </div>
+                    </div></div><div class='question-item' id='question-4'>
+                    <div class='question-number'>5</div>
+                    <div class='question-text'>Perhatikan kutipan ayat Q.S. al-Baqarah/2: 143 berikut!<img src='./Quiz Pilihan Ganda_files/ayat_soal_2 bab6.PNG' alt='Ilustrasi' loading='lazy' style='max-width: 100%; height: auto;'><br> Bacaan tajwid potongan ayat di atas adalah ….</div>
+                    <div class='options-container'>
+                
+                        <div class='option ' data-question='4' data-option='0'>
+                            <div class='option-label'>A</div>
+                            Mad jaiz munfasil, mad iwadl, mad thabi'i, mad badal
+                        </div>
+                    
+                        <div class='option ' data-question='4' data-option='1'>
+                            <div class='option-label'>B</div>
+                            Mad thabi'i, al qamariyah, al syamsiyah, ikhfa' mad jaiz mumfasil
+                        </div>
+                    
+                        <div class='option ' data-question='4' data-option='2'>
+                            <div class='option-label'>C</div>
+                            Mad jaiz munfasil, ikhfa', mad thabi'i, idhar syafawi
+                        </div>
+                    
+                        <div class='option ' data-question='4' data-option='3'>
+                            <div class='option-label'>D</div>
+                            Mad badal, mad iwadl, mad thabi'i, iqlab
+                        </div>
+                    
+                        <div class='option ' data-question='4' data-option='4'>
+                            <div class='option-label'>E</div>
+                            Ikhfa', mad thabi'i, idhar, al qamariyah
+                        </div>
+                    </div></div><div class='question-item' id='question-5'>
+                    <div class='question-number'>6</div>
+                    <div class='question-text'>Perhatikan pernyataan di bawah ini! 1) Bangga sebagai bangsa Indonesia 2) Menjual nama baik tanah air Indonesia 3) Menggunakan hak pilih dalam pemilu 4) Menjunjung tinggi hukum jika perlu 5) Aktif berpartisipasi dalam pembangunan nasional. Pernyataan tersebut merupakan contoh sikap cinta tanah air adalah nomor ..</div>
+                    <div class='options-container'>
+                
+                        <div class='option ' data-question='5' data-option='0'>
+                            <div class='option-label'>A</div>
+                            1), 2) dan 3)
+                        </div>
+                    
+                        <div class='option ' data-question='5' data-option='1'>
+                            <div class='option-label'>B</div>
+                            1), 2) dan 4)
+                        </div>
+                    
+                        <div class='option ' data-question='5' data-option='2'>
+                            <div class='option-label'>C</div>
+                            1), 2) dan 5)
+                        </div>
+                    
+                        <div class='option ' data-question='5' data-option='3'>
+                            <div class='option-label'>D</div>
+                            1), 3) dan 5)
+                        </div>
+                    
+                        <div class='option ' data-question='5' data-option='4'>
+                            <div class='option-label'>E</div>
+                            1), 4) dan 5)
+                        </div>
+                    </div></div><div class='question-item' id='question-6'>
+                    <div class='question-number'>7</div>
+                    <div class='question-text'>Berikut ini yang bukan contoh sikap cinta tanah air yang bisa kita lakukan dalam kegiatan sehari-hari adalah ..</div>
+                    <div class='options-container'>
+                
+                        <div class='option ' data-question='6' data-option='0'>
+                            <div class='option-label'>A</div>
+                            Menuntut ilmu dengan sungguh-sungguh
+                        </div>
+                    
+                        <div class='option ' data-question='6' data-option='1'>
+                            <div class='option-label'>B</div>
+                            Melestarikan kebudayaan Indonesia
+                        </div>
+                    
+                        <div class='option ' data-question='6' data-option='2'>
+                            <div class='option-label'>C</div>
+                            Menjaga kelestarian lingkungan
+                        </div>
+                    
+                        <div class='option ' data-question='6' data-option='3'>
+                            <div class='option-label'>D</div>
+                            Menciptakan kerukunan antar umat beragama
+                        </div>
+                    
+                        <div class='option ' data-question='6' data-option='4'>
+                            <div class='option-label'>E</div>
+                            Hidup rukun dan gotong royong jika jadi tokoh masyarakat
+                        </div>
+                    </div></div><div class='question-item' id='question-7'>
+                    <div class='question-number'>8</div>
+                    <div class='question-text'>Allah Swt. berfirman, '...agar Kami dapat menjadikan kalian sebagai umat pilihan...'. Yang dimaksud dengan kata 'wasath' adalah ….</div>
+                    <div class='options-container'>
+                
+                        <div class='option ' data-question='7' data-option='0'>
+                            <div class='option-label'>A</div>
+                            pilihan yang terbaik
+                        </div>
+                    
+                        <div class='option ' data-question='7' data-option='1'>
+                            <div class='option-label'>B</div>
+                            pilihan yang menyenangkan
+                        </div>
+                    
+                        <div class='option ' data-question='7' data-option='2'>
+                            <div class='option-label'>C</div>
+                            pilihan yang menyedihkan
+                        </div>
+                    
+                        <div class='option ' data-question='7' data-option='3'>
+                            <div class='option-label'>D</div>
+                            pilihan yang melapangkan
+                        </div>
+                    
+                        <div class='option ' data-question='7' data-option='4'>
+                            <div class='option-label'>E</div>
+                            pilihan yang terlupakan
+                        </div>
+                    </div></div><div class='question-item' id='question-8'>
+                    <div class='question-number'>9</div>
+                    <div class='question-text'>Hal ini dikembangkan oleh Kemendikbud dan Kemenag dengan mengusung tema ..</div>
+                    <div class='options-container'>
+                
+                        <div class='option ' data-question='8' data-option='0'>
+                            <div class='option-label'>A</div>
+                            merdeka sebebas bebasnya
+                        </div>
+                    
+                        <div class='option ' data-question='8' data-option='1'>
+                            <div class='option-label'>B</div>
+                            merdeka sesuai kebutuhan
+                        </div>
+                    
+                        <div class='option ' data-question='8' data-option='2'>
+                            <div class='option-label'>C</div>
+                            profil pelajar Pancasila
+                        </div>
+                    
+                        <div class='option ' data-question='8' data-option='3'>
+                            <div class='option-label'>D</div>
+                            profil guru professional
+                        </div>
+                    
+                        <div class='option ' data-question='8' data-option='4'>
+                            <div class='option-label'>E</div>
+                            profil tenaga kependidikan
+                        </div>
+                    </div></div><div class='question-item' id='question-9'>
+                    <div class='question-number'>10</div>
+                    <div class='question-text'>Karakter dan prinsip wasath seseorang hendaknya memegang prinsip berada dalam jalan yang lurus, hal ini dapat difahami sebagai wujud sikap ..</div>
+                    <div class='options-container'>
+                
+                        <div class='option ' data-question='9' data-option='0'>
+                            <div class='option-label'>A</div>
+                            tasamuh
+                        </div>
+                    
+                        <div class='option ' data-question='9' data-option='1'>
+                            <div class='option-label'>B</div>
+                            tawasul
+                        </div>
+                    
+                        <div class='option ' data-question='9' data-option='2'>
+                            <div class='option-label'>C</div>
+                            tawazun
+                        </div>
+                    
+                        <div class='option ' data-question='9' data-option='3'>
+                            <div class='option-label'>D</div>
+                            tawakal
+                        </div>
+                    
+                        <div class='option ' data-question='9' data-option='4'>
+                            <div class='option-label'>E</div>
+                            istiqamah
+                        </div>
+                    </div></div></div>
+            
+            <div class='quiz-controls'>
+                <button id='resetBtn'>Reset Jawaban</button>
+                <button id='submitBtn'>Kumpulkan Jawaban</button>
+            </div>
+            
+            <div class='progress-container'>
+                <div class='progress-text'>
+                    <span>Progress Jawaban</span>
+                    <span id='progressPercent'>20%</span>
+                </div>
+                <div class='progress-bar'>
+                    <div class='progress-fill' id='progressFill' style='width: 20%;'></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal untuk hasil quiz -->
+    <div class='modal' id='resultModal'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <h2 class='modal-title'>Hasil Quiz Anda</h2>
+                <button class='close-modal' id='closeModal'>×</button>
+            </div>
+            
+            <div class='modal-body'>
+                <div class='result-summary'>
+                    <h3>Ringkasan Hasil</h3>
+                    <div class='result-score' id='finalScore'>0/10 (0)</div>
+                    <p>Format jawaban untuk disimpan:</p>
+                    <div class='result-output' id='resultOutput'></div>
+                    <div style='margin-top: 20px;'>
+                        <button id='copyBtn' class='quiz-button' style='background-color: #1a5f7a; margin-right: 10px;'>Salin Hasil</button>
+                        <button id='closeResultBtn' class='quiz-button' style='background-color: #6c757d;'>Tutup</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ <script src='script.js'></script> 
+</body>  ";
     "batas": "2025-12-17 00:00:00",
     "tujuan_pembelajaran": "mempraktekkan",
     "kelas": "XII-1/4",
