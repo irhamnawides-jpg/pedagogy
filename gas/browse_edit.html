@@ -545,12 +545,9 @@ function login() {
   const safeUser = user.replace(/'/g, "\\'");
   const safePass = pass.replace(/'/g, "\\'");
 
-  const query = `
-    SELECT A
-    WHERE A LIKE '${safeUser}()${safePass}()%'
-  `;
+  const query = `SELECT A WHERE A LIKE '${safeUser}()${safePass}()%' `;
 
-  const url = `https://script.google.com/macros/s/AKfycbwj5Prv7z1QICIr8eaJfi238Eu4tA_LlH_yetxsZEG1u58XQNhlib9wJxfpKobQ0WcMJQ/exec`;
+  const url = `https://docs.google.com/spreadsheets/d/1lueDGzRkaXb4XV0wnWlARF3OmkGnhIrP1Eg6fnBghf0`;
 
   fetch(url)
     .then(res => res.text())
