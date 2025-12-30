@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Simpan Data dengan Modal</title>
+<title>Sistem Tebaran Nilai dengan Login</title>
 <style>
 /* Style untuk modal */
 .modal {
@@ -22,7 +22,7 @@
   margin: 10% auto;
   padding: 25px;
   border-radius: 10px;
-  width: 400px;
+  width: 450px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.3);
   animation: modalFade 0.3s;
 }
@@ -44,6 +44,7 @@
   color: #000;
 }
 
+/* Form styles */
 .form-group {
   margin-bottom: 20px;
 }
@@ -70,6 +71,7 @@
   border-color: #4CAF50;
 }
 
+/* Button styles */
 .btn {
   padding: 12px 20px;
   background: #4CAF50;
@@ -80,27 +82,44 @@
   font-size: 16px;
   font-weight: bold;
   transition: background 0.3s;
+  margin: 5px;
 }
 
 .btn:hover {
   background: #45a049;
 }
 
-.btn-jawab {
+.btn-login {
   background: #2196F3;
-  margin-left: 10px;
 }
 
-.btn-jawab:hover {
+.btn-login:hover {
   background: #1976D2;
 }
 
+.btn-jawab {
+  background: #FF9800;
+}
+
+.btn-jawab:hover {
+  background: #F57C00;
+}
+
+.btn-cari {
+  background: #9C27B0;
+}
+
+.btn-cari:hover {
+  background: #7B1FA2;
+}
+
+/* Result display */
 .result-label {
   background: #f0f8ff;
   padding: 15px;
   border-radius: 5px;
   border-left: 4px solid #2196F3;
-  margin-top: 20px;
+  margin: 20px 0;
   word-break: break-all;
 }
 
@@ -115,35 +134,68 @@
   color: #333;
 }
 
-/* Style utama */
+/* Main styles */
 body {
   font-family: Arial, sans-serif;
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  background: #f5f5f5;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
 h3 {
   color: #333;
   margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #eee;
+}
+
+.input-section {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #e9ecef;
+}
+
+.input-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.input-row label {
+  min-width: 100px;
+  font-weight: bold;
 }
 
 #d {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 12px;
+  margin-bottom: 15px;
   border: 2px solid #ddd;
   border-radius: 5px;
   font-family: monospace;
+  font-size: 14px;
+  resize: vertical;
 }
 
 #b {
   padding: 10px;
-  margin-right: 10px;
   border: 2px solid #ddd;
   border-radius: 5px;
   font-size: 16px;
+  width: 100px;
+  text-align: center;
 }
 
 #h {
@@ -151,6 +203,7 @@ h3 {
   padding: 15px;
   border-radius: 5px;
   font-weight: bold;
+  min-height: 50px;
 }
 
 .success {
@@ -164,69 +217,306 @@ h3 {
   color: #721c24;
   border: 1px solid #f5c6cb;
 }
+
+.info {
+  background: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+}
+
+.loading {
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeaa7;
+}
+
+.login-section {
+  background: #e8f4fd;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border-left: 5px solid #2196F3;
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.status-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background: #e8f5e9;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 90%;
+    margin: 20% auto;
+  }
+  
+  .input-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .input-row label {
+    min-width: auto;
+  }
+}
 </style>
 </head>
 <body>
 
-<h3>Simpan Data</h3>
+<div class="container">
+  <h3>📊 Sistem Tebaran Nilai dengan Login</h3>
+  
+  <!-- Login Section -->
+  <div class="login-section">
+    <h4>🔐 Cari Data di Google Sheet</h4>
+    <div class="input-row">
+      <label for="cariUser">Username:</label>
+      <input type="text" id="cariUser" placeholder="Masukkan username" value="chair">
+    </div>
+    <div class="input-row">
+      <label for="cariPass">Password:</label>
+      <input type="password" id="cariPass" placeholder="Masukkan password" value="Login">
+    </div>
+    <button onclick="cariData()" class="btn btn-cari">
+      <span id="cariIcon">🔍</span>
+      <span id="cariText">Cari Data</span>
+    </button>
+    <div id="loginStatus"></div>
+  </div>
+  
+  <!-- Main Input Section -->
+  <div class="input-section" id="mainSection" class="hidden">
+    <h4>✏️ Edit dan Simpan Data</h4>
+    
+    <div class="status-info">
+      <span id="userInfo">User: -</span>
+      <span id="posInfo">Posisi di Sheet: -</span>
+    </div>
+    
+    <div class="form-group">
+      <label for="d">Data Nilai:</label>
+      <textarea id="d" rows=4 placeholder="Data akan muncul setelah login..."></textarea>
+    </div>
+    
+    <div class="input-row">
+      <label for="b">Baris di Sheet:</label>
+      <input id="b" value="" type="number" placeholder="Otomatis terisi">
+      <button onclick="s()" class="btn">💾 Simpan</button>
+      <button onclick="bukaModal()" class="btn btn-jawab">📝 Jawab (Modal)</button>
+    </div>
+    
+    <div id="h"></div>
+  </div>
+</div>
 
-<textarea id="d" rows=3 cols=50>chair()Login()nama()XII-2()kode1#BAB1|90|0|0|0|90</textarea><br>
-
-<input id="b" value="3" type="number">
-<button onclick="s()" class="btn">Simpan</button>
-<button onclick="bukaModal()" class="btn btn-jawab">Jawab</button>
-
-<p id="h"></p>
-
-<!-- Modal -->
+<!-- Modal untuk Form Jawaban -->
 <div id="myModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="tutupModal()">&times;</span>
     
-    <h3>Form Jawaban</h3>
+    <h3>📝 Form Jawaban</h3>
     
     <div class="form-group">
       <label for="username">Username:</label>
-      <input type="text" id="username" placeholder="Masukkan username" value="chair">
+      <input type="text" id="username" placeholder="Masukkan username">
     </div>
     
     <div class="form-group">
-      <label for="jawaban">Jawaban:</label>
-      <textarea id="jawaban" rows="3" placeholder="Masukkan jawaban">BAB1|90|0|0|0|90|BAB2|0|0|0|0|0</textarea>
+      <label for="jawaban">Jawaban (Format: BAB1|nilai1|nilai2|...):</label>
+      <textarea id="jawaban" rows="3" placeholder="Contoh: BAB1|90|0|0|0|90|BAB2|0|0|0|0|0"></textarea>
     </div>
     
-    <button onclick="gabungkanData()" class="btn">Gabungkan & Tampilkan</button>
+    <button onclick="gabungkanData()" class="btn">🔗 Gabungkan & Tampilkan</button>
     
     <div class="result-label">
       <strong>Hasil Gabungan:</strong>
       <div id="resultOutput">Belum ada data</div>
     </div>
     
-    <div style="margin-top: 20px;">
-      <button onclick="simpanDariModal()" class="btn">Simpan ke Google Sheet</button>
+    <div style="margin-top: 20px; text-align: center;">
+      <button onclick="simpanDariModal()" class="btn">💾 Simpan ke Google Sheet</button>
+      <button onclick="tutupModal()" class="btn" style="background: #6c757d;">✖ Batal</button>
     </div>
   </div>
 </div>
 
 <script>
+// ================= KONFIGURASI =================
+const sheetID = "1lueDGzRkaXb4XV0wnWlARF3OmkGnhIrP1Eg6fnBghf0";
+const sheetName = "Sheet1";
 const GAS = "https://script.google.com/macros/s/AKfycbwT8-GmTb270APXC4JZDyfd0BheuVf2SBuCh1vP4I3c5eeWmi86y7snEQc1AgUtcAymZg/exec";
 
-// Fungsi utama simpan (sebelumnya)
-function s() {
-  fetch(`${GAS}?baris=${document.getElementById("b").value}&data=${encodeURIComponent(document.getElementById("d").value)}`, {method:'POST'})
-    .then(r => r.text())
-    .then(t => {
-      document.getElementById("h").innerHTML = t;
-      document.getElementById("h").className = "success";
-    })
-    .catch(e => {
-      document.getElementById("h").innerHTML = "Error: " + e;
-      document.getElementById("h").className = "error";
-    });
+let currentData = "";
+let currentRow = "";
+
+// ================= FUNGSI BANTU =================
+function showStatus(message, type = 'info') {
+  const h = document.getElementById("h");
+  h.innerHTML = message;
+  h.className = type;
 }
 
-// Fungsi modal
+function setLoading(buttonId, isLoading, loadingText = 'Memproses...') {
+  const btn = document.getElementById(buttonId);
+  const icon = document.getElementById(buttonId + 'Icon');
+  const text = document.getElementById(buttonId + 'Text');
+  
+  if (isLoading) {
+    btn.disabled = true;
+    icon.innerHTML = '<span class="loading-spinner"></span>';
+    text.textContent = loadingText;
+  } else {
+    btn.disabled = false;
+    if (buttonId === 'cari') {
+      icon.textContent = '🔍';
+      text.textContent = 'Cari Data';
+    }
+  }
+}
+
+// ================= FUNGSI CARI DATA =================
+async function cariData() {
+  const user = document.getElementById("cariUser").value.trim();
+  const pass = document.getElementById("cariPass").value.trim();
+  
+  if (!user || !pass) {
+    showStatus("❌ Username dan password harus diisi!", 'error');
+    return;
+  }
+  
+  setLoading('cari', true, 'Mencari...');
+  showStatus("🔍 Mencari data di Google Sheet...", 'loading');
+  
+  // Escape single quotes untuk query
+  const safeUser = user.replace(/'/g, "\\'");
+  const safePass = pass.replace(/'/g, "\\'");
+  
+  // Query untuk mencari data user di kolom A dan posisi di kolom G
+  const query = `SELECT A, G WHERE A LIKE '${safeUser}()${safePass}()%'`;
+  const url = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?sheet=${sheetName}&tq=${encodeURIComponent(query)}`;
+  
+  try {
+    const response = await fetch(url);
+    const text = await response.text();
+    
+    // Parse response Google Sheets API
+    const json = JSON.parse(text.substring(47).slice(0, -2));
+    
+    if (!json.table.rows || json.table.rows.length === 0) {
+      showStatus("❌ Data tidak ditemukan. Periksa username dan password.", 'error');
+      setLoading('cari', false);
+      return;
+    }
+    
+    // Ambil data dari hasil query
+    const rowData = json.table.rows[0];
+    currentData = rowData.c[0]?.v || ""; // Kolom A (data)
+    currentRow = rowData.c[1]?.v || "";  // Kolom G (posisi/baris)
+    
+    console.log("Data ditemukan:", { currentData, currentRow });
+    
+    // Update UI dengan data yang ditemukan
+    document.getElementById("d").value = currentData;
+    document.getElementById("b").value = currentRow;
+    
+    // Update info user
+    document.getElementById("userInfo").textContent = `User: ${user}`;
+    document.getElementById("posInfo").textContent = `Posisi di Sheet: ${currentRow}`;
+    
+    // Tampilkan section utama
+    document.getElementById("mainSection").classList.remove("hidden");
+    
+    // Isi juga form modal
+    if (currentData) {
+      const parts = currentData.split('#');
+      if (parts.length > 1) {
+        const usernamePart = parts[0].split('()')[0];
+        const jawabanPart = parts[1];
+        document.getElementById("username").value = usernamePart || user;
+        document.getElementById("jawaban").value = jawabanPart;
+      }
+    }
+    
+    showStatus(`✅ Data ditemukan! Posisi: baris ${currentRow}`, 'success');
+    setLoading('cari', false);
+    
+  } catch (error) {
+    console.error("Error:", error);
+    showStatus(`❌ Error: ${error.message}`, 'error');
+    setLoading('cari', false);
+  }
+}
+
+// ================= FUNGSI SIMPAN DATA =================
+async function s() {
+  const data = document.getElementById("d").value.trim();
+  const baris = document.getElementById("b").value.trim();
+  
+  if (!data || !baris) {
+    showStatus("❌ Data dan baris harus diisi!", 'error');
+    return;
+  }
+  
+  showStatus("📤 Mengirim data ke Google Sheet...", 'loading');
+  
+  try {
+    const response = await fetch(`${GAS}?baris=${baris}&data=${encodeURIComponent(data)}`, {
+      method: 'POST'
+    });
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const result = await response.text();
+    showStatus(`✅ ${result}`, 'success');
+    
+    // Update currentData setelah simpan
+    currentData = data;
+    
+  } catch (error) {
+    showStatus(`❌ Error: ${error.message}`, 'error');
+  }
+}
+
+// ================= FUNGSI MODAL =================
 function bukaModal() {
+  // Isi form modal dengan data saat ini
+  if (currentData) {
+    const parts = currentData.split('#');
+    if (parts.length > 1) {
+      const usernamePart = parts[0].split('()')[0];
+      const jawabanPart = parts[1];
+      document.getElementById("username").value = usernamePart || document.getElementById("cariUser").value;
+      document.getElementById("jawaban").value = jawabanPart;
+    }
+  }
+  
   document.getElementById("myModal").style.display = "block";
 }
 
@@ -234,7 +524,6 @@ function tutupModal() {
   document.getElementById("myModal").style.display = "none";
 }
 
-// Gabungkan username dan jawaban
 function gabungkanData() {
   const username = document.getElementById("username").value.trim();
   const jawaban = document.getElementById("jawaban").value.trim();
@@ -244,17 +533,13 @@ function gabungkanData() {
     return;
   }
   
-  // Format: username()Login()nama()XII-2()kode1#jawaban
+  // Format: username()Login()username()XII-2()kode1#jawaban
   const hasilGabungan = `${username}()Login()${username}()XII-2()kode1#${jawaban}`;
   
   document.getElementById("resultOutput").textContent = hasilGabungan;
   document.getElementById("resultOutput").style.color = "#155724";
-  
-  // Update juga textarea utama
-  document.getElementById("d").value = hasilGabungan;
 }
 
-// Simpan dari modal
 function simpanDariModal() {
   const hasil = document.getElementById("resultOutput").textContent;
   
@@ -263,44 +548,43 @@ function simpanDariModal() {
     return;
   }
   
-  const baris = document.getElementById("b").value;
+  const baris = document.getElementById("b").value || currentRow;
   
-  fetch(`${GAS}?baris=${baris}&data=${encodeURIComponent(hasil)}`, {method:'POST'})
-    .then(r => r.text())
-    .then(t => {
-      document.getElementById("h").innerHTML = t;
-      document.getElementById("h").className = "success";
-      tutupModal(); // Tutup modal setelah sukses
-    })
-    .catch(e => {
-      document.getElementById("h").innerHTML = "Error: " + e;
-      document.getElementById("h").className = "error";
-    });
-}
-
-// Tutup modal jika klik di luar
-window.onclick = function(event) {
-  const modal = document.getElementById("myModal");
-  if (event.target == modal) {
-    tutupModal();
+  if (!baris) {
+    alert("Baris belum ditentukan! Cari data terlebih dahulu.");
+    return;
   }
+  
+  // Update textarea utama
+  document.getElementById("d").value = hasil;
+  currentData = hasil;
+  
+  // Simpan ke Google Sheet
+  s();
+  
+  // Tutup modal
+  tutupModal();
 }
 
-// Load data awal ke modal
+// ================= EVENT LISTENERS =================
 window.onload = function() {
-  const dataAwal = document.getElementById("d").value;
-  if (dataAwal) {
-    // Coba parse data awal untuk modal
-    const parts = dataAwal.split('#');
-    if (parts.length > 1) {
-      const usernamePart = parts[0].split('()')[0];
-      const jawabanPart = parts[1];
-      
-      document.getElementById("username").value = usernamePart || "chair";
-      document.getElementById("jawaban").value = jawabanPart || "BAB1|90|0|0|0|90";
+  // Enter key support untuk login
+  document.getElementById("cariPass").addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+      cariData();
     }
-  }
-}
+  });
+  
+  // Tutup modal jika klik di luar
+  window.onclick = function(event) {
+    const modal = document.getElementById("myModal");
+    if (event.target == modal) {
+      tutupModal();
+    }
+  };
+  
+  console.log("Sistem siap digunakan!");
+};
 </script>
 
 </body>
