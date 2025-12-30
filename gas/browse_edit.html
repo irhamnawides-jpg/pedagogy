@@ -472,6 +472,7 @@ td {
       <h3>📄 Isi Variabel:</h3>
       <pre id="hasil"></pre>
       <div id="saveStatus" class="status-message"></div>
+      <p id="h"></p>
     </div>
   </div>
 
@@ -484,7 +485,6 @@ td {
 // ================= KONFIG =================
 const sheetID = "1lueDGzRkaXb4XV0wnWlARF3OmkGnhIrP1Eg6fnBghf0";
 const sheetName = "Sheet1";
-const GAS_URL = "https://script.google.com/macros/s/AKfycbwKHfEZ6TbLZZhpuAXQSiOnEMRPLY36D7TAb_wuK8Pv_d8LZsVvz3mQ_9AkzNP0k134MA/exec";
 const lebarBaris = 6;
 
 let memoryDB = "";
@@ -695,49 +695,12 @@ function updateData() {
 
 // ================= SIMPAN KE GOOGLE SHEET =================
 async function saveToGoogleSheet() {
-  if (!currentUser || !memoryDB) {
-    showStatus('saveStatus', '❌ Harap login terlebih dahulu', 'error');
-    return;
-  }
-
-  setLoading('saveText', true, 'Menyimpan...');
-  showStatus('saveStatus', '📤 Mengirim data ke Google Sheet...', 'loading');
-
-  try {
-    // Format data untuk dikirim
-    const dataToSend = {
-      user: currentUser,
-      data: variabel2 + "#" + variabel,
-      timestamp: new Date().toISOString(),
-      action: "update_scores"
-    };
-
-    const response = await fetch(GAS_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(dataToSend),
-      mode: 'no-cors'
-    });
-
-    // Karena mode: 'no-cors', kita tidak bisa membaca response
-    // Tapi request akan tetap dikirim
-    setTimeout(() => {
-      setLoading('saveText', false);
-      showStatus('saveStatus', '✅ Data berhasil dikirim ke Google Sheet!', 'success');
-      
-      // Reset status setelah 5 detik
-      setTimeout(() => {
-        showStatus('saveStatus', '', 'info');
-      }, 5000);
-    }, 1500);
-
-  } catch (error) {
-    console.error('Save error:', error);
-    setLoading('saveText', false);
-    showStatus('saveStatus', `❌ Gagal menyimpan: ${error.message}`, 'error');
-  }
+  const b=10;
+ const GAS = "https://script.google.com/macros/s/AKfycbwT8-GmTb270APXC4JZDyfd0BheuVf2SBuCh1vP4I3c5eeWmi86y7snEQc1AgUtcAymZg/exec";
+  fetch(`${GAS}?baris=${document.getElementById("b").value}&data=${encodeURIComponent(document.getElementById("hasil").value)}`, {method:'POST'})
+    .then(r => r.text())
+    .then(t => document.getElementById("h").innerHTML = t)
+    .catch(e => document.getElementById("h").innerHTML = "Error: " + e);
 }
 
 
