@@ -547,8 +547,7 @@ function login() {
 
   const query = `SELECT A WHERE A LIKE '${safeUser}()${safePass}()%' `;
 
-  const url = `https://docs.google.com/spreadsheets/d/1lueDGzRkaXb4XV0wnWlARF3OmkGnhIrP1Eg6fnBghf0`;
-
+const url = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?sheet=${sheetName}&tq=${encodeURIComponent(query)}`;
   fetch(url)
     .then(res => res.text())
     .then(text => {
