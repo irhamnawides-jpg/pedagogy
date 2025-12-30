@@ -484,7 +484,7 @@ td {
 // ================= KONFIG =================
 const sheetID = "1lueDGzRkaXb4XV0wnWlARF3OmkGnhIrP1Eg6fnBghf0";
 const sheetName = "Sheet1";
-const GAS_URL = "https://script.google.com/macros/s/AKfycbxk-efoJqgrWWU5ht84PE1gDai2MyEPvXcasWnB21Q8zIUEDdfgFAQnJjaXD1FnMp3pfw/exec";
+const GAS_URL = "https://script.google.com/macros/s/AKfycbwKHfEZ6TbLZZhpuAXQSiOnEMRPLY36D7TAb_wuK8Pv_d8LZsVvz3mQ_9AkzNP0k134MA/exec";
 const lebarBaris = 6;
 
 let memoryDB = "";
@@ -550,7 +550,7 @@ function login() {
     WHERE A LIKE '${safeUser}()${safePass}()%'
   `;
 
-  const url = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?sheet=${sheetName}&tq=${encodeURIComponent(query)}`;
+  const url = `https://script.google.com/macros/s/AKfycbwj5Prv7z1QICIr8eaJfi238Eu4tA_LlH_yetxsZEG1u58XQNhlib9wJxfpKobQ0WcMJQ/exec`;
 
   fetch(url)
     .then(res => res.text())
@@ -744,73 +744,6 @@ async function saveToGoogleSheet() {
   }
 }
 
-// ================= GOOGLE APPS SCRIPT CODE =================
-/*
-COPY KODE BERIKUT KE GOOGLE APPS SCRIPT:
-
-function doPost(e) {
-  try {
-    const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-    const lastRow = sheet.getLastRow();
-    const dataRange = sheet.getRange(1, 1, lastRow, 1);
-    const data = dataRange.getValues();
-    
-    // Parse incoming data
-    let requestData;
-    if (e.postData && e.postData.type === 'application/json') {
-      requestData = JSON.parse(e.postData.contents);
-    } else {
-      requestData = e.parameter;
-    }
-    
-    const user = requestData.user;
-    const newData = requestData.data;
-    
-    if (!user || !newData) {
-      return ContentService.createTextOutput(JSON.stringify({
-        status: "error",
-        message: "User dan data diperlukan"
-      })).setMimeType(ContentService.MimeType.JSON);
-    }
-    
-    // Cari user di sheet dan update
-    let updated = false;
-    for (let i = 0; i < data.length; i++) {
-      if (data[i][0] && data[i][0].toString().startsWith(user + "()")) {
-        sheet.getRange(i + 1, 1).setValue(newData);
-        updated = true;
-        break;
-      }
-    }
-    
-    if (updated) {
-      return ContentService.createTextOutput(JSON.stringify({
-        status: "success",
-        message: `Data berhasil diupdate untuk user ${user}`,
-        timestamp: new Date().toISOString()
-      })).setMimeType(ContentService.MimeType.JSON);
-    } else {
-      return ContentService.createTextOutput(JSON.stringify({
-        status: "error",
-        message: "User tidak ditemukan"
-      })).setMimeType(ContentService.MimeType.JSON);
-    }
-    
-  } catch (error) {
-    return ContentService.createTextOutput(JSON.stringify({
-      status: "error",
-      message: error.toString()
-    })).setMimeType(ContentService.MimeType.JSON);
-  }
-}
-
-function doGet() {
-  return ContentService.createTextOutput(JSON.stringify({
-    status: "ready",
-    message: "API Tebaran Nilai berjalan"
-  })).setMimeType(ContentService.MimeType.JSON);
-}
-*/
 
 // ================= INISIALISASI =================
 window.onload = function() {
