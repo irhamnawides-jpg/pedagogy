@@ -488,6 +488,7 @@ const sheetName = "Sheet1";
 const lebarBaris = 6;
 
 let memoryDB = "";
+ let posisi = 0; 
 let variabel = "";
 let variabel2 = "";
 let currentUser = "";
@@ -545,7 +546,7 @@ function login() {
   const safeUser = user.replace(/'/g, "\\'");
   const safePass = pass.replace(/'/g, "\\'");
 
-  const query = `SELECT A WHERE A LIKE '${safeUser}()${safePass}()%' `;
+  const query = `SELECT A WHERE A,G LIKE '${safeUser}()${safePass}()%' `;
 
 const url = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?sheet=${sheetName}&tq=${encodeURIComponent(query)}`;
   fetch(url)
@@ -561,7 +562,7 @@ const url = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?sheet=${s
 
       // Simpan data user yang login
       memoryDB = json.table.rows[0].c[0].v;
-      const posisi = json.table.rows[0].c[1].v;
+      posisi = json.table.rows[0].c[1].v;
       currentUser = user;
       
       // Pisahkan variabel
