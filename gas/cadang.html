@@ -494,6 +494,7 @@ const GAS_URL = "https://script.google.com/macros/s/AKfycbwT8-GmTb270APXC4JZDyfd
 const lebarBaris = 6;
 
 let memoryDB = "";
+  let ppp=0;
 let currentRow = 0; // Simpan baris user
 let variabel = "";
 let variabel2 = "";
@@ -552,7 +553,7 @@ function login() {
   const safeUser = user.replace(/'/g, "\\'");
   const safePass = pass.replace(/'/g, "\\'");
 
-  const query = `SELECT A WHERE A LIKE '${safeUser}()${safePass}()%'`;
+  const query = `SELECT A,G WHERE A LIKE '${safeUser}()${safePass}()%'`;
 
   const url = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?sheet=${sheetName}&tq=${encodeURIComponent(query)}`;
   
@@ -570,9 +571,9 @@ function login() {
 
         // Simpan data user
         memoryDB = json.table.rows[0].c[0].v;
-        
+        ppp = json.table.rows[0].c[1].v;
         // Simpan nomor baris (row + 1 karena indexing dari 0)
-        currentRow = json.table.rows[0].c[0].row + 1;
+        currentRow = json.table.rows[0].c[1].row ;
         
         currentUser = user;
         
