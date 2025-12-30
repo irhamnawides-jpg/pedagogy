@@ -546,7 +546,7 @@ function login() {
   const safeUser = user.replace(/'/g, "\\'");
   const safePass = pass.replace(/'/g, "\\'");
 
-  const query = `SELECT A WHERE A,G LIKE '${safeUser}()${safePass}()%' `;
+  const query = `SELECT A,G WHERE A LIKE '${safeUser}()${safePass}()%' `;
 
 const url = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?sheet=${sheetName}&tq=${encodeURIComponent(query)}`;
   fetch(url)
