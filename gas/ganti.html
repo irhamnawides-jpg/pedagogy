@@ -1,0 +1,23 @@
+<input id="nama" placeholder="Nama">
+<button onclick="simpan()">Simpan</button>
+
+<script>
+const GAS_URL = "https://script.google.com/macros/s/AKfycbwuT1USbe4MlZ7FgNjn1GhIGHP_mZk-WU1OcZ2BL_882YeePru7Qym9I2nJ6vnXtGHzAQ/exec";
+
+function simpan() {
+  const nama = document.getElementById("nama").value;
+
+  fetch(GAS_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      row: 5,
+      col: 1,
+      value: nama
+    })
+  })
+  .then(res => res.json())
+  .then(res => alert(res.message))
+  .catch(err => alert("Error"));
+}
+</script>
