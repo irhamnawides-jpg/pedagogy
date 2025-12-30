@@ -1,656 +1,230 @@
  <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sistem Tebaran Nilai dengan Login</title>
+<title>Sistem Tebaran Nilai</title>
+
 <style>
-/* Style untuk modal */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.5);
-}
-
-.modal-content {
-  background-color: white;
-  margin: 10% auto;
-  padding: 25px;
-  border-radius: 10px;
-  width: 450px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-  animation: modalFade 0.3s;
-}
-
-@keyframes modalFade {
-  from {opacity: 0; transform: translateY(-30px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-
-.close {
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-  color: #aaa;
-}
-
-.close:hover {
-  color: #000;
-}
-
-/* Form styles */
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: bold;
-  color: #333;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 10px;
-  border: 2px solid #ddd;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: #4CAF50;
-}
-
-/* Button styles */
-.btn {
-  padding: 12px 20px;
-  background: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  transition: background 0.3s;
-  margin: 5px;
-}
-
-.btn:hover {
-  background: #45a049;
-}
-
-.btn-login {
-  background: #2196F3;
-}
-
-.btn-login:hover {
-  background: #1976D2;
-}
-
-.btn-jawab {
-  background: #FF9800;
-}
-
-.btn-jawab:hover {
-  background: #F57C00;
-}
-
-.btn-cari {
-  background: #9C27B0;
-}
-
-.btn-cari:hover {
-  background: #7B1FA2;
-}
-
-/* Result display */
-.result-label {
-  background: #f0f8ff;
-  padding: 15px;
-  border-radius: 5px;
-  border-left: 4px solid #2196F3;
-  margin: 20px 0;
-  word-break: break-all;
-}
-
-.result-label strong {
-  color: #1565C0;
-  display: block;
-  margin-bottom: 5px;
-}
-
-#resultOutput {
-  font-family: monospace;
-  color: #333;
-}
-
-/* Main styles */
-body {
+body{
   font-family: Arial, sans-serif;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  min-height: 100vh;
+  background: linear-gradient(135deg,#667eea,#764ba2);
+  min-height:100vh;
+  margin:0;
+  padding:20px;
 }
-
-.container {
-  background: white;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+.container{
+  max-width:800px;
+  margin:auto;
+  background:#fff;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 10px 30px rgba(0,0,0,.2);
 }
-
-h3 {
-  color: #333;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #eee;
+h3{border-bottom:2px solid #eee;padding-bottom:10px}
+.login-section,.input-section{
+  background:#f8f9fa;
+  padding:20px;
+  border-radius:10px;
+  margin-bottom:20px;
 }
-
-.input-section {
-  background: #f8f9fa;
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #e9ecef;
+.input-row{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  margin-bottom:10px;
 }
-
-.input-row {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
-  align-items: center;
+input,textarea{
+  width:100%;
+  padding:10px;
+  border:2px solid #ddd;
+  border-radius:5px;
+  font-size:15px;
 }
-
-.input-row label {
-  min-width: 100px;
-  font-weight: bold;
+textarea{resize:vertical}
+.btn{
+  padding:10px 18px;
+  border:none;
+  border-radius:5px;
+  font-weight:bold;
+  cursor:pointer;
+  color:#fff;
 }
+.btn-cari{background:#9C27B0}
+.btn-save{background:#4CAF50}
+.btn-modal{background:#FF9800}
+.hidden{display:none}
 
-#d {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border: 2px solid #ddd;
-  border-radius: 5px;
-  font-family: monospace;
-  font-size: 14px;
-  resize: vertical;
+#h{
+  margin-top:15px;
+  padding:12px;
+  border-radius:5px;
+  font-weight:bold;
 }
+.success{background:#d4edda;color:#155724}
+.error{background:#f8d7da;color:#721c24}
+.loading{background:#fff3cd;color:#856404}
 
-#b {
-  padding: 10px;
-  border: 2px solid #ddd;
-  border-radius: 5px;
-  font-size: 16px;
-  width: 100px;
-  text-align: center;
+/* MODAL */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.5);
+  z-index:999;
 }
-
-#h {
-  margin-top: 20px;
-  padding: 15px;
-  border-radius: 5px;
-  font-weight: bold;
-  min-height: 50px;
+.modal-content{
+  background:#fff;
+  width:420px;
+  margin:10% auto;
+  padding:25px;
+  border-radius:10px;
 }
-
-.success {
-  background: #d4edda;
-  color: #155724;
-  border: 1px solid #c3e6cb;
+.close{
+  float:right;
+  font-size:26px;
+  cursor:pointer;
 }
-
-.error {
-  background: #f8d7da;
-  color: #721c24;
-  border: 1px solid #f5c6cb;
-}
-
-.info {
-  background: #d1ecf1;
-  color: #0c5460;
-  border: 1px solid #bee5eb;
-}
-
-.loading {
-  background: #fff3cd;
-  color: #856404;
-  border: 1px solid #ffeaa7;
-}
-
-.login-section {
-  background: #e8f4fd;
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  border-left: 5px solid #2196F3;
-}
-
-.loading-spinner {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  border: 3px solid #f3f3f3;
-  border-top: 3px solid #3498db;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin-right: 10px;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.status-info {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 10px;
-  padding: 10px;
-  border-radius: 5px;
-  background: #e8f5e9;
-}
-
-.hidden {
-  display: none;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .modal-content {
-    width: 90%;
-    margin: 20% auto;
-  }
-  
-  .input-row {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .input-row label {
-    min-width: auto;
-  }
+@media(max-width:600px){
+  .modal-content{width:90%}
+  .input-row{flex-direction:column}
 }
 </style>
 </head>
-<body>
 
+<body>
 <div class="container">
-  <h3>📊 Sistem Tebaran Nilai dengan Login</h3>
-  
-  <!-- Login Section -->
-  <div class="login-section">
-    <h4>🔐 Cari Data di Google Sheet</h4>
-    <div class="input-row">
-      <label for="cariUser">Username:</label>
-      <input type="text" id="cariUser" placeholder="Masukkan username" value="chair">
-    </div>
-    <div class="input-row">
-      <label for="cariPass">Password:</label>
-      <input type="password" id="cariPass" placeholder="Masukkan password" value="Login">
-    </div>
-    <button onclick="cariData()" class="btn btn-cari">
-      <span id="cariIcon">🔍</span>
-      <span id="cariText">Cari Data</span>
-    </button>
-    <div id="loginStatus"></div>
+<h3>📊 Sistem Tebaran Nilai</h3>
+
+<!-- LOGIN -->
+<div class="login-section">
+  <h4>🔐 Login</h4>
+  <div class="input-row">
+    <input id="cariUser" placeholder="Username">
+    <input id="cariPass" type="password" placeholder="Password">
   </div>
-  
-  <!-- Main Input Section -->
-  <div id="mainSection" class="hidden">
-    <div class="input-section">
-      <h4>✏️ Edit dan Simpan Data</h4>
-      
-      <div class="status-info">
-        <span id="userInfo">User: -</span>
-        <span id="posInfo">Posisi di Sheet: -</span>
-      </div>
-      
-      <div class="form-group">
-        <label for="d">Data Nilai:</label>
-        <textarea id="d" rows=4 placeholder="Data akan muncul setelah login..."></textarea>
-      </div>
-      
-      <div class="input-row">
-        <label for="b">Baris di Sheet:</label>
-        <input id="b" value="" type="number" placeholder="Otomatis terisi">
-        <button onclick="s()" class="btn">💾 Simpan</button>
-        <button onclick="bukaModal()" class="btn btn-jawab">📝 Jawab (Modal)</button>
-      </div>
-      
-      <div id="h"></div>
-    </div>
-  </div>
+  <button id="cari" class="btn btn-cari" onclick="cariData()">🔍 Cari Data</button>
 </div>
 
-<!-- Modal untuk Form Jawaban -->
-<div id="myModal" class="modal">
+<!-- MAIN -->
+<div id="mainSection" class="input-section hidden">
+  <h4>✏️ Data Nilai</h4>
+
+  <textarea id="d" rows="4"></textarea>
+
+  <div class="input-row">
+    <input id="b" type="number" placeholder="Baris Sheet">
+    <button class="btn btn-save" onclick="simpan()">💾 Simpan</button>
+    <button class="btn btn-modal" onclick="bukaModal()">📝 Modal</button>
+  </div>
+
+  <div id="h"></div>
+</div>
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="tutupModal()">&times;</span>
-    
     <h3>📝 Form Jawaban</h3>
-    
-    <div class="form-group">
-      <label for="username">Username:</label>
-      <input type="text" id="username" placeholder="Masukkan username">
-    </div>
-    
-    <div class="form-group">
-      <label for="jawaban">Jawaban (Format: BAB1|nilai1|nilai2|...):</label>
-      <textarea id="jawaban" rows="3" placeholder="Contoh: BAB1|90|0|0|0|90|BAB2|0|0|0|0|0"></textarea>
-    </div>
-    
-    <button onclick="gabungkanData()" class="btn">🔗 Gabungkan & Tampilkan</button>
-    
-    <div class="result-label">
-      <strong>Hasil Gabungan:</strong>
-      <div id="resultOutput">Belum ada data</div>
-    </div>
-    
-    <div style="margin-top: 20px; text-align: center;">
-      <button onclick="simpanDariModal()" class="btn">💾 Simpan ke Google Sheet</button>
-      <button onclick="tutupModal()" class="btn" style="background: #6c757d;">✖ Batal</button>
+
+    <input id="mUser" placeholder="Username">
+    <textarea id="mJawaban" rows="3"
+      placeholder="BAB1|90|0|0|0|90"></textarea>
+
+    <button class="btn btn-save" onclick="gabung()">Gabungkan</button>
+
+    <div style="margin-top:10px;font-family:monospace" id="hasil">-</div>
+
+    <div style="margin-top:15px;text-align:center">
+      <button class="btn btn-save" onclick="simpanModal()">💾 Simpan</button>
     </div>
   </div>
 </div>
 
 <script>
-// ================= KONFIGURASI =================
-const sheetID = "1lueDGzRkaXb4XV0wnWlARF3OmkGnhIrP1Eg6fnBghf0";
-const sheetName = "Sheet1";
-const GAS_URL = "https://script.google.com/macros/s/AKfycbwT8-GmTb270APXC4JZDyfd0BheuVf2SBuCh1vP4I3c5eeWmi86y7snEQc1AgUtcAymZg/exec";
+// ===== KONFIG =====
+const SHEET_ID="1lueDGzRkaXb4XV0wnWlARF3OmkGnhIrP1Eg6fnBghf0";
+const SHEET="Sheet1";
+const GAS="https://script.google.com/macros/s/AKfycbwT8-GmTb270APXC4JZDyfd0BheuVf2SBuCh1vP4I3c5eeWmi86y7snEQc1AgUtcAymZg/exec";
 
-let currentData = "";
-let currentRow = "";
+let rowAktif="";
 
-// ================= FUNGSI BANTU =================
-function showStatus(message, type = 'info') {
-  const h = document.getElementById("h");
-  h.innerHTML = message;
-  h.className = type;
+// ===== UTIL =====
+function status(teks,tipe){
+  const h=document.getElementById("h");
+  h.className=tipe;
+  h.innerHTML=teks;
 }
 
-function showLoginStatus(message, type = 'info') {
-  const status = document.getElementById("loginStatus");
-  status.innerHTML = message;
-  status.className = type;
-  if (type === 'info') status.style.display = 'none';
-  else status.style.display = 'block';
-}
+// ===== LOGIN & CARI =====
+async function cariData(){
+  const u=cariUser.value.trim();
+  const p=cariPass.value.trim();
+  if(!u||!p) return status("❌ Login belum lengkap","error");
 
-function setLoading(isLoading, loadingText = 'Memproses...') {
-  const btn = document.querySelector('.btn-cari');
-  const icon = document.getElementById('cariIcon');
-  const text = document.getElementById('cariText');
-  
-  if (isLoading) {
-    btn.disabled = true;
-    icon.innerHTML = '<span class="loading-spinner"></span>';
-    text.textContent = loadingText;
-  } else {
-    btn.disabled = false;
-    icon.textContent = '🔍';
-    text.textContent = 'Cari Data';
-  }
-}
+  status("🔍 Mencari data...","loading");
 
-// ================= FUNGSI CARI DATA =================
-async function cariData() {
-  const user = document.getElementById("cariUser").value.trim();
-  const pass = document.getElementById("cariPass").value.trim();
-  
-  if (!user || !pass) {
-    showLoginStatus("❌ Username dan password harus diisi!", 'error');
+  const q=`SELECT A,G WHERE CONTAINS(A,'${u}()${p}()')`;
+  const url=`https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${SHEET}&tq=${encodeURIComponent(q)}`;
+
+  const res=await fetch(url);
+  const txt=await res.text();
+  const json=JSON.parse(txt.replace(/.*setResponse\(|\);$/g,""));
+
+  if(!json.table.rows.length){
+    status("❌ Data tidak ditemukan","error");
     return;
   }
-  
-  setLoading(true, 'Mencari...');
-  showLoginStatus("🔍 Mencari data di Google Sheet...", 'loading');
-  
-  // Escape single quotes untuk query
-  const safeUser = user.replace(/'/g, "\\'");
-  const safePass = pass.replace(/'/g, "\\'");
-  
-  // Query untuk mencari data user di kolom A dan posisi di kolom G
-  // PERHATIAN: Pastikan kolom G berisi nomor baris di Google Sheet Anda
-  const query = `SELECT A, G WHERE A LIKE '${safeUser}()${safePass}()%'`;
-  const url = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?sheet=${sheetName}&tq=${encodeURIComponent(query)}`;
-  
-  try {
-    console.log("Mengambil data dari:", url);
-    
-    const response = await fetch(url);
-    const text = await response.text();
-    
-    console.log("Response raw:", text.substring(0, 200));
-    
-    // Parse response Google Sheets API
-    // Hapus prefix "google.visualization.Query.setResponse(" dan suffix ");"
-    const jsonText = text.replace('google.visualization.Query.setResponse(', '').replace(/\);?$/, '');
-    const json = JSON.parse(jsonText);
-    
-    console.log("Parsed JSON:", json);
-    
-    if (!json.table || !json.table.rows || json.table.rows.length === 0) {
-      showLoginStatus("❌ Data tidak ditemukan. Periksa username dan password.", 'error');
-      setLoading(false);
-      return;
-    }
-    
-    // Ambil data dari hasil query
-    const rowData = json.table.rows[0];
-    console.log("Row data:", rowData);
-    
-    // Kolom A (index 0) berisi data
-    currentData = rowData.c[0] ? rowData.c[0].v : "";
-    
-    // Kolom G (index 6) berisi posisi/baris
-    // Catatan: c[1] adalah kolom B, c[6] adalah kolom G
-    // TAPI perlu dipastikan struktur sheet Anda
-    currentRow = rowData.c[6] ? rowData.c[6].v : (rowData.c[0] ? rowData.c[0].row + 1 : "");
-    
-    console.log("Data ditemukan:", { currentData, currentRow });
-    
-    if (!currentData) {
-      showLoginStatus("❌ Data ditemukan tapi kosong.", 'error');
-      setLoading(false);
-      return;
-    }
-    
-    // Update UI dengan data yang ditemukan
-    document.getElementById("d").value = currentData;
-    document.getElementById("b").value = currentRow || 1;
-    
-    // Update info user
-    document.getElementById("userInfo").textContent = `User: ${user}`;
-    document.getElementById("posInfo").textContent = `Posisi di Sheet: ${currentRow || 'tidak diketahui'}`;
-    
-    // Tampilkan section utama
-    document.getElementById("mainSection").classList.remove("hidden");
-    
-    // Isi juga form modal
-    if (currentData) {
-      const parts = currentData.split('#');
-      if (parts.length > 1) {
-        const usernamePart = parts[0].split('()')[0];
-        const jawabanPart = parts[1];
-        document.getElementById("username").value = usernamePart || user;
-        document.getElementById("jawaban").value = jawabanPart;
-      }
-    }
-    
-    showLoginStatus(`✅ Data ditemukan! Posisi: baris ${currentRow || 'tidak diketahui'}`, 'success');
-    showStatus(`✅ Data siap diedit. User: ${user}`, 'success');
-    setLoading(false);
-    
-  } catch (error) {
-    console.error("Error:", error);
-    showLoginStatus(`❌ Error: ${error.message}`, 'error');
-    setLoading(false);
-  }
+
+  const r=json.table.rows[0];
+  d.value=r.c[0].v;
+  b.value=r.c[1].v;
+  rowAktif=b.value;
+
+  mainSection.classList.remove("hidden");
+  status("✅ Data ditemukan","success");
 }
 
-// ================= FUNGSI SIMPAN DATA =================
-async function s() {
-  const data = document.getElementById("d").value.trim();
-  let baris = document.getElementById("b").value.trim();
-  
-  // Jika baris kosong, gunakan currentRow
-  if (!baris && currentRow) {
-    baris = currentRow;
-    document.getElementById("b").value = baris;
-  }
-  
-  if (!data) {
-    showStatus("❌ Data harus diisi!", 'error');
-    return;
-  }
-  
-  if (!baris) {
-    showStatus("❌ Baris harus diisi! Cari data terlebih dahulu.", 'error');
-    return;
-  }
-  
-  showStatus("📤 Mengirim data ke Google Sheet...", 'loading');
-  
-  try {
-    // Gunakan FormData untuk menghindari masalah encoding
-    const formData = new FormData();
-    formData.append('baris', baris);
-    formData.append('data', data);
-    
-    const response = await fetch(`${GAS_URL}?baris=${baris}&data=${encodeURIComponent(data)}`, {
-      method: 'POST'
-    });
-    
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    
-    const result = await response.text();
-    showStatus(`✅ ${result}`, 'success');
-    
-    // Update currentData setelah simpan
-    currentData = data;
-    
-  } catch (error) {
-    console.error("Error simpan:", error);
-    showStatus(`❌ Error: ${error.message}`, 'error');
-  }
+// ===== SIMPAN =====
+async function simpan(){
+  if(!d.value||!b.value) return status("❌ Data belum lengkap","error");
+
+  status("📤 Menyimpan...","loading");
+
+  const body=`baris=${b.value}&data=${encodeURIComponent(d.value)}`;
+  const res=await fetch(GAS,{
+    method:"POST",
+    headers:{"Content-Type":"application/x-www-form-urlencoded"},
+    body
+  });
+
+  status("✅ Berhasil disimpan","success");
 }
 
-// ================= FUNGSI MODAL =================
-function bukaModal() {
-  // Isi form modal dengan data saat ini
-  if (currentData) {
-    try {
-      const parts = currentData.split('#');
-      if (parts.length > 1) {
-        const usernamePart = parts[0].split('()')[0];
-        const jawabanPart = parts[1];
-        document.getElementById("username").value = usernamePart || document.getElementById("cariUser").value;
-        document.getElementById("jawaban").value = jawabanPart;
-      }
-    } catch (e) {
-      console.error("Error parsing data:", e);
-    }
-  } else {
-    // Default values
-    document.getElementById("username").value = document.getElementById("cariUser").value || "chair";
-    document.getElementById("jawaban").value = "BAB1|90|0|0|0|90|BAB2|0|0|0|0|0";
+// ===== MODAL =====
+function bukaModal(){
+  modal.style.display="block";
+  if(d.value){
+    const [head,isi]=d.value.split("#");
+    mUser.value=head.split("()")[0];
+    mJawaban.value=isi||"";
   }
-  
-  document.getElementById("myModal").style.display = "block";
+}
+function tutupModal(){modal.style.display="none"}
+
+function gabung(){
+  if(!mUser.value||!mJawaban.value) return alert("Lengkapi data");
+  hasil.textContent=`${mUser.value}()Login()${mUser.value}()XII-2()kode1#${mJawaban.value}`;
 }
 
-function tutupModal() {
-  document.getElementById("myModal").style.display = "none";
-}
-
-function gabungkanData() {
-  const username = document.getElementById("username").value.trim();
-  const jawaban = document.getElementById("jawaban").value.trim();
-  
-  if (!username || !jawaban) {
-    alert("Username dan jawaban harus diisi!");
-    return;
-  }
-  
-  // Format: username()Login()username()XII-2()kode1#jawaban
-  const hasilGabungan = `${username}()Login()${username}()XII-2()kode1#${jawaban}`;
-  
-  document.getElementById("resultOutput").textContent = hasilGabungan;
-  document.getElementById("resultOutput").style.color = "#155724";
-}
-
-function simpanDariModal() {
-  const hasil = document.getElementById("resultOutput").textContent;
-  
-  if (hasil === "Belum ada data") {
-    alert("Gabungkan data terlebih dahulu!");
-    return;
-  }
-  
-  const baris = document.getElementById("b").value || currentRow;
-  
-  if (!baris) {
-    alert("Baris belum ditentukan! Cari data terlebih dahulu.");
-    return;
-  }
-  
-  // Update textarea utama
-  document.getElementById("d").value = hasil;
-  currentData = hasil;
-  
-  // Simpan ke Google Sheet
-  s();
-  
-  // Tutup modal
+function simpanModal(){
+  if(hasil.textContent=="-") return alert("Gabungkan dulu");
+  d.value=hasil.textContent;
+  simpan();
   tutupModal();
 }
-
-// ================= EVENT LISTENERS =================
-window.onload = function() {
-  // Enter key support untuk login
-  document.getElementById("cariPass").addEventListener("keypress", function(e) {
-    if (e.key === "Enter") {
-      cariData();
-    }
-  });
-  
-  // Tutup modal jika klik di luar
-  window.onclick = function(event) {
-    const modal = document.getElementById("myModal");
-    if (event.target == modal) {
-      tutupModal();
-    }
-  };
-  
-  // Close modal dengan ESC key
-  document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-      tutupModal();
-    }
-  });
-  
-  console.log("Sistem siap digunakan!");
-  console.log("Sheet ID:", sheetID);
-  console.log("GAS URL:", GAS_URL);
-};
 </script>
-
 </body>
 </html>
+
