@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simpan Data dengan Modal</title>
+<style>
+/* Style untuk modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 10% auto;
+  padding: 25px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  animation: modalFade 0.3s;
+}
+
+@keyframes modalFade {
+  from {opacity: 0; transform: translateY(-30px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+.close {
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #aaa;
+}
+
+.close:hover {
+  color: #000;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+.btn {
+  padding: 12px 20px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #45a049;
+}
+
+.btn-jawab {
+  background: #2196F3;
+  margin-left: 10px;
+}
+
+.btn-jawab:hover {
+  background: #1976D2;
+}
+
+.result-label {
+  background: #f0f8ff;
+  padding: 15px;
+  border-radius: 5px;
+  border-left: 4px solid #2196F3;
+  margin-top: 20px;
+  word-break: break-all;
+}
+
+.result-label strong {
+  color: #1565C0;
+  display: block;
+  margin-bottom: 5px;
+}
+
+#resultOutput {
+  font-family: monospace;
+  color: #333;
+}
+
+/* Style utama */
+body {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #f5f5f5;
+}
+
+h3 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+#d {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-family: monospace;
+}
+
+#b {
+  padding: 10px;
+  margin-right: 10px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+#h {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+</style>
+</head>
+<body>
+
+<h3>Simpan Data</h3>
+
+<textarea id="d" rows=3 cols=50>chair()Login()nama()XII-2()kode1#BAB1|90|0|0|0|90</textarea><br>
+
+<input id="b" value="3" type="number">
+<button onclick="s()" class="btn">Simpan</button>
+<button onclick="bukaModal()" class="btn btn-jawab">Jawab</button>
+
+<p id="h"></p>
+
+<!-- Modal -->
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="tutupModal()">&times;</span>
+    
+    <h3>Form Jawaban</h3>
+    
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" id="username" placeholder="Masukkan username" value="chair">
+    </div>
+    
+    <div class="form-group">
+      <label for="jawaban">Jawaban:</label>
+      <textarea id="jawaban" rows="3" placeholder="Masukkan jawaban">BAB1|90|0|0|0|90|BAB2|0|0|0|0|0</textarea>
+    </div>
+    
+    <button onclick="gabungkanData()" class="btn">Gabungkan & Tampilkan</button>
+    
+    <div class="result-label">
+      <strong>Hasil Gabungan:</strong>
+      <div id="resultOutput">Belum ada data</div>
+    </div>
+    
+    <div style="margin-top: 20px;">
+      <button onclick="simpanDariModal()" class="btn">Simpan ke Google Sheet</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const GAS = "https://script.google.com/macros/s/AKfycbwT8-GmTb270APXC4JZDyfd0BheuVf2SBuCh1vP4I3c5eeWmi86y7snEQc1AgUtcAymZg/exec";
+
+// Fungsi utama simpan (sebelumnya)
+function s() {
+  fetch(`${GAS}?baris=${document.getElementById("b").value}&data=${encodeURIComponent(document.getElementById("d").value)}`, {method:'POST'})
+    .then(r => r.text())
+    .then(t => {
+      document.getElementById("h").innerHTML = t;
+      document.getElementById("h").className = "success";
+    })
+    .catch(e => {
+      document.getElementById("h").innerHTML = "Error: " + e;
+      document.getElementById("h").className = "error";
+    });
+}
+
+// Fungsi modal
+function bukaModal() {
+  document.getElementById("myModal").style.display = "block";
+}
+
+function tutupModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+// Gabungkan username dan jawaban
+function gabungkanData() {
+  const username = document.getElementById("username").value.trim();
+  const jawaban = document.getElementById("jawaban").value.trim();
+  
+  if (!username || !jawaban) {
+    alert("Username dan jawaban harus diisi!");
+    return;
+  }
+  
+  // Format: username()Login()nama()XII-2()kode1#jawaban
+  const hasilGabungan = `${username}()Login()${username}()XII-2()kode1#${jawaban}`;
+  
+  document.getElementById("resultOutput").textContent = hasilGabungan;
+  document.getElementById("resultOutput").style.color = "#155724";
+  
+  // Update juga textarea utama
+  document.getElementById("d").value = hasilGabungan;
+}
+
+// Simpan dari modal
+function simpanDariModal() {
+  const hasil = document.getElementById("resultOutput").textContent;
+  
+  if (hasil === "Belum ada data") {
+    alert("Gabungkan data terlebih dahulu!");
+    return;
+  }
+  
+  const baris = document.getElementById("b").value;
+  
+  fetch(`${GAS}?baris=${baris}&data=${encodeURIComponent(hasil)}`, {method:'POST'})
+    .then(r => r.text())
+    .then(t => {
+      document.getElementById("h").innerHTML = t;
+      document.getElementById("h").className = "success";
+      tutupModal(); // Tutup modal setelah sukses
+    })
+    .catch(e => {
+      document.getElementById("h").innerHTML = "Error: " + e;
+      document.getElementById("h").className = "error";
+    });
+}
+
+// Tutup modal jika klik di luar
+window.onclick = function(event) {
+  const modal = document.getElementById("myModal");
+  if (event.target == modal) {
+    tutupModal();
+  }
+}
+
+// Load data awal ke modal
+window.onload = function() {
+  const dataAwal = document.getElementById("d").value;
+  if (dataAwal) {
+    // Coba parse data awal untuk modal
+    const parts = dataAwal.split('#');
+    if (parts.length > 1) {
+      const usernamePart = parts[0].split('()')[0];
+      const jawabanPart = parts[1];
+      
+      document.getElementById("username").value = usernamePart || "chair";
+      document.getElementById("jawaban").value = jawabanPart || "BAB1|90|0|0|0|90";
+    }
+  }
+}
+</script>
+
+</body>
+</html>
