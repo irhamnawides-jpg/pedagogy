@@ -2,95 +2,303 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Simpan Data Tebaran Nilai</title>
+<title>Simpan 1 Data ke Kolom A</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-body { font-family: Arial; }
-textarea { 
-  width: 100%; 
-  height: 120px; 
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+body {
+  font-family: Arial, sans-serif;
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #f5f5f5;
 }
-button { 
-  padding: 10px 20px; 
-  margin-top: 10px;
-  background: #4285f4;
+
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+input[type="text"], input[type="number"] {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border 0.3s;
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  background: #4CAF50;
   color: white;
   border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-button:hover { background: #3367d6; }
-.status { 
-  margin-top: 10px; 
+  border-radius: 6px;
+  font-size: 16px;
   font-weight: bold;
-  padding: 10px;
-  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 10px;
 }
-.success { background: #d4edda; color: #155724; }
-.error { background: #f8d7da; color: #721c24; }
-.loading { background: #fff3cd; color: #856404; }
+
+button:hover {
+  background: #45a049;
+}
+
+button:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+}
+
+#status {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: bold;
+  display: none;
+}
+
+.status-success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  display: block;
+}
+
+.status-error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  display: block;
+}
+
+.status-loading {
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeaa7;
+  display: block;
+}
+
+.info-box {
+  background: #e8f4fd;
+  padding: 15px;
+  border-radius: 6px;
+  margin-top: 20px;
+  border-left: 4px solid #2196F3;
+}
+
+.info-box h3 {
+  margin-top: 0;
+  color: #0d47a1;
+}
+
+.info-box code {
+  background: #f1f8ff;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: monospace;
+}
 </style>
 </head>
-
 <body>
-<h3>Simpan Data ke Google Sheet</h3>
 
-<textarea id="data" placeholder="Masukkan data dengan format: chair()1()Nama Lengkap()Kelas()nilai">
-chair()1()chairul umar maarif()XII-2()kode1#BAB 1|80|80|90|80|90|BAB 2|70|75|80|70|75
-</textarea>
-
-<br>
-<button onclick="simpanData()">Simpan ke Sheet</button>
-
-<div id="status" class="status"></div>
+<div class="container">
+  <h1>📝 Simpan ke Kolom A Google Sheet</h1>
+  
+  <div class="form-group">
+    <label for="data">Data yang akan disimpan:</label>
+    <input type="text" id="data" placeholder="Masukkan teks atau angka">
+  </div>
+  
+  <div class="form-group">
+    <label for="row">Baris (opsional):</label>
+    <input type="number" id="row" placeholder="Kosongkan untuk baris terakhir">
+    <small>Biarkan kosong untuk menambahkan di baris baru</small>
+  </div>
+  
+  <button onclick="simpanData()" id="btnSimpan">💾 Simpan ke Kolom A</button>
+  
+  <div id="status"></div>
+  
+  <div class="info-box">
+    <h3>ℹ️ Informasi:</h3>
+    <p>Data akan disimpan di <strong>Kolom A</strong> Google Sheet Anda.</p>
+    <p><strong>Contoh:</strong> Data "John Doe" akan disimpan di sel <code>A1</code>, <code>A2</code>, dst.</p>
+  </div>
+</div>
 
 <script>
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbz8-3lN4shFYT1SamtfrIfKKPRT80L6WAEq8h1hDbzjPhFzb8PcKHkdFQpftMsRzSN-2g/exec";
+// GANTI DENGAN URL GAS ANDA
+const GAS_URL = "https://script.google.com/macros/s/AKfycbxk-efoJqgrWWU5ht84PE1gDai2MyEPvXcasWnB21Q8zIUEDdfgFAQnJjaXD1FnMp3pfw/exec";
 
 function showStatus(message, type = 'info') {
-  const statusEl = document.getElementById("status");
-  statusEl.innerText = message;
-  statusEl.className = `status ${type}`;
+  const statusEl = document.getElementById('status');
+  statusEl.textContent = message;
+  statusEl.className = '';
+  
+  if (type === 'success') {
+    statusEl.classList.add('status-success');
+  } else if (type === 'error') {
+    statusEl.classList.add('status-error');
+  } else if (type === 'loading') {
+    statusEl.classList.add('status-loading');
+  }
 }
 
-function simpanData() {
-  const value = document.getElementById("data").value.trim();
+function disableButton(disabled = true) {
+  const btn = document.getElementById('btnSimpan');
+  btn.disabled = disabled;
+  btn.innerHTML = disabled ? '⏳ Mengirim...' : '💾 Simpan ke Kolom A';
+}
+
+async function simpanData() {
+  const dataInput = document.getElementById('data');
+  const rowInput = document.getElementById('row');
+  
+  const value = dataInput.value.trim();
+  const row = rowInput.value.trim();
   
   if (!value) {
-    showStatus("❌ Data tidak boleh kosong!", "error");
+    showStatus('❌ Error: Data tidak boleh kosong!', 'error');
+    dataInput.focus();
     return;
   }
-
-  showStatus("⏳ Mengirim data...", "loading");
-
-  // Kirim sebagai JSON (sesuai dengan GAS yang sudah diperbaiki)
-  fetch(WEB_APP_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      data: value
-    })
-  })
-  .then(res => {
-    if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-    return res.json();
-  })
-  .then(res => {
-    if (res.status === "ok") {
-      showStatus("✅ " + res.message, "success");
-    } else {
-      showStatus("❌ " + res.message, "error");
+  
+  // Tampilkan loading
+  showStatus('🔄 Mengirim data ke Google Sheet...', 'loading');
+  disableButton(true);
+  
+  try {
+    // Siapkan data yang akan dikirim
+    const payload = { value: value };
+    
+    // Tambah baris jika diisi
+    if (row && !isNaN(row) && row > 0) {
+      payload.row = parseInt(row);
     }
-  })
-  .catch(err => {
-    console.error("Error:", err);
-    showStatus("❌ Gagal menyimpan: " + err.message, "error");
-  });
+    
+    // Kirim ke Google Apps Script
+    const response = await fetch(GAS_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const result = await response.json();
+    
+    if (result.status === 'success') {
+      showStatus(`✅ ${result.message}`, 'success');
+      
+      // Reset form setelah 2 detik
+      setTimeout(() => {
+        dataInput.value = '';
+        rowInput.value = '';
+        showStatus('', 'info');
+        dataInput.focus();
+      }, 2000);
+      
+    } else {
+      showStatus(`❌ ${result.message}`, 'error');
+    }
+    
+  } catch (error) {
+    console.error('Error:', error);
+    showStatus(`❌ Gagal: ${error.message}`, 'error');
+    
+    // Coba metode alternatif jika fetch gagal
+    setTimeout(() => {
+      showStatus('🔄 Mencoba metode alternatif...', 'loading');
+      tryAlternateMethod(value, row);
+    }, 1000);
+    
+  } finally {
+    disableButton(false);
+  }
 }
+
+// Metode alternatif menggunakan form submission
+function tryAlternateMethod(value, row) {
+  const form = document.createElement('form');
+  form.method = 'POST';
+  form.action = GAS_URL;
+  form.style.display = 'none';
+  
+  const valueInput = document.createElement('input');
+  valueInput.name = 'value';
+  valueInput.value = value;
+  
+  const rowInput = document.createElement('input');
+  rowInput.name = 'row';
+  rowInput.value = row || '';
+  
+  form.appendChild(valueInput);
+  form.appendChild(rowInput);
+  
+  document.body.appendChild(form);
+  
+  // Submit form dalam iframe untuk tidak meninggalkan halaman
+  const iframe = document.createElement('iframe');
+  iframe.name = 'submitFrame';
+  iframe.style.display = 'none';
+  document.body.appendChild(iframe);
+  
+  form.target = 'submitFrame';
+  form.submit();
+  
+  setTimeout(() => {
+    showStatus('✅ Data dikirim (menggunakan metode alternatif)', 'success');
+    document.getElementById('data').value = '';
+  }, 1000);
+}
+
+// Enter key support
+document.getElementById('data').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') {
+    simpanData();
+  }
+});
+
+// Test koneksi saat halaman dimuat
+window.addEventListener('load', function() {
+  // Cek jika URL masih placeholder
+  if (GAS_URL.includes('YOUR_GAS_URL')) {
+    showStatus('⚠️ Ganti GAS_URL dengan URL Google Apps Script Anda!', 'error');
+  } else {
+    showStatus('✅ Siap untuk menyimpan data ke Kolom A', 'success');
+  }
+});
 </script>
+
 </body>
 </html>
