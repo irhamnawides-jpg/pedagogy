@@ -310,27 +310,29 @@ h3 {
   </div>
   
   <!-- Main Input Section -->
-  <div class="input-section" id="mainSection" class="hidden">
-    <h4>✏️ Edit dan Simpan Data</h4>
-    
-    <div class="status-info">
-      <span id="userInfo">User: -</span>
-      <span id="posInfo">Posisi di Sheet: -</span>
+  <div id="mainSection" class="hidden">
+    <div class="input-section">
+      <h4>✏️ Edit dan Simpan Data</h4>
+      
+      <div class="status-info">
+        <span id="userInfo">User: -</span>
+        <span id="posInfo">Posisi di Sheet: -</span>
+      </div>
+      
+      <div class="form-group">
+        <label for="d">Data Nilai:</label>
+        <textarea id="d" rows=4 placeholder="Data akan muncul setelah login..."></textarea>
+      </div>
+      
+      <div class="input-row">
+        <label for="b">Baris di Sheet:</label>
+        <input id="b" value="" type="number" placeholder="Otomatis terisi">
+        <button onclick="s()" class="btn">💾 Simpan</button>
+        <button onclick="bukaModal()" class="btn btn-jawab">📝 Jawab (Modal)</button>
+      </div>
+      
+      <div id="h"></div>
     </div>
-    
-    <div class="form-group">
-      <label for="d">Data Nilai:</label>
-      <textarea id="d" rows=4 placeholder="Data akan muncul setelah login..."></textarea>
-    </div>
-    
-    <div class="input-row">
-      <label for="b">Baris di Sheet:</label>
-      <input id="b" value="" type="number" placeholder="Otomatis terisi">
-      <button onclick="s()" class="btn">💾 Simpan</button>
-      <button onclick="bukaModal()" class="btn btn-jawab">📝 Jawab (Modal)</button>
-    </div>
-    
-    <div id="h"></div>
   </div>
 </div>
 
@@ -369,7 +371,7 @@ h3 {
 // ================= KONFIGURASI =================
 const sheetID = "1lueDGzRkaXb4XV0wnWlARF3OmkGnhIrP1Eg6fnBghf0";
 const sheetName = "Sheet1";
-const GAS = "https://script.google.com/macros/s/AKfycbwT8-GmTb270APXC4JZDyfd0BheuVf2SBuCh1vP4I3c5eeWmi86y7snEQc1AgUtcAymZg/exec";
+const GAS_URL = "https://script.google.com/macros/s/AKfycbwT8-GmTb270APXC4JZDyfd0BheuVf2SBuCh1vP4I3c5eeWmi86y7snEQc1AgUtcAymZg/exec";
 
 let currentData = "";
 let currentRow = "";
@@ -381,10 +383,18 @@ function showStatus(message, type = 'info') {
   h.className = type;
 }
 
-function setLoading(buttonId, isLoading, loadingText = 'Memproses...') {
-  const btn = document.getElementById(buttonId);
-  const icon = document.getElementById(buttonId + 'Icon');
-  const text = document.getElementById(buttonId + 'Text');
+function showLoginStatus(message, type = 'info') {
+  const status = document.getElementById("loginStatus");
+  status.innerHTML = message;
+  status.className = type;
+  if (type === 'info') status.style.display = 'none';
+  else status.style.display = 'block';
+}
+
+function setLoading(isLoading, loadingText = 'Memproses...') {
+  const btn = document.querySelector('.btn-cari');
+  const icon = document.getElementById('cariIcon');
+  const text = document.getElementById('cariText');
   
   if (isLoading) {
     btn.disabled = true;
@@ -392,10 +402,8 @@ function setLoading(buttonId, isLoading, loadingText = 'Memproses...') {
     text.textContent = loadingText;
   } else {
     btn.disabled = false;
-    if (buttonId === 'cari') {
-      icon.textContent = '🔍';
-      text.textContent = 'Cari Data';
-    }
+    icon.textContent = '🔍';
+    text.textContent = 'Cari Data';
   }
 }
 
@@ -405,48 +413,70 @@ async function cariData() {
   const pass = document.getElementById("cariPass").value.trim();
   
   if (!user || !pass) {
-    showStatus("❌ Username dan password harus diisi!", 'error');
+    showLoginStatus("❌ Username dan password harus diisi!", 'error');
     return;
   }
   
-  setLoading('cari', true, 'Mencari...');
-  showStatus("🔍 Mencari data di Google Sheet...", 'loading');
+  setLoading(true, 'Mencari...');
+  showLoginStatus("🔍 Mencari data di Google Sheet...", 'loading');
   
   // Escape single quotes untuk query
   const safeUser = user.replace(/'/g, "\\'");
   const safePass = pass.replace(/'/g, "\\'");
   
   // Query untuk mencari data user di kolom A dan posisi di kolom G
+  // PERHATIAN: Pastikan kolom G berisi nomor baris di Google Sheet Anda
   const query = `SELECT A, G WHERE A LIKE '${safeUser}()${safePass}()%'`;
   const url = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?sheet=${sheetName}&tq=${encodeURIComponent(query)}`;
   
   try {
+    console.log("Mengambil data dari:", url);
+    
     const response = await fetch(url);
     const text = await response.text();
     
-    // Parse response Google Sheets API
-    const json = JSON.parse(text.substring(47).slice(0, -2));
+    console.log("Response raw:", text.substring(0, 200));
     
-    if (!json.table.rows || json.table.rows.length === 0) {
-      showStatus("❌ Data tidak ditemukan. Periksa username dan password.", 'error');
-      setLoading('cari', false);
+    // Parse response Google Sheets API
+    // Hapus prefix "google.visualization.Query.setResponse(" dan suffix ");"
+    const jsonText = text.replace('google.visualization.Query.setResponse(', '').replace(/\);?$/, '');
+    const json = JSON.parse(jsonText);
+    
+    console.log("Parsed JSON:", json);
+    
+    if (!json.table || !json.table.rows || json.table.rows.length === 0) {
+      showLoginStatus("❌ Data tidak ditemukan. Periksa username dan password.", 'error');
+      setLoading(false);
       return;
     }
     
     // Ambil data dari hasil query
     const rowData = json.table.rows[0];
-    currentData = rowData.c[0]?.v || ""; // Kolom A (data)
-    currentRow = rowData.c[1]?.v || "";  // Kolom G (posisi/baris)
+    console.log("Row data:", rowData);
+    
+    // Kolom A (index 0) berisi data
+    currentData = rowData.c[0] ? rowData.c[0].v : "";
+    
+    // Kolom G (index 6) berisi posisi/baris
+    // Catatan: c[1] adalah kolom B, c[6] adalah kolom G
+    // TAPI perlu dipastikan struktur sheet Anda
+    currentRow = rowData.c[6] ? rowData.c[6].v : (rowData.c[0] ? rowData.c[0].row + 1 : "");
     
     console.log("Data ditemukan:", { currentData, currentRow });
     
+    if (!currentData) {
+      showLoginStatus("❌ Data ditemukan tapi kosong.", 'error');
+      setLoading(false);
+      return;
+    }
+    
     // Update UI dengan data yang ditemukan
     document.getElementById("d").value = currentData;
-    document.getElementById("b").value = currentRow;
+    document.getElementById("b").value = currentRow || 1;
     
     // Update info user
     document.getElementById("userInfo").textContent = `User: ${user}`;
-    document.getElementById("posInfo").textContent = `Posisi di Sheet: ${currentRow}`;
+    document.getElementById("posInfo").textContent = `Posisi di Sheet: ${currentRow || 'tidak diketahui'}`;
     
     // Tampilkan section utama
     document.getElementById("mainSection").classList.remove("hidden");
@@ -462,30 +492,47 @@ async function cariData() {
       }
     }
     
-    showStatus(`✅ Data ditemukan! Posisi: baris ${currentRow}`, 'success');
-    setLoading('cari', false);
+    showLoginStatus(`✅ Data ditemukan! Posisi: baris ${currentRow || 'tidak diketahui'}`, 'success');
+    showStatus(`✅ Data siap diedit. User: ${user}`, 'success');
+    setLoading(false);
     
   } catch (error) {
     console.error("Error:", error);
-    showStatus(`❌ Error: ${error.message}`, 'error');
-    setLoading('cari', false);
+    showLoginStatus(`❌ Error: ${error.message}`, 'error');
+    setLoading(false);
   }
 }
 
 // ================= FUNGSI SIMPAN DATA =================
 async function s() {
   const data = document.getElementById("d").value.trim();
-  const baris = document.getElementById("b").value.trim();
+  let baris = document.getElementById("b").value.trim();
   
-  if (!data || !baris) {
-    showStatus("❌ Data dan baris harus diisi!", 'error');
+  // Jika baris kosong, gunakan currentRow
+  if (!baris && currentRow) {
+    baris = currentRow;
+    document.getElementById("b").value = baris;
+  }
+  
+  if (!data) {
+    showStatus("❌ Data harus diisi!", 'error');
+    return;
+  }
+  
+  if (!baris) {
+    showStatus("❌ Baris harus diisi! Cari data terlebih dahulu.", 'error');
     return;
   }
   
   showStatus("📤 Mengirim data ke Google Sheet...", 'loading');
   
   try {
-    const response = await fetch(`${GAS}?baris=${baris}&data=${encodeURIComponent(data)}`, {
+    // Gunakan FormData untuk menghindari masalah encoding
+    const formData = new FormData();
+    formData.append('baris', baris);
+    formData.append('data', data);
+    
+    const response = await fetch(`${GAS_URL}?baris=${baris}&data=${encodeURIComponent(data)}`, {
       method: 'POST'
     });
     
@@ -500,6 +547,7 @@ async function s() {
     currentData = data;
     
   } catch (error) {
+    console.error("Error simpan:", error);
     showStatus(`❌ Error: ${error.message}`, 'error');
   }
 }
@@ -508,13 +556,21 @@ async function s() {
 function bukaModal() {
   // Isi form modal dengan data saat ini
   if (currentData) {
-    const parts = currentData.split('#');
-    if (parts.length > 1) {
-      const usernamePart = parts[0].split('()')[0];
-      const jawabanPart = parts[1];
-      document.getElementById("username").value = usernamePart || document.getElementById("cariUser").value;
-      document.getElementById("jawaban").value = jawabanPart;
+    try {
+      const parts = currentData.split('#');
+      if (parts.length > 1) {
+        const usernamePart = parts[0].split('()')[0];
+        const jawabanPart = parts[1];
+        document.getElementById("username").value = usernamePart || document.getElementById("cariUser").value;
+        document.getElementById("jawaban").value = jawabanPart;
+      }
+    } catch (e) {
+      console.error("Error parsing data:", e);
     }
+  } else {
+    // Default values
+    document.getElementById("username").value = document.getElementById("cariUser").value || "chair";
+    document.getElementById("jawaban").value = "BAB1|90|0|0|0|90|BAB2|0|0|0|0|0";
   }
   
   document.getElementById("myModal").style.display = "block";
@@ -583,7 +639,16 @@ window.onload = function() {
     }
   };
   
+  // Close modal dengan ESC key
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      tutupModal();
+    }
+  });
+  
   console.log("Sistem siap digunakan!");
+  console.log("Sheet ID:", sheetID);
+  console.log("GAS URL:", GAS_URL);
 };
 </script>
 
