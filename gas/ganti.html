@@ -1,23 +1,96 @@
-<input id="nama" placeholder="Nama">
-<button onclick="simpan()">Simpan</button>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Simpan Data Tebaran Nilai</title>
+<style>
+body { font-family: Arial; }
+textarea { 
+  width: 100%; 
+  height: 120px; 
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+button { 
+  padding: 10px 20px; 
+  margin-top: 10px;
+  background: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button:hover { background: #3367d6; }
+.status { 
+  margin-top: 10px; 
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 4px;
+}
+.success { background: #d4edda; color: #155724; }
+.error { background: #f8d7da; color: #721c24; }
+.loading { background: #fff3cd; color: #856404; }
+</style>
+</head>
+
+<body>
+<h3>Simpan Data ke Google Sheet</h3>
+
+<textarea id="data" placeholder="Masukkan data dengan format: chair()1()Nama Lengkap()Kelas()nilai">
+chair()1()chairul umar maarif()XII-2()kode1#BAB 1|80|80|90|80|90|BAB 2|70|75|80|70|75
+</textarea>
+
+<br>
+<button onclick="simpanData()">Simpan ke Sheet</button>
+
+<div id="status" class="status"></div>
 
 <script>
-const GAS_URL = "https://script.google.com/macros/s/AKfycbyp7vebXZKfm3MAag139J0iIdOYoSn1VYQXHm68lQl0NWdtV_iQtG6fk0vv6K4OadL5/exec";
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbz8-3lN4shFYT1SamtfrIfKKPRT80L6WAEq8h1hDbzjPhFzb8PcKHkdFQpftMsRzSN-2g/exec";
 
-function simpan() {
-  const nama = document.getElementById("nama").value;
+function showStatus(message, type = 'info') {
+  const statusEl = document.getElementById("status");
+  statusEl.innerText = message;
+  statusEl.className = `status ${type}`;
+}
 
-  fetch(GAS_URL, {
+function simpanData() {
+  const value = document.getElementById("data").value.trim();
+  
+  if (!value) {
+    showStatus("❌ Data tidak boleh kosong!", "error");
+    return;
+  }
+
+  showStatus("⏳ Mengirim data...", "loading");
+
+  // Kirim sebagai JSON (sesuai dengan GAS yang sudah diperbaiki)
+  fetch(WEB_APP_URL, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json"
+    },
     body: JSON.stringify({
-      row: 5,
-      col: 1,
-      value: nama
+      data: value
     })
   })
-  .then(res => res.json())
-  .then(res => alert(res.message))
-  .catch(err => alert("Error"));
+  .then(res => {
+    if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+    return res.json();
+  })
+  .then(res => {
+    if (res.status === "ok") {
+      showStatus("✅ " + res.message, "success");
+    } else {
+      showStatus("❌ " + res.message, "error");
+    }
+  })
+  .catch(err => {
+    console.error("Error:", err);
+    showStatus("❌ Gagal menyimpan: " + err.message, "error");
+  });
 }
 </script>
+</body>
+</html>
